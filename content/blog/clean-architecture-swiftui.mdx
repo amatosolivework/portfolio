@@ -1,0 +1,92 @@
+---
+title: "Clean Architecture in SwiftUI, without the ceremony"
+description: "How I structure a production SwiftUI app across Domain, UseCases, Data, and Presentation — and where the boundaries actually earn their keep."
+date: "2026-07-16"
+tags: ["Swift", "SwiftUI", "Architecture"]
+---
+
+Most SwiftUI tutorials stop at the view. That's fine for a demo, but a shipping app
+accrues networking, persistence, auth, and business rules — and if all of that lives
+next to your `body`, every change becomes a negotiation with the UI.
+
+On WRDB, the iOS app I build as CTO, I use a Clean Architecture split:
+**Domain → UseCases → Data → Presentation**. The point isn't to add folders. It's to
+make dependencies point in one direction, so the rules that matter don't depend on the
+details that change.
+
+## The four layers
+
+- **Domain** — plain Swift models and protocols. No SwiftUI, no networking, no
+  Supabase. Just the language of the product: an `Outfit`, a `Garment`, the protocols
+  that describe what the app can do.
+- **UseCases** — one intention per type: `RecommendOutfitUseCase`,
+  `OrganizeClosetUseCase`. They orchestrate domain logic and depend only on Domain
+  protocols, never on a concrete data source.
+- **Data** — the implementations: repositories that talk to Supabase, Cloudflare
+  Workers, or the cache, and map raw responses into Domain models.
+- **Presentation** — SwiftUI views and their view models. They call UseCases and render
+  state. They know nothing about where data comes from.
+
+The dependency rule is the whole game: **outer layers depend on inner ones, never the
+reverse.** Presentation depends on UseCases; UseCases depend on Domain. Data also
+depends on Domain — it implements Domain protocols. Domain depends on nothing.
+
+## What a boundary looks like
+
+The Domain declares a capability as a protocol:
+
+```swift
+protocol ClosetRepository {
+    func garments() async throws -> [Garment]
+    func add(_ garment: Garment) async throws
+}
+```
+
+A UseCase depends on that protocol, not on the network:
+
+```swift
+struct OrganizeClosetUseCase {
+    let repository: ClosetRepository
+
+    func callAsFunction() async throws -> [Garment] {
+        try await repository.garments()
+    }
+}
+```
+
+The Data layer provides the concrete implementation:
+
+```swift
+final class SupabaseClosetRepository: ClosetRepository {
+    func garments() async throws -> [Garment] {
+        // fetch, decode, map DTO → Domain
+    }
+    func add(_ garment: Garment) async throws { /* ... */ }
+}
+```
+
+Presentation never sees `SupabaseClosetRepository`. It gets a `ClosetRepository`, which
+in a test can just as easily be an in-memory fake.
+
+## Where it earns its keep
+
+Three places, concretely:
+
+1. **Testing.** UseCases are pure logic over protocols, so they test without a network
+   or a simulator. That's the difference between tests you run on every save and tests
+   you never run.
+2. **Swapping details.** Moving an endpoint from a direct call to a Cloudflare Worker
+   touched the Data layer only. The UseCases and views didn't know it happened.
+3. **Reading the code later.** When behavior is grouped by intention instead of by
+   framework, "where does the outfit recommendation live?" has an obvious answer.
+
+## The ceremony to skip
+
+Clean Architecture gets a bad reputation from over-application: a protocol for every
+class, mappers wrapping mappers, four files to add one field. I don't do that. The
+boundaries earn their place when a layer has a real reason to vary independently — data
+sources, business rules — and I collapse them when it doesn't. A small view with local
+state doesn't need a UseCase to hold its hand.
+
+Architecture is a tool for managing change. Add a boundary when something is likely to
+change on its own schedule; skip it when it isn't. That's the whole heuristic.

@@ -2,8 +2,9 @@
 
 **Project:** Personal portfolio — alexmatosolive.com
 **Owner:** Alex Matos Olive (solo)
-**Status:** Phase 003 complete (Showcase). Next: Phase 004 (Blog).
+**Status:** Phase 004 complete (Blog). Next: Phase 005 (Contact & footer).
 **Branch:** `feat/portfolio-build`
+**Needs Alex:** seed blog post is a DRAFT — review/personalize before public launch.
 
 ## Decisions locked
 
@@ -21,6 +22,16 @@
 - Approved design spec: `docs/superpowers/specs/2026-07-16-portfolio-design.md`.
 
 ## Current phase
+
+**004 — Blog (MDX). ✅ DONE.**
+Plan: `.planning/phases/004-blog/004-01-PLAN.md`.
+Delivered: MDX pipeline (next-mdx-remote/rsc + gray-matter), `lib/blog.ts`
+(frontmatter, reading time, sorted, skip drafts), styled `mdx-components`, blog
+list + SSG `[slug]` post page (generateStaticParams/Metadata), RSS at
+`/blog/rss.xml`, `sitemap.ts`, `robots.ts`, RSS auto-discovery in root metadata.
+Seed post `content/blog/clean-architecture-swiftui.mdx` — accurate, grounded in
+WRDB, **DRAFT awaiting Alex's approval**. Verified in prod: all routes 200, RSS +
+sitemap well-formed, 0 console errors, desktop + mobile.
 
 **003 — Showcase. ✅ DONE.**
 Plan: `.planning/phases/003-showcase/003-01-PLAN.md`.

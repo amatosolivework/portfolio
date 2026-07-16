@@ -45,7 +45,10 @@ export const metadata: Metadata = {
       "iOS developer and Co-founder & CTO at WRDB. Building real product end to end.",
     siteName: "Alex Matos Olive",
   },
-  alternates: { canonical: siteUrl },
+  alternates: {
+    canonical: siteUrl,
+    types: { "application/rss+xml": `${siteUrl}/blog/rss.xml` },
+  },
 };
 
 export default function RootLayout({
