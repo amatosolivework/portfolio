@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "defaultMode": "acceptEdits",
+    "allow": [
+      "Bash(npm install)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(npm run dev)",
+      "Bash(npm run build)",
+      "Bash(npm run lint)",
+      "Bash(npx create-next-app *)",
+      "Bash(npx shadcn *)",
+      "Bash(npx shadcn-ui *)",
+      "Bash(npx tsc *)",
+      "Bash(npx *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git checkout -b *)",
+      "Bash(ls *)",
+      "Bash(cat *)",
+      "Bash(mkdir *)",
+      "Bash(cp *)",
+      "Bash(vercel)",
+      "Bash(vercel dev *)",
+      "Bash(vercel build *)"
+    ],
+    "ask": [
+      "Bash(vercel deploy *)",
+      "Bash(vercel --prod *)",
+      "Bash(git push *)"
+    ],
+    "deny": [
+      "Bash(git push -f *)",
+      "Bash(git push --force *)",
+      "Bash(rm -rf /*)",
+      "Bash(rm -rf ~*)"
+    ]
+  }
+}

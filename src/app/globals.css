@@ -1,0 +1,184 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+  Design tokens — alexmatosolive.com
+  Apple-minimal / monochrome-first. Accent is a single swappable token (--brand).
+  Ref: docs/superpowers/specs/2026-07-16-portfolio-design.md §3
+*/
+
+@theme inline {
+  /* shadcn bridge (keeps ui/button etc. working) */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* semantic palette (project vocabulary) */
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+  --color-hairline: var(--hairline);
+  --color-brand: var(--brand);
+  --color-brand-contrast: var(--brand-contrast);
+
+  /* fonts */
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+  --font-display: var(--font-inter);
+
+  /* radii */
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+
+  /* signature easing — reused everywhere for a consistent motion language */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* container */
+  --spacing-rail: 1.5rem;
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* neutral scale */
+  --paper: #fbfbfd;
+  --surface: #ffffff;
+  --ink: #0a0a0b;
+  --ink-muted: #6b6b70;
+  --ink-faint: #9a9aa1;
+  --hairline: #e7e7ea;
+
+  /* brand accent — monochrome default. Swap to Apple system blue for the accent
+     variant: --brand: #0a84ff; --brand-contrast: #ffffff; */
+  --brand: #0a0a0b;
+  --brand-contrast: #fbfbfd;
+
+  /* shadcn semantic tokens mapped onto the palette */
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--surface);
+  --card-foreground: var(--ink);
+  --popover: var(--surface);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--paper);
+  --secondary: #f4f4f6;
+  --secondary-foreground: var(--ink);
+  --muted: #f4f4f6;
+  --muted-foreground: var(--ink-muted);
+  --accent: #f4f4f6;
+  --accent-foreground: var(--ink);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: var(--hairline);
+  --input: var(--hairline);
+  --ring: var(--ink);
+
+  /* type scale — fluid, Inter. Minor-third-ish, tighter at display sizes. */
+  --text-eyebrow: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --text-2xl: clamp(1.6rem, 1.3rem + 1.2vw, 2.25rem);
+  --text-3xl: clamp(2.2rem, 1.6rem + 2.4vw, 3.5rem);
+  --text-display: clamp(2.9rem, 1.6rem + 5.6vw, 6.5rem);
+}
+
+.dark {
+  --paper: #08080a;
+  --surface: #101012;
+  --ink: #f4f4f6;
+  --ink-muted: #a1a1a8;
+  --ink-faint: #6b6b70;
+  --hairline: #232327;
+
+  --brand: #f4f4f6;
+  --brand-contrast: #08080a;
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--surface);
+  --card-foreground: var(--ink);
+  --popover: var(--surface);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--paper);
+  --secondary: #17171a;
+  --secondary-foreground: var(--ink);
+  --muted: #17171a;
+  --muted-foreground: var(--ink-muted);
+  --accent: #17171a;
+  --accent-foreground: var(--ink);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: var(--hairline);
+  --input: var(--hairline);
+  --ring: var(--ink);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply font-sans antialiased;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-paper text-ink;
+    font-feature-settings: "cv11", "ss01";
+  }
+  /* visible, on-brand keyboard focus */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ink ring-offset-2 ring-offset-paper;
+  }
+  ::selection {
+    background: var(--ink);
+    color: var(--paper);
+  }
+}
+
+/* Utility: monospace eyebrow / index label — the engineer signature */
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
