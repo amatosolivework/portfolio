@@ -70,7 +70,7 @@
   --surface: #ffffff;
   --ink: #111013;
   --ink-muted: #5f5e63;
-  --ink-faint: #96959c;
+  --ink-faint: #6f6e74; /* darkened for WCAG AA (~4.6:1) on faint mono labels */
   --hairline: #e4e3e0;
 
   /* accent ink — deep oxblood, used sparingly (links, folios, drop cap, one hot
@@ -117,8 +117,8 @@
   --surface: #101012;
   --ink: #f4f4f6;
   --ink-muted: #a1a1a8;
-  --ink-faint: #6b6b70;
-  --hairline: #232327;
+  --ink-faint: #8f8e95; /* AA on dark inverted spreads */
+  --hairline: #2b2a2e;
 
   --brand: #c86b74; /* lighter oxblood on dark surfaces */
   --brand-contrast: #08080a;
