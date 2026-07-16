@@ -2,9 +2,21 @@
 
 **Project:** Personal portfolio — alexmatosolive.com
 **Owner:** Alex Matos Olive (solo)
-**Status:** Phase 005 complete (Contact). Next: Phase 006 (Polish & SEO).
+**Status:** REDESIGN in progress. Alex found v1 (Apple-minimal) too templated/AI.
+Pivoted to art-directed **editorial** ("Selected Work, Vol. 1") — editorial
+grotesque (Bricolage), oxblood ink `#6E2A35`, print grain, monograph structure.
+Spec: `docs/superpowers/specs/2026-07-16-editorial-redesign.md`. Building R1.
 **Branch:** `feat/portfolio-build`
 **Needs Alex:** seed blog post is a DRAFT — review/personalize before public launch.
+
+## Redesign phases (R)
+
+- **R1** — Foundation + masthead (fonts, tokens, grain, cover/contents nav,
+  colophon shell). Show Alex before continuing.
+- **R2** — WRDB feature spread. **R3** — About (bio + marginalia + drop cap).
+- **R4** — Blog editorial restyle. **R5** — Polish/SEO + Launch.
+
+Tech/content/blog pipeline preserved; reworking fonts, tokens, grain, layout.
 
 ## Decisions locked
 

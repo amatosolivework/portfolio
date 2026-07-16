@@ -42,9 +42,9 @@
   --color-brand-contrast: var(--brand-contrast);
 
   /* fonts */
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-bricolage);
   --font-mono: var(--font-jetbrains-mono);
-  --font-display: var(--font-inter);
+  --font-display: var(--font-bricolage);
 
   /* radii */
   --radius-sm: calc(var(--radius) * 0.6);
@@ -65,19 +65,18 @@
 :root {
   --radius: 0.75rem;
 
-  /* neutral scale */
-  --paper: #fbfbfd;
+  /* editorial paper & ink (cool near-white, not cream) */
+  --paper: #fafaf8;
   --surface: #ffffff;
-  --ink: #0a0a0b;
-  --ink-muted: #6b6b70;
-  --ink-faint: #9a9aa1;
-  --hairline: #e7e7ea;
+  --ink: #111013;
+  --ink-muted: #5f5e63;
+  --ink-faint: #96959c;
+  --hairline: #e4e3e0;
 
-  /* brand accent — Apple action blue, restrained to CTAs, the logo dot, and text
-     selection (everything else stays monochrome). #0071e3 keeps the Apple-blue
-     look while passing WCAG AA (4.7:1) for white button text. One-token swap: set
-     --brand: #0a0a0b; --brand-contrast: #fbfbfd; for fully monochrome. */
-  --brand: #0071e3;
+  /* accent ink — deep oxblood, used sparingly (links, folios, drop cap, one hot
+     detail). AA-safe (~7:1) with white text. One-token swap: set
+     --brand: #111013; --brand-contrast: #fafaf8; for fully monochrome. */
+  --brand: #6e2a35;
   --brand-contrast: #ffffff;
 
   /* shadcn semantic tokens mapped onto the palette */
@@ -107,8 +106,10 @@
   --text-lg: 1.125rem;
   --text-xl: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
   --text-2xl: clamp(1.6rem, 1.3rem + 1.2vw, 2.25rem);
-  --text-3xl: clamp(2.2rem, 1.6rem + 2.4vw, 3.5rem);
-  --text-display: clamp(2.9rem, 1.6rem + 5.6vw, 6.5rem);
+  --text-3xl: clamp(2.2rem, 1.6rem + 2.4vw, 3.75rem);
+  --text-display: clamp(3rem, 1.4rem + 6.6vw, 7.5rem);
+  /* masthead — set enormous, breaks across lines */
+  --text-masthead: clamp(3.4rem, 0.5rem + 13vw, 13rem);
 }
 
 .dark {
@@ -119,8 +120,8 @@
   --ink-faint: #6b6b70;
   --hairline: #232327;
 
-  --brand: #0a84ff; /* brighter on dark surfaces */
-  --brand-contrast: #ffffff;
+  --brand: #c86b74; /* lighter oxblood on dark surfaces */
+  --brand-contrast: #08080a;
 
   --background: var(--paper);
   --foreground: var(--ink);
@@ -153,7 +154,6 @@
   }
   body {
     @apply bg-paper text-ink;
-    font-feature-settings: "cv11", "ss01";
   }
   /* visible, on-brand keyboard focus */
   :focus-visible {

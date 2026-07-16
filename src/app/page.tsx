@@ -1,4 +1,4 @@
-import { Hero } from "@/components/site/hero";
+import { Masthead } from "@/components/site/masthead";
 import { Showcase } from "@/components/site/showcase";
 import { About } from "@/components/site/about";
 import { Contact } from "@/components/site/contact";
@@ -6,7 +6,7 @@ import { Contact } from "@/components/site/contact";
 export default function Home() {
   return (
     <>
-      <Hero />
+      <Masthead />
       <Showcase />
       <About />
       <Contact />
