@@ -2,8 +2,7 @@
 
 **Project:** Personal portfolio — alexmatosolive.com
 **Owner:** Alex Matos Olive (solo)
-**Status:** Phase 001 complete (scaffold + design system + motion foundation).
-Awaiting Alex's sign-off on the base before Phase 002.
+**Status:** Phase 002 complete (shader hero + About/CV). Next: Phase 003 (Showcase).
 **Branch:** `feat/portfolio-build`
 
 ## Decisions locked
@@ -22,6 +21,16 @@ Awaiting Alex's sign-off on the base before Phase 002.
 - Approved design spec: `docs/superpowers/specs/2026-07-16-portfolio-design.md`.
 
 ## Current phase
+
+**002 — Hero (typographic + shader) & About + CV. ✅ DONE.**
+Plan: `.planning/phases/002-hero-about/002-01-PLAN.md`.
+Delivered: OGL shader field (`ShaderField`, lazy/ssr:false, DPR-capped, pauses on
+hidden, static CSS gradient fallback, reduced-motion/no-WebGL safe); real `Hero`
+with mask reveals + magnetic CTAs; `About` section (real bio/education/skills/
+languages from cv-en.md, mono chip stack, CV download); `public/cv.pdf`. Verified
+in production build (no StrictMode issues), zero console errors, desktop + mobile.
+Note: shader `useEffect` must NOT `loseContext()` on cleanup (StrictMode remount
+reuses the canvas); size the drawing buffer from a dedicated wrapper ref.
 
 **001 — Scaffold & design system + motion foundation. ✅ DONE.**
 Plan: `.planning/phases/001-scaffold/001-01-PLAN.md`.

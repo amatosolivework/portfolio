@@ -1,11 +1,12 @@
 import { Section } from "@/components/site/section";
 import { Reveal } from "@/components/motion/reveal";
-import { HeroPlaceholder } from "@/components/site/hero-placeholder";
+import { Hero } from "@/components/site/hero";
+import { About } from "@/components/site/about";
 
 export default function Home() {
   return (
     <>
-      <HeroPlaceholder />
+      <Hero />
 
       <Section id="work" index="01" eyebrow="Selected work" title="Products I've shipped">
         <Reveal className="mt-10">
@@ -16,13 +17,7 @@ export default function Home() {
         </Reveal>
       </Section>
 
-      <Section id="about" index="02" eyebrow="About" title="Who I am">
-        <Reveal className="mt-10">
-          <p className="max-w-xl text-lg text-ink-muted">
-            Bio, education, skills, and the downloadable CV arrive in Phase 002.
-          </p>
-        </Reveal>
-      </Section>
+      <About />
 
       <Section id="contact" index="03" eyebrow="Contact" title="Let's talk">
         <Reveal className="mt-10">
