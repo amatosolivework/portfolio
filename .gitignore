@@ -43,3 +43,4 @@ next-env.d.ts
 # local design scratch
 /phase*.png
 /.playwright-mcp/
+/accent*.png
