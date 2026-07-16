@@ -50,7 +50,7 @@ export function SiteNav() {
           aria-label="Alex Matos Olive — home"
         >
           <span aria-hidden>amo</span>
-          <span className="text-ink-faint">.</span>
+          <span className="text-brand">.</span>
         </Link>
 
         {/* desktop */}
@@ -77,7 +77,7 @@ export function SiteNav() {
           <Magnetic strength={10} className="ml-2">
             <a
               href={site.cv}
-              className="inline-flex items-center rounded-full border border-ink bg-ink px-4 py-2 text-sm font-medium text-brand-contrast transition-opacity hover:opacity-90"
+              className="inline-flex items-center rounded-full bg-brand px-4 py-2 text-sm font-medium text-brand-contrast transition-opacity hover:opacity-90"
             >
               CV
             </a>
@@ -134,7 +134,7 @@ export function SiteNav() {
             )}
             <a
               href={site.cv}
-              className="mt-2 inline-flex w-fit items-center rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-brand-contrast"
+              className="mt-2 inline-flex w-fit items-center rounded-full bg-brand px-5 py-2.5 text-sm font-medium text-brand-contrast"
             >
               Download CV
             </a>

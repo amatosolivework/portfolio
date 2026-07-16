@@ -86,7 +86,7 @@ export function Hero() {
           <Magnetic strength={12}>
             <button
               onClick={scrollToWork}
-              className="inline-flex items-center rounded-full bg-ink px-6 py-3 text-sm font-medium text-brand-contrast transition-opacity hover:opacity-90"
+              className="inline-flex items-center rounded-full bg-brand px-6 py-3 text-sm font-medium text-brand-contrast transition-opacity hover:opacity-90"
             >
               View work
             </button>

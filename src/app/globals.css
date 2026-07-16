@@ -73,10 +73,12 @@
   --ink-faint: #9a9aa1;
   --hairline: #e7e7ea;
 
-  /* brand accent — monochrome default. Swap to Apple system blue for the accent
-     variant: --brand: #0a84ff; --brand-contrast: #ffffff; */
-  --brand: #0a0a0b;
-  --brand-contrast: #fbfbfd;
+  /* brand accent — Apple action blue, restrained to CTAs, the logo dot, and text
+     selection (everything else stays monochrome). #0071e3 keeps the Apple-blue
+     look while passing WCAG AA (4.7:1) for white button text. One-token swap: set
+     --brand: #0a0a0b; --brand-contrast: #fbfbfd; for fully monochrome. */
+  --brand: #0071e3;
+  --brand-contrast: #ffffff;
 
   /* shadcn semantic tokens mapped onto the palette */
   --background: var(--paper);
@@ -117,8 +119,8 @@
   --ink-faint: #6b6b70;
   --hairline: #232327;
 
-  --brand: #f4f4f6;
-  --brand-contrast: #08080a;
+  --brand: #0a84ff; /* brighter on dark surfaces */
+  --brand-contrast: #ffffff;
 
   --background: var(--paper);
   --foreground: var(--ink);
@@ -158,8 +160,8 @@
     @apply outline-none ring-2 ring-ink ring-offset-2 ring-offset-paper;
   }
   ::selection {
-    background: var(--ink);
-    color: var(--paper);
+    background: var(--brand);
+    color: var(--brand-contrast);
   }
 }
 

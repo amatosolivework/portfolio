@@ -70,7 +70,7 @@ export function About() {
               <Magnetic strength={10}>
                 <a
                   href={site.cv}
-                  className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-medium text-brand-contrast transition-opacity hover:opacity-90"
+                  className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-medium text-brand-contrast transition-opacity hover:opacity-90"
                 >
                   Download CV
                   <span aria-hidden className="font-mono text-xs opacity-70">

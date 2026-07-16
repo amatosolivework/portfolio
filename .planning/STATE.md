@@ -16,7 +16,9 @@
 - **Motion:** signature system + one "wow" — Lenis + Framer Motion spring language
   everywhere, one pinned GSAP sequence (WRDB showcase), shader hero. All gated
   behind `prefers-reduced-motion`.
-- **Accent:** monochrome first; single-accent variant to compare (one-token swap).
+- **Accent:** LOCKED — Apple action blue `#0071e3` (AA-safe, ~4.7:1 white text),
+  restrained to primary CTAs, the logo dot, and text selection; everything else
+  monochrome. One-token swap via `--brand` (set to `#0a0a0b` for full monochrome).
 - Content: Showcase (WRDB flagship + minimal migraine/TravelGuide) · About + CV ·
   Blog (one seed post) · Contact.
 - Approved design spec: `docs/superpowers/specs/2026-07-16-portfolio-design.md`.
