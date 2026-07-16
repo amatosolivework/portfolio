@@ -1,24 +1,16 @@
 import { Reveal } from "@/components/motion/reveal";
-import { Magnetic } from "@/components/motion/magnetic";
 import { site } from "@/lib/site";
 
 // Real data only — sourced from content/profile.md and ../Practicas UB/cv-en.md.
-const skillGroups: { label: string; items: string[] }[] = [
-  { label: "Languages", items: ["Swift", "Python", "JavaScript / TypeScript", "SQL"] },
-  {
-    label: "iOS / Mobile",
-    items: ["SwiftUI", "UIKit", "Combine", "Xcode", "Clean Architecture", "App Store / TestFlight"],
-  },
-  { label: "Backend / Data", items: ["Supabase", "PostgreSQL", "Edge Functions", "REST APIs"] },
-  { label: "Infrastructure / Web", items: ["Cloudflare Workers", "Next.js"] },
-  {
-    label: "Applied AI",
-    items: ["Machine Learning", "Computer Vision", "MCP", "Claude Code", "LLM integration"],
-  },
-  { label: "Methods / Tools", items: ["Git", "CI/CD", "Agile", "Product design"] },
+const skillGroups: { label: string; items: string }[] = [
+  { label: "Languages", items: "Swift · Python · JS/TS · SQL" },
+  { label: "iOS / Mobile", items: "SwiftUI · UIKit · Combine · Xcode · Clean Architecture" },
+  { label: "Backend / Data", items: "Supabase · PostgreSQL · Edge Functions · REST" },
+  { label: "Infra / Web", items: "Cloudflare Workers · Next.js" },
+  { label: "Applied AI", items: "Computer vision · MCP · Claude Code · LLMs" },
 ];
 
-const languages: { name: string; level: string }[] = [
+const languages = [
   { name: "Catalan", level: "Native" },
   { name: "Spanish", level: "Native" },
   { name: "English", level: "Professional" },
@@ -26,116 +18,108 @@ const languages: { name: string; level: string }[] = [
 
 export function About() {
   return (
-    <section id="about" className="scroll-mt-24 border-t border-hairline">
-      <div className="mx-auto max-w-[1200px] px-6 py-24 md:py-32">
-        <Reveal className="mb-6 flex items-center gap-3">
-          <span className="font-mono text-eyebrow uppercase tracking-[0.12em] text-ink-faint">
-            02
-          </span>
-          <span className="font-mono text-eyebrow uppercase tracking-[0.12em] text-ink-faint">
-            About
-          </span>
+    <section id="about" className="scroll-mt-20 border-t border-ink">
+      <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
+        {/* running head */}
+        <Reveal className="flex items-baseline justify-between font-mono text-eyebrow uppercase tracking-[0.14em] text-ink-faint">
+          <span>About — 03</span>
+          <span>b. Barcelona</span>
         </Reveal>
 
-        <div className="grid gap-16 md:grid-cols-12 md:gap-12">
-          {/* narrative + facts */}
+        <div className="mt-14 grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-10">
+          {/* bio column */}
           <div className="md:col-span-7">
             <Reveal>
-              <h2
-                id="about-title"
-                className="max-w-2xl font-semibold tracking-tight text-ink"
-                style={{ fontSize: "var(--text-2xl)" }}
-              >
-                A Computer Engineering student who ships real product end to end.
-              </h2>
-            </Reveal>
-
-            <Reveal delay={0.05} className="mt-8 max-w-xl space-y-5 text-lg text-ink-muted">
-              <p>
-                I'm a Computer Engineering student at the University of Barcelona
-                and co-founder &amp; CTO of WRDB, a native iOS AI-powered
-                virtual-wardrobe app. I build the whole stack: a Swift/SwiftUI app
-                live on the App Store, a serverless backend on Supabase and
-                Cloudflare Workers, a Next.js web front, and applied AI through
-                computer vision, MCP, and Claude Code.
-              </p>
-              <p>
-                I'm looking for a curricular internship (mornings) where I can
-                bring real shipping experience and keep growing as a software
-                engineer.
+              <p className="text-xl leading-relaxed text-ink first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-semibold first-letter:leading-[0.7] first-letter:text-brand first-letter:text-[5.5rem]">
+                I&apos;m a Computer Engineering student at the University of
+                Barcelona and co-founder &amp; CTO of WRDB, a native iOS
+                AI-powered virtual-wardrobe app.
               </p>
             </Reveal>
 
-            <Reveal delay={0.1} className="mt-10">
-              <Magnetic strength={10}>
-                <a
-                  href={site.cv}
-                  className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-medium text-brand-contrast transition-opacity hover:opacity-90"
+            <Reveal>
+              <p className="mt-6 text-xl leading-relaxed text-ink-muted">
+                I build the whole stack: a Swift/SwiftUI app live on the App Store,
+                a serverless backend on Supabase and Cloudflare Workers, a Next.js
+                web front, and applied AI through computer vision, MCP, and Claude
+                Code.
+              </p>
+            </Reveal>
+
+            {/* pull-quote */}
+            <Reveal>
+              <blockquote className="my-14 border-t border-ink pt-8">
+                <p
+                  className="max-w-xl font-semibold leading-[1.05] tracking-[-0.02em] text-ink"
+                  style={{ fontSize: "var(--text-2xl)" }}
                 >
-                  Download CV
-                  <span aria-hidden className="font-mono text-xs opacity-70">
-                    PDF
-                  </span>
-                </a>
-              </Magnetic>
+                  I build real product<span className="text-brand">,</span> end to
+                  end — and I want to keep growing as an engineer.
+                </p>
+              </blockquote>
             </Reveal>
 
-            {/* education + languages */}
-            <div className="mt-14 grid gap-10 sm:grid-cols-2">
-              <Reveal>
-                <h3 className="font-mono text-eyebrow uppercase tracking-[0.12em] text-ink-faint">
-                  Education
-                </h3>
-                <p className="mt-4 text-ink">
-                  BSc in Computer Engineering
-                </p>
-                <p className="text-ink-muted">University of Barcelona</p>
-                <p className="mt-1 font-mono text-sm text-ink-faint">
-                  2023 — 2027 (expected) · Software Engineering
-                </p>
-              </Reveal>
+            <Reveal>
+              <p className="max-w-xl text-lg leading-relaxed text-ink-muted">
+                I&apos;m looking for a curricular internship (mornings) where I can
+                bring real shipping experience to a team.
+              </p>
+            </Reveal>
 
-              <Reveal delay={0.05}>
-                <h3 className="font-mono text-eyebrow uppercase tracking-[0.12em] text-ink-faint">
-                  Languages
-                </h3>
-                <ul className="mt-4 space-y-2">
-                  {languages.map((l) => (
-                    <li key={l.name} className="flex items-baseline justify-between gap-4">
-                      <span className="text-ink">{l.name}</span>
-                      <span className="font-mono text-sm text-ink-faint">{l.level}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
-            </div>
+            <Reveal className="mt-10">
+              <a
+                href={site.cv}
+                className="group inline-flex items-baseline gap-2 text-base text-ink transition-colors hover:text-brand"
+              >
+                <span className="underline decoration-hairline underline-offset-4 transition-colors group-hover:decoration-brand">
+                  Read the full CV
+                </span>
+                <span aria-hidden className="font-mono text-eyebrow">PDF ↗</span>
+              </a>
+            </Reveal>
           </div>
 
-          {/* skills */}
-          <div className="md:col-span-5">
-            <Reveal delay={0.08}>
+          {/* marginalia */}
+          <aside className="md:col-span-4 md:col-start-9">
+            <Reveal className="border-t border-hairline pt-5">
               <h3 className="font-mono text-eyebrow uppercase tracking-[0.12em] text-ink-faint">
-                Stack
+                Education
               </h3>
-              <dl className="mt-6 space-y-7">
-                {skillGroups.map((group) => (
-                  <div key={group.label}>
-                    <dt className="text-sm text-ink-muted">{group.label}</dt>
-                    <dd className="mt-2 flex flex-wrap gap-2">
-                      {group.items.map((item) => (
-                        <span
-                          key={item}
-                          className="rounded-full border border-hairline bg-surface px-3 py-1 font-mono text-xs text-ink"
-                        >
-                          {item}
-                        </span>
-                      ))}
-                    </dd>
+              <p className="mt-3 text-ink">BSc Computer Engineering</p>
+              <p className="text-ink-muted">University of Barcelona</p>
+              <p className="mt-1 font-mono text-sm text-ink-faint">
+                2023–2027 (exp.) · Software Engineering
+              </p>
+            </Reveal>
+
+            <Reveal className="mt-10 border-t border-hairline pt-5">
+              <h3 className="font-mono text-eyebrow uppercase tracking-[0.12em] text-ink-faint">
+                Languages
+              </h3>
+              <ul className="mt-3 space-y-1">
+                {languages.map((l) => (
+                  <li key={l.name} className="flex items-baseline justify-between gap-4">
+                    <span className="text-ink">{l.name}</span>
+                    <span className="font-mono text-sm text-ink-faint">{l.level}</span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+
+            <Reveal className="mt-10 border-t border-hairline pt-5">
+              <h3 className="font-mono text-eyebrow uppercase tracking-[0.12em] text-ink-faint">
+                Selected skills
+              </h3>
+              <dl className="mt-3 space-y-3">
+                {skillGroups.map((g) => (
+                  <div key={g.label}>
+                    <dt className="text-sm text-ink">{g.label}</dt>
+                    <dd className="font-mono text-sm text-ink-muted">{g.items}</dd>
                   </div>
                 ))}
               </dl>
             </Reveal>
-          </div>
+          </aside>
         </div>
       </div>
     </section>
