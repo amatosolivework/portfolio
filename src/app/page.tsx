@@ -1,6 +1,7 @@
 import { Section } from "@/components/site/section";
 import { Reveal } from "@/components/motion/reveal";
 import { Hero } from "@/components/site/hero";
+import { Showcase } from "@/components/site/showcase";
 import { About } from "@/components/site/about";
 
 export default function Home() {
@@ -8,14 +9,7 @@ export default function Home() {
     <>
       <Hero />
 
-      <Section id="work" index="01" eyebrow="Selected work" title="Products I've shipped">
-        <Reveal className="mt-10">
-          <p className="max-w-xl text-lg text-ink-muted">
-            Showcase lands in Phase 003 — WRDB (flagship) with a pinned scroll
-            sequence, plus minimal cards for migraine and TravelGuide.
-          </p>
-        </Reveal>
-      </Section>
+      <Showcase />
 
       <About />
 

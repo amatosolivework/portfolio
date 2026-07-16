@@ -2,7 +2,7 @@
 
 **Project:** Personal portfolio — alexmatosolive.com
 **Owner:** Alex Matos Olive (solo)
-**Status:** Phase 002 complete (shader hero + About/CV). Next: Phase 003 (Showcase).
+**Status:** Phase 003 complete (Showcase). Next: Phase 004 (Blog).
 **Branch:** `feat/portfolio-build`
 
 ## Decisions locked
@@ -21,6 +21,18 @@
 - Approved design spec: `docs/superpowers/specs/2026-07-16-portfolio-design.md`.
 
 ## Current phase
+
+**003 — Showcase. ✅ DONE.**
+Plan: `.planning/phases/003-showcase/003-01-PLAN.md`.
+Delivered: `Showcase` (id=work) with `ShowcaseFlagship` — GSAP ScrollTrigger pins a
+stylized `DeviceFrame` while WRDB chapters scroll (What it is / How it's built /
+Applied AI), subtle scrub rotation, wired to Lenis, `gsap.matchMedia` gates the pin
+to md+ & no-reduced-motion (mobile/reduced = static stacked). Real facts from
+projects.ts; wrdb.site link live, App Store + GitHub deferred ("soon"). Minimal
+migraine/TravelGuide cards. Verified in prod build, 0 console errors, desktop pin +
+mobile fallback. NOTE: Lenis-synced ScrollTrigger can't be verified via
+window.scrollTo (bypasses Lenis) — verify visually with real scroll. DeviceFrame
+has a screenshot slot for when WRDB assets arrive.
 
 **002 — Hero (typographic + shader) & About + CV. ✅ DONE.**
 Plan: `.planning/phases/002-hero-about/002-01-PLAN.md`.
