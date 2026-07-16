@@ -2,12 +2,12 @@
 
 **Project:** Personal portfolio — alexmatosolive.com
 **Owner:** Alex Matos Olive (solo)
-**Status:** REDESIGN in progress. Alex found v1 (Apple-minimal) too templated/AI.
-Pivoted to art-directed **editorial** ("Selected Work, Vol. 1") — editorial
-grotesque (Bricolage), oxblood ink `#6E2A35`, print grain, monograph structure.
-Spec: `docs/superpowers/specs/2026-07-16-editorial-redesign.md`. R1 done (Alex
-loves it). Building R2. Note: inverted spreads use `className="dark bg-paper
-text-ink"` to flip tokens; figure plates use explicit light colors on top.
+**Status:** REDESIGN COMPLETE (R1–R5). Art-directed **editorial** monograph
+("Selected Work, Vol. 1") — Bricolage Grotesque, oxblood `#6E2A35`, print grain.
+Spec: `docs/superpowers/specs/2026-07-16-editorial-redesign.md`. Next: LAUNCH
+(deploy to Vercel + point alexmatosolive.com at prod). Note: inverted spreads use
+`className="dark bg-paper text-ink"`; figure plates use explicit light colors.
+Feature spread uses CSS sticky (not GSAP pin) — GSAP no longer bundled.
 **Branch:** `feat/portfolio-build`
 **Needs Alex:** seed blog post is a DRAFT — review/personalize before public launch.
 
