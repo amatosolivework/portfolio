@@ -44,3 +44,4 @@ next-env.d.ts
 /phase*.png
 /.playwright-mcp/
 /accent*.png
+/*.png
