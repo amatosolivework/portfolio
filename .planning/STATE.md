@@ -2,7 +2,7 @@
 
 **Project:** Personal portfolio — alexmatosolive.com
 **Owner:** Alex Matos Olive (solo)
-**Status:** Phase 004 complete (Blog). Next: Phase 005 (Contact & footer).
+**Status:** Phase 005 complete (Contact). Next: Phase 006 (Polish & SEO).
 **Branch:** `feat/portfolio-build`
 **Needs Alex:** seed blog post is a DRAFT — review/personalize before public launch.
 
@@ -22,6 +22,14 @@
 - Approved design spec: `docs/superpowers/specs/2026-07-16-portfolio-design.md`.
 
 ## Current phase
+
+**005 — Contact & footer. ✅ DONE.**
+Plan: `.planning/phases/005-contact/005-01-PLAN.md`.
+Delivered: `Contact` (id=contact) — direct links only (no form, per Alex): eyebrow,
+"Let's build something.", real availability line (curricular internship, mornings,
+Barcelona, UB), email mailto as focal point (magnetic), LinkedIn + GitHub. Footer
+already shipped in 001. Removed now-unused `Section` primitive. Verified in prod:
+links resolve (mailto/LinkedIn/GitHub), 0 console errors, desktop + mobile.
 
 **004 — Blog (MDX). ✅ DONE.**
 Plan: `.planning/phases/004-blog/004-01-PLAN.md`.
