@@ -5,7 +5,9 @@
 **Status:** REDESIGN in progress. Alex found v1 (Apple-minimal) too templated/AI.
 Pivoted to art-directed **editorial** ("Selected Work, Vol. 1") — editorial
 grotesque (Bricolage), oxblood ink `#6E2A35`, print grain, monograph structure.
-Spec: `docs/superpowers/specs/2026-07-16-editorial-redesign.md`. Building R1.
+Spec: `docs/superpowers/specs/2026-07-16-editorial-redesign.md`. R1 done (Alex
+loves it). Building R2. Note: inverted spreads use `className="dark bg-paper
+text-ink"` to flip tokens; figure plates use explicit light colors on top.
 **Branch:** `feat/portfolio-build`
 **Needs Alex:** seed blog post is a DRAFT — review/personalize before public launch.
 
