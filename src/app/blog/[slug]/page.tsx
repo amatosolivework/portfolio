@@ -41,15 +41,15 @@ export default async function PostPage({
   if (!post || post.draft) notFound();
 
   return (
-    <article className="mx-auto max-w-[720px] px-6 pb-28 pt-36">
-      <Link
-        href="/blog"
-        className="font-mono text-eyebrow uppercase tracking-[0.12em] text-ink-faint transition-colors hover:text-ink"
-      >
-        ← Blog
-      </Link>
+    <article className="mx-auto max-w-[720px] px-6 pb-28 pt-32 md:pt-40">
+      <div className="flex items-baseline justify-between border-t border-ink pt-4 font-mono text-eyebrow uppercase tracking-[0.14em] text-ink">
+        <Link href="/blog" className="transition-colors hover:text-brand">
+          ← Writing
+        </Link>
+        <span className="text-ink-faint">Vol. 1</span>
+      </div>
 
-      <header className="mt-8 border-b border-hairline pb-10">
+      <header className="mt-10 border-b border-hairline pb-10">
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-eyebrow uppercase tracking-[0.12em] text-ink-faint">
           <time dateTime={post.date}>{formatDate(post.date)}</time>
           <span aria-hidden>·</span>
@@ -76,7 +76,7 @@ export default async function PostPage({
         )}
       </header>
 
-      <div className="mt-4">
+      <div className="article-body mt-4">
         <MDXRemote source={post.content} components={mdxComponents} />
       </div>
 

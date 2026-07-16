@@ -4,7 +4,7 @@ import { getAllPosts, formatDate } from "@/lib/blog";
 import { Reveal } from "@/components/motion/reveal";
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: "Writing",
   description:
     "Technical writing on iOS, Swift, backends, and AI-assisted workflows by Alex Matos Olive.",
 };
@@ -13,46 +13,43 @@ export default function BlogIndex() {
   const posts = getAllPosts();
 
   return (
-    <div className="mx-auto max-w-[1200px] px-6 pb-28 pt-36">
-      <Reveal className="mb-4 flex items-center gap-3">
-        <span className="font-mono text-eyebrow uppercase tracking-[0.12em] text-ink-faint">
-          Blog
-        </span>
-      </Reveal>
-      <Reveal>
-        <h1
-          className="max-w-3xl font-semibold tracking-tight text-ink"
-          style={{ fontSize: "var(--text-3xl)" }}
-        >
-          Notes on building real product.
-        </h1>
-      </Reveal>
+    <div className="mx-auto max-w-[1400px] px-6 pb-28 pt-32 md:px-10 md:pt-40">
+      <div className="flex items-baseline justify-between border-t border-ink pt-4 font-mono text-eyebrow uppercase tracking-[0.14em] text-ink">
+        <span>Writing — Vol. 1</span>
+        <span className="text-ink-faint">Index</span>
+      </div>
+
+      <h1
+        className="mt-12 max-w-[12ch] font-semibold leading-[0.9] tracking-[-0.03em] text-ink"
+        style={{ fontSize: "var(--text-display)", fontWeight: 800 }}
+      >
+        Notes on building.
+      </h1>
 
       {posts.length === 0 ? (
-        <p className="mt-12 text-lg text-ink-muted">First post coming soon.</p>
+        <p className="mt-16 text-lg text-ink-muted">First entry coming soon.</p>
       ) : (
-        <ul className="mt-16 border-t border-hairline">
-          {posts.map((post) => (
+        <ul className="mt-20 border-t border-hairline">
+          {posts.map((post, i) => (
             <li key={post.slug}>
               <Reveal>
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="group block border-b border-hairline py-8 transition-colors md:py-10"
+                  className="group grid grid-cols-1 items-baseline gap-4 border-b border-hairline py-8 md:grid-cols-12 md:gap-6 md:py-10"
                 >
-                  <div className="flex flex-col gap-2 md:flex-row md:items-baseline md:justify-between md:gap-8">
-                    <div className="max-w-2xl">
-                      <h2 className="text-xl font-medium text-ink transition-colors group-hover:text-ink-muted md:text-2xl">
-                        {post.title}
-                      </h2>
-                      <p className="mt-2 text-ink-muted">{post.description}</p>
-                    </div>
-                    <div className="shrink-0 font-mono text-eyebrow uppercase tracking-[0.12em] text-ink-faint md:text-right">
-                      <span>{formatDate(post.date)}</span>
-                      <span className="mx-2" aria-hidden>
-                        ·
-                      </span>
-                      <span>{post.readingTime} min</span>
-                    </div>
+                  <span className="font-mono text-eyebrow uppercase tracking-[0.12em] text-ink-faint md:col-span-1">
+                    № {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="md:col-span-8">
+                    <h2 className="font-semibold tracking-tight text-ink transition-colors group-hover:text-brand" style={{ fontSize: "var(--text-2xl)" }}>
+                      {post.title}
+                    </h2>
+                    <p className="mt-2 max-w-xl text-ink-muted">{post.description}</p>
+                  </div>
+                  <div className="font-mono text-eyebrow uppercase tracking-[0.12em] text-ink-faint md:col-span-3 md:text-right">
+                    {formatDate(post.date)}
+                    <br />
+                    {post.readingTime} min
                   </div>
                 </Link>
               </Reveal>
