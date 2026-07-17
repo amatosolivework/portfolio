@@ -58,7 +58,7 @@ export function Masthead() {
         >
           {nameLine("Alex")}
           {nameLine("Matos")}
-          {nameLine("Olive", "pl-[0.12em] text-brand")}
+          {nameLine("Olive", "text-brand")}
         </motion.h1>
 
         {/* lede + contents index */}
