@@ -1,13 +1,18 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { Reveal } from "@/components/motion/reveal";
 import { cn } from "@/lib/utils";
 import type { Feature as FeatureData } from "@/lib/projects";
 
 /**
  * One showcase feature, given equal editorial weight to the flagship. Dark and
- * light spreads alternate, and the figure plate flips side, so four features in
- * a row never feel repetitive. The dark spread flips design tokens via the
- * `dark` class; the plate uses explicit colors so it reads like a printed photo.
- * Sticky (not a JS pin) keeps the plate cleanly inside its own section.
+ * light spreads alternate, and the figure plate flips side, so four in a row never
+ * feel repetitive. The plate is sticky AND scroll-scrubbed: it drifts and tilts
+ * gently as its chapters flow past, driven by Framer Motion scroll progress
+ * (reduced-motion safe). The dark spread flips design tokens via the `dark` class;
+ * the plate uses explicit colors so it reads like a printed photo.
  */
 export function Feature({
   feature,
@@ -19,8 +24,18 @@ export function Feature({
   const dark = feature.tone === "dark";
   const plateInk = dark ? "#111013" : "#fafaf8";
 
+  const ref = useRef<HTMLElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], reduce ? ["0%", "0%"] : ["7%", "-7%"]);
+  const rotate = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [1.6, -1.6]);
+
   return (
     <section
+      ref={ref}
       id={feature.id}
       className={cn("scroll-mt-20 border-t border-ink", dark && "dark bg-paper text-ink")}
     >
@@ -43,13 +58,15 @@ export function Feature({
           {/* figure plate */}
           <div className={cn(plateSide === "right" && "md:order-2")}>
             <figure className="mx-auto w-full max-w-[360px] md:sticky md:top-28">
-              <div
-                className="relative flex aspect-[4/5] w-full items-center justify-center overflow-hidden rounded-sm"
+              <motion.div
                 style={{
+                  y,
+                  rotate,
                   background: dark
                     ? "linear-gradient(160deg,#f6f6f4,#e7e7e3)"
                     : "linear-gradient(160deg,#1b1b1e,#0d0d0f)",
                 }}
+                className="relative flex aspect-[4/5] w-full items-center justify-center overflow-hidden rounded-sm shadow-[0_40px_80px_-40px_rgba(0,0,0,0.45)] will-change-transform"
               >
                 <span className="text-5xl font-semibold tracking-tight" style={{ color: plateInk }}>
                   {feature.name}
@@ -60,7 +77,7 @@ export function Feature({
                 >
                   {feature.plateCaption}
                 </span>
-              </div>
+              </motion.div>
               <figcaption className="mt-4 font-mono text-eyebrow uppercase tracking-[0.12em] text-ink-faint">
                 Fig. {feature.index} · {feature.name}
               </figcaption>
