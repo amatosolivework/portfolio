@@ -12,7 +12,7 @@ export function Showcase() {
         <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
           <Reveal className="flex items-baseline justify-between font-mono text-eyebrow uppercase tracking-[0.14em] text-ink-faint">
             <span>Also building — 02</span>
-            <span>Personal projects</span>
+            <span>Other work</span>
           </Reveal>
 
           <ul className="mt-10 border-t border-hairline">

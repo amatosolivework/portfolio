@@ -55,8 +55,9 @@ export type MinorProject = {
   note: string;
 };
 
-// Minimal by design — details/screenshots/links to be confirmed before expanding.
+// Real, verifiable descriptions. Repos are private, so no repo links (they'd 404).
 export const minorProjects: MinorProject[] = [
-  { name: "migraine", kind: "Personal iOS project", note: "Details soon" },
-  { name: "TravelGuide", kind: "Personal iOS project", note: "Details soon" },
+  { name: "EasyFichi", kind: "Workforce time-tracking · Flutter", note: "In production" },
+  { name: "Citourfy", kind: "AI walking audio-tours · Flutter", note: "In development" },
+  { name: "MyGrain", kind: "Migraine tracker · Flutter", note: "In development" },
 ];
