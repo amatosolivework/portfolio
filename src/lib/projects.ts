@@ -45,7 +45,7 @@ export const wrdb = {
   links: [
     { label: "wrdb.site", href: "https://wrdb.site" },
     { label: "App Store", href: null }, // live, public URL to be added
-    { label: "GitHub", href: null }, // repo link to be confirmed
+    { label: "GitHub", href: "https://github.com/wrdb-team" }, // org (repos private)
   ] satisfies ProjectLink[],
 } as const;
 

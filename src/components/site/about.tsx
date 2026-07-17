@@ -2,14 +2,6 @@ import { Reveal } from "@/components/motion/reveal";
 import { site } from "@/lib/site";
 
 // Real data only — sourced from content/profile.md and ../Practicas UB/cv-en.md.
-const skillGroups: { label: string; items: string }[] = [
-  { label: "Languages", items: "Swift · Python · JS/TS · SQL" },
-  { label: "iOS / Mobile", items: "SwiftUI · UIKit · Combine · Xcode · Clean Architecture" },
-  { label: "Backend / Data", items: "Supabase · PostgreSQL · Edge Functions · REST" },
-  { label: "Infra / Web", items: "Cloudflare Workers · Next.js" },
-  { label: "Applied AI", items: "Computer vision · MCP · Claude Code · LLMs" },
-];
-
 const languages = [
   { name: "Catalan", level: "Native" },
   { name: "Spanish", level: "Native" },
@@ -69,6 +61,8 @@ export function About() {
             <Reveal className="mt-10">
               <a
                 href={site.cv}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-baseline gap-2 text-base text-ink transition-colors hover:text-brand"
               >
                 <span className="underline decoration-hairline underline-offset-4 transition-colors group-hover:decoration-brand">
@@ -108,16 +102,12 @@ export function About() {
 
             <Reveal className="mt-10 border-t border-hairline pt-5">
               <h3 className="font-mono text-eyebrow uppercase tracking-[0.12em] text-ink-faint">
-                Selected skills
+                Focus
               </h3>
-              <dl className="mt-3 space-y-3">
-                {skillGroups.map((g) => (
-                  <div key={g.label}>
-                    <dt className="text-sm text-ink">{g.label}</dt>
-                    <dd className="font-mono text-sm text-ink-muted">{g.items}</dd>
-                  </div>
-                ))}
-              </dl>
+              <p className="mt-3 text-ink">
+                iOS engineering, applied AI, and shipping full-stack product end to
+                end.
+              </p>
             </Reveal>
           </aside>
         </div>

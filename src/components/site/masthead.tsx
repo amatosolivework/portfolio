@@ -128,7 +128,12 @@ export function Masthead() {
         className="flex items-end justify-between border-t border-ink pt-4 font-mono text-eyebrow uppercase tracking-[0.14em] text-ink"
       >
         <span>{site.location}</span>
-        <a href={site.cv} className="transition-colors hover:text-brand">
+        <a
+          href={site.cv}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="transition-colors hover:text-brand"
+        >
           Curriculum Vitae ↗
         </a>
       </motion.div>

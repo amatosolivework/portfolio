@@ -84,6 +84,8 @@ export function SiteNav() {
           )}
           <a
             href={site.cv}
+            target="_blank"
+            rel="noopener noreferrer"
             className="font-mono text-eyebrow uppercase tracking-[0.12em] text-ink transition-colors hover:text-brand"
           >
             CV ↗
@@ -117,7 +119,12 @@ export function SiteNav() {
                 </button>
               ),
             )}
-            <a href={site.cv} className="py-3 text-lg text-ink">
+            <a
+              href={site.cv}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-3 text-lg text-ink"
+            >
               Curriculum Vitae ↗
             </a>
           </div>
