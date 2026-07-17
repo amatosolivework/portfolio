@@ -1,0 +1,48 @@
+---
+title: "Teaching an app to see your clothes"
+description: "What computer vision actually looks like when the input is a real photo of a real closet."
+date: "2026-07-13"
+tags: ["iOS", "Computer Vision", "WRDB"]
+---
+
+WRDB is a wardrobe app. You take photos of your clothes, and it helps you organize
+them and put outfits together. That one sentence hides the part that took the most
+work. Before the app can do anything clever, it has to look at a photo and actually
+understand what is in it.
+
+That turns out to be the hard part, and not for the reason you would guess.
+
+## The model is the easy bit
+
+Recognizing that a photo contains a shirt is close to a solved problem. There are
+good models for it, and on iOS you can run many of them on the device itself, which
+keeps things fast and private. If clean studio photos were the input, this post
+would be very short.
+
+They are not. People photograph clothes on a bed, on a hanger, on the floor, half
+in shadow, next to three other things, sometimes still being worn. Real input is
+messy, and a model that scores well on a benchmark can still fall apart on a
+wrinkled hoodie shot at night.
+
+## Most of the work is around the model
+
+So the interesting engineering is not the recognition, it is everything wrapping
+it. Cropping to the actual garment and ignoring the background. Handling the photo
+where two items overlap. Deciding what to do when the model is only sixty percent
+sure, because in a product "I am not certain" still has to become a clean screen and
+not a spinner that never stops.
+
+I spent more time on those edges than on anything to do with machine learning. That
+surprised me at first. It stopped surprising me quickly.
+
+## Good enough, on purpose
+
+The other lesson was about ambition. Early on I wanted the recognition to be
+perfect. It does not need to be. It needs to save the user a bit of typing and then
+get out of the way. If the app guesses "blue shirt" and it was really teal, the
+person fixes it in one tap and moves on. That is a fine outcome. Chasing the last
+few percent of accuracy would have cost weeks and changed nothing about how the app
+feels.
+
+Computer vision in a real product is less about the clever model and more about
+being graceful when it is wrong. Get that part right and people forgive a lot.

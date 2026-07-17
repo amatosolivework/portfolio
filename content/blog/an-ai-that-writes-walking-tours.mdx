@@ -1,0 +1,48 @@
+---
+title: "An AI that writes walking tours"
+description: "Building a pipeline that turns open map data into narrated city tours, and learning not to trust it."
+date: "2026-06-20"
+tags: ["Flutter", "AI", "Citourfy"]
+---
+
+Citourfy is a walking audio guide. You pick a neighborhood, start walking, and it
+narrates the interesting things as you reach them. The tours are not written by
+hand. A pipeline builds them, and that pipeline is most of the actual product.
+
+Here is roughly how it works, and the one lesson that cost me the most to learn.
+
+## Where the content comes from
+
+No single source has everything, so the pipeline stitches a few together.
+OpenStreetMap, through the Overpass API, is good at finding what exists and where.
+Wikipedia fills in the history and the stories. Google Places adds the practical
+things like opening hours and whether a spot is actually worth the walk. Then a
+language model turns that pile of facts into narration that sounds like a person
+talking, not a database being read out loud.
+
+Each source is free or cheap on its own. The value is in combining them well, and
+in the right order.
+
+## The lesson: never trust the model about the world
+
+The tempting shortcut is to ask the language model for everything, including where a
+place is. Do not. Models are confident and often wrong about facts like
+coordinates, and a walking tour that sends someone across a busy road to a statue
+that is really two streets away is worse than no tour at all.
+
+So the coordinates come from real map data, and the model only gets to write about
+places that have already been checked. There is a review step in the pipeline whose
+entire job is to reject anything the model invented. It felt like overkill until the
+first time it caught a point of interest that did not exist.
+
+## Batch when you can
+
+The other practical thing: generating one tour means generating dozens of little
+pieces of narration. Doing that one call at a time is slow and expensive. When the
+pipeline fans out over fifty or more items, it goes through a batch mode instead,
+which trades a bit of latency for a much smaller bill. For a small product paying
+its own way, that math matters.
+
+Most of what I learned building Citourfy was not about prompts. It was about
+treating the model as one unreliable worker inside a larger system, and building the
+checks that make its output safe to ship.
