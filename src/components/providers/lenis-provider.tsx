@@ -1,7 +1,29 @@
 "use client";
 
-import { ReactLenis } from "lenis/react";
+import { ReactLenis, useLenis } from "lenis/react";
 import { useEffect, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+/**
+ * Keeps GSAP ScrollTrigger in step with Lenis' smoothed scroll position, so
+ * pinned sections track the scroll instead of lagging behind it.
+ */
+function GsapLenisSync() {
+  const lenis = useLenis();
+  useEffect(() => {
+    if (!lenis) return;
+    const onScroll = () => ScrollTrigger.update();
+    lenis.on("scroll", onScroll);
+    ScrollTrigger.refresh();
+    return () => lenis.off("scroll", onScroll);
+  }, [lenis]);
+  return null;
+}
 
 /**
  * Global smooth scroll. Disabled entirely when the user prefers reduced motion —
@@ -30,6 +52,7 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
         touchMultiplier: 1.4,
       }}
     >
+      <GsapLenisSync />
       {children}
     </ReactLenis>
   );
