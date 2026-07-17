@@ -23,11 +23,11 @@ const siteUrl = "https://alexmatosolive.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Alex Matos Olive — iOS Developer & CTO",
-    template: "%s — Alex Matos Olive",
+    default: "Alex Matos Olive · iOS Developer & CTO",
+    template: "%s · Alex Matos Olive",
   },
   description:
-    "Computer Engineering student at UB, iOS developer, and Co-founder & CTO at WRDB. I build real product end to end — a native iOS AI app live on the App Store, serverless backends, and web.",
+    "Computer Engineering student at UB, iOS developer, and Co-founder & CTO at WRDB. I build real product end to end. A native iOS AI app live on the App Store, serverless backends, and web.",
   keywords: [
     "Alex Matos Olive",
     "iOS Developer",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: "Alex Matos Olive — iOS Developer & CTO",
+    title: "Alex Matos Olive · iOS Developer & CTO",
     description:
       "iOS developer and Co-founder & CTO at WRDB. Building real product end to end.",
     siteName: "Alex Matos Olive",

@@ -15,13 +15,13 @@ export type Chapter = {
 export const wrdb = {
   name: "WRDB",
   role: "Co-founder & CTO",
-  period: "2025 — present",
+  period: "2025 to present",
   tagline: "AI-powered virtual wardrobe, native on iOS.",
   chapters: [
     {
       index: "01",
       title: "What it is",
-      body: "A B2C native iOS app powered by AI — personalized outfit recommendations and closet organization. Live in production on the App Store.",
+      body: "A B2C native iOS app powered by AI, with personalized outfit recommendations and closet organization. Live in production on the App Store.",
     },
     {
       index: "02",

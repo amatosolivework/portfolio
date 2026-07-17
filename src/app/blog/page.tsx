@@ -15,7 +15,7 @@ export default function BlogIndex() {
   return (
     <div className="mx-auto max-w-[1400px] px-6 pb-28 pt-32 md:px-10 md:pt-40">
       <div className="flex items-baseline justify-between border-t border-ink pt-4 font-mono text-eyebrow uppercase tracking-[0.14em] text-ink">
-        <span>Writing — Vol. 1</span>
+        <span>Writing · Vol. 1</span>
         <span className="text-ink-faint">Index</span>
       </div>
 

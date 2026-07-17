@@ -14,7 +14,7 @@ export function ShowcaseFlagship() {
       <div className="mx-auto max-w-[1400px] px-6 pb-24 pt-20 md:px-10 md:pb-32 md:pt-28">
         {/* feature masthead */}
         <div className="flex items-baseline justify-between border-t border-hairline pt-4 font-mono text-eyebrow uppercase tracking-[0.14em] text-ink-muted">
-          <span>The Feature — 01</span>
+          <span>The Feature · 01</span>
           <span>{wrdb.role}</span>
         </div>
 
@@ -43,7 +43,7 @@ export function ShowcaseFlagship() {
                 </span>
               </div>
               <figcaption className="mt-4 font-mono text-eyebrow uppercase tracking-[0.12em] text-ink-faint">
-                Fig. 1 — WRDB, native iOS
+                Fig. 1 · WRDB, native iOS
               </figcaption>
             </figure>
           </div>
@@ -53,7 +53,7 @@ export function ShowcaseFlagship() {
             <Reveal>
               <p className="max-w-md text-lg leading-relaxed text-ink-muted">
                 AI-powered virtual wardrobe, native on iOS. As Co-founder &amp; CTO
-                I own it end to end — the app, the backend, the AI, and the web.
+                I own it end to end: the app, the backend, the AI, and the web.
               </p>
             </Reveal>
 

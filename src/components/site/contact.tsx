@@ -12,7 +12,7 @@ export function Contact() {
     <section id="contact" className="scroll-mt-20 border-t border-ink">
       <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-32">
         <Reveal className="flex items-baseline justify-between font-mono text-eyebrow uppercase tracking-[0.14em] text-ink-faint">
-          <span>Contact — 04</span>
+          <span>Contact · 04</span>
           <span className="text-brand">Available for an internship</span>
         </Reveal>
 
@@ -28,7 +28,7 @@ export function Contact() {
         <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-12">
           <Reveal className="md:col-span-7">
             <p className="max-w-lg text-xl leading-relaxed text-ink-muted">
-              Open to a curricular internship — mornings, in Barcelona, through a UB
+              Open to a curricular internship: mornings, in Barcelona, through a UB
               agreement. If you&apos;re hiring or just want to talk shop, my inbox is
               open.
             </p>

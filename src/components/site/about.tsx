@@ -14,7 +14,7 @@ export function About() {
       <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
         {/* running head */}
         <Reveal className="flex items-baseline justify-between font-mono text-eyebrow uppercase tracking-[0.14em] text-ink-faint">
-          <span>About — 03</span>
+          <span>About · 03</span>
           <span>b. Barcelona</span>
         </Reveal>
 
@@ -46,7 +46,7 @@ export function About() {
                   style={{ fontSize: "var(--text-2xl)" }}
                 >
                   I build real product<span className="text-brand">,</span> end to
-                  end — and I want to keep growing as an engineer.
+                  end. And I want to keep growing as an engineer.
                 </p>
               </blockquote>
             </Reveal>

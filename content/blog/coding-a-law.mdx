@@ -1,0 +1,37 @@
+---
+title: "Writing code for a law"
+description: "Turning Spanish time-tracking regulation into a product normal people can actually use."
+date: "2026-06-28"
+tags: ["Flutter", "Product", "Compliance"]
+---
+
+One of the apps I work on, EasyFichi, exists because of a law. In Spain every
+company has to record when employees start and finish their work. That is Royal
+Decree 8/2019, if you enjoy reading legal text, which I now do far more than I
+ever planned to. Most small businesses handle it with a paper sheet or an Excel
+file that nobody really trusts.
+
+So the product is easy to describe and annoying to build. Let people clock in and
+out, and make the records hold up if an inspector ever asks to see them.
+
+## Legal text is a spec written by someone who hates specs
+
+A law does not read like a task ticket. It tells you the outcome it wants and
+leaves the how to you, which sounds freeing until you realize you are now
+responsible for every gap it left behind. Can an employee edit a past entry? For
+how long? Who approves the change? What even counts as a valid record? The decree
+has strong opinions on some of this and total silence on the rest.
+
+Turning that into Flutter screens and Firestore documents meant making a hundred
+small decisions and being ready to defend each one. Not "this looks nice" but
+"this is correct, and here is why."
+
+## Boring is the feature
+
+When the domain is dull there is a temptation to make the app exciting anyway.
+Resist it. A time-tracking app has one job: be correct and be trusted. A manager
+should open it, see the truth, and close it again. The best compliment we get is
+that people forget it is there.
+
+I have shipped flashier things. This one taught me the most, because "correct" is
+a much harder target to hit than "looks good."

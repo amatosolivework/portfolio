@@ -42,7 +42,7 @@ export function Masthead() {
         <span className="text-right text-ink-faint">
           Vol.&nbsp;1
           <br className="md:hidden" />
-          <span className="hidden md:inline"> — </span>
+          <span className="hidden md:inline"> · </span>
           MMXXVI
         </span>
       </motion.div>
@@ -70,7 +70,7 @@ export function Masthead() {
             className="max-w-sm text-lg leading-relaxed text-ink-muted"
           >
             An iOS developer and Co-founder &amp; CTO at WRDB, building real product
-            end to end — a native AI app live on the App&nbsp;Store, serverless
+            end to end. A native AI app live on the App&nbsp;Store, serverless
             backends, and web.
           </motion.p>
 

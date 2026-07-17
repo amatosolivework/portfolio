@@ -1,0 +1,42 @@
+---
+title: "I ship in Swift and in Flutter"
+description: "Why I use both, and how I decide which one a project gets."
+date: "2026-07-09"
+tags: ["Swift", "Flutter", "iOS"]
+---
+
+WRDB, the app I build as CTO, is native Swift and SwiftUI. The other apps I work
+on, EasyFichi, Citourfy and MyGrain, are Flutter. People treat this like a
+contradiction, as if you have to pick a side and defend it for life. I do not
+think you do.
+
+Here is roughly how I decide.
+
+## When I reach for Swift
+
+WRDB lives or dies on feeling like a real iPhone app. It leans on the camera, on
+smooth animation, on the small details that separate something native from a
+website wrapped in an app icon. For that, Swift and SwiftUI win. You sit closer to
+the platform, the tools understand what you are doing, and when Apple ships
+something new you get it on day one.
+
+The cost is real. It is iOS only. Every screen you build, you build once, for one
+place.
+
+## When I reach for Flutter
+
+The other apps need to run on Android and iOS, and sometimes the web, without me
+writing everything three times. EasyFichi alone has an admin app, an employee app
+and a kiosk mode. Building that natively, as one person, is simply not happening.
+Flutter lets a single codebase cover a lot of ground, and Firebase behind it keeps
+the backend small enough that I can actually maintain it.
+
+You give up a little of that native feel. For a time-tracking tool, nobody
+notices. For WRDB, they would notice immediately.
+
+## The point is not loyalty
+
+I like both. They are tools. The interesting skill was never memorizing one
+syntax, it is figuring out what a project actually needs before I open the editor.
+A wardrobe app that has to feel premium is a different question from a compliance
+tool that has to run everywhere. Same engineer, different tool for the job.
