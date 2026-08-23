@@ -11,14 +11,13 @@ colors. Feature spread uses CSS sticky + GSAP ScrollTrigger scrub (GSAP IS bundl
 **Live:** https://portfolio-blush-two-46.vercel.app — Vercel project `portfolio`
 under the **wrdb** team (no personal Vercel account is accessible on this login).
 Git connected → pushes to `main` auto-deploy to production.
+**Domain LIVE:** https://alexmatosolive.com + www resolve over HTTPS (valid SSL).
+Namecheap BasicDNS: A `@ → 76.76.21.21`, CNAME `www → cname.vercel-dns.com`. Note:
+Vercel's auto cert issuance did NOT fire on its own — had to force it with
+`npx vercel certs issue alexmatosolive.com www.alexmatosolive.com --scope wrdb`.
 **Needs Alex:**
-1. `alexmatosolive.com` is attached to the project but NOT resolving: it's on
-   Namecheap with unverified WHOIS (nameservers show `failed-whois-verification`),
-   so DNS is parked. Verify WHOIS contact in Namecheap first, then point DNS —
-   A record `@ → 76.76.21.21` (+ CNAME `www → cname.vercel-dns.com`), or switch
-   nameservers to `ns1/ns2.vercel-dns.com`.
-2. The 6 blog posts are AI-drafted in his voice — review/personalize before sharing.
-3. Real app screenshots pending — drop into `public/showcase/<app>/` (agents briefed).
+1. The 6 blog posts are AI-drafted in his voice — review/personalize before sharing.
+2. Real app screenshots pending — drop into `public/showcase/<app>/` (agents briefed).
 
 ## Redesign phases (R)
 
