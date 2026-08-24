@@ -15,15 +15,23 @@ Git connected → pushes to `main` auto-deploy to production.
 Namecheap BasicDNS: A `@ → 76.76.21.21`, CNAME `www → cname.vercel-dns.com`. Note:
 Vercel's auto cert issuance did NOT fire on its own — had to force it with
 `npx vercel certs issue alexmatosolive.com www.alexmatosolive.com --scope wrdb`.
-**Blog:** 6 posts live and public by Alex's decision (2026-08-24); all reviewed for
-factual accuracy, voice, and zero em dashes. WRDB App Store link stays "soon" by
-Alex's decision (app arriving on the App Store soon).
-**Screenshots:** staged in `public/showcase/<app>/` with captions.md. Have: MyGrain (2,
-portrait), Citourfy (2, portrait), BuildLoud (4, landing incl. 1 mobile), EasyFichi (3,
-desktop, cropped; raws deleted + `*-raw.png` gitignored — raw captures held personal
-browser chrome). Missing: WRDB (agent capturing). Next: single wiring pass — portrait
-shots fill the 4:5 plates (object-cover), web shots sit in a large browser-frame mock
-on the plate; then deploy.
+**FACT (2026-08-24, do not regress): WRDB is in public TestFlight beta, NOT on the
+App Store.** Site, CV, and profile.md all say "TestFlight beta, heading to the App
+Store". TestFlight invite (verified live): testflight.apple.com/join/ZrMhcRRj.
+Citourfy status is "In beta". Never write "live on the App Store" until Alex confirms
+a real apps.apple.com URL. CV has NO phone number (Alex's decision).
+**Blog:** 6 posts live/public by Alex's decision; reviewed (accuracy, voice, no em
+dashes). Critic suggests one fresh deeper post (BuildLoud/Base Jump story) + drop the
+read-time badge.
+**Figures (final design):** raw screenshots at native aspect ratio, NEVER cropped, no
+plate/frame; sticky + viewport-centered (h-svh flex); crossfade per chapter via
+per-chapter ScrollTriggers, figcaption updates ("Fig. 01 · WRDB · Wardrobe"). All
+shots committed under `public/showcase/<app>/` (`*-raw.png` gitignored — raws held
+personal browser chrome).
+**Outstanding (from Fable critic pass, full report 2026-08-24):** (1) Alex: GitHub
+polish — profile README, pin portfolio, org README for wrdb-team (site's WRDB GitHub
+link removed until then), extract one public Swift repo; (2) Alex: recapture EasyFichi
+in a narrower window with dense data; (3) optional: re-typeset CV to match site.
 
 ## Redesign phases (R)
 
