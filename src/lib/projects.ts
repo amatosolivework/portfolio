@@ -133,4 +133,33 @@ export const features: Feature[] = [
     links: [{ label: "App Store", href: null }],
     tone: "light",
   },
+  {
+    id: "buildloud",
+    index: "05",
+    name: "BuildLoud",
+    status: "Shipped at Base Jump",
+    headline: "You built the product. Let the machine market it.",
+    lede: "An AI marketing machine for solo founders. Describe your brand once, and it plans, writes, and auto-publishes a full week of on-brand Instagram content. Built in a sprint at the Base Jump accelerator in Barcelona.",
+    plateCaption: "Base Jump · Barcelona",
+    chapters: [
+      {
+        title: "What it is",
+        body: "Founders can build but rarely have time to market. BuildLoud turns a 30-second brand description into a week of Instagram content: carousels, reels, and posts, published on autopilot so shipping code never stops for a content calendar.",
+      },
+      {
+        title: "How it's built",
+        body: "Next.js and TypeScript on Supabase. Claude plans the week and writes every post, Higgsfield and fal render the founder's face consistently across all of it, and the Instagram API publishes on schedule. Stripe handles billing, and a credit meter prices every generation.",
+      },
+      {
+        title: "Built in a sprint",
+        body: "Made with one teammate at Base Jump, a v3v-ventures-backed accelerator in Barcelona. The part I like most is the weekly loop: every Sunday it reads saves, reach, and comments, then reweights the next week around the hooks that actually landed. Face-locked generation keeps it from looking like generic AI.",
+      },
+    ],
+    stack: ["Next.js", "TypeScript", "Supabase", "Claude (AI SDK)", "Higgsfield / fal", "Stripe"],
+    links: [
+      { label: "buildloud.site", href: "https://buildloud.site" },
+      { label: "Base Jump '26", href: "https://thebasejump.com/hackerhouse" },
+    ],
+    tone: "dark",
+  },
 ];
