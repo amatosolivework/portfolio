@@ -16,7 +16,7 @@ if (typeof window !== "undefined") {
  * plate sticks (CSS sticky, so it is always contained to its own section and can
  * never overlap the next feature) while GSAP ScrollTrigger scrubs it: it tilts,
  * drifts, and settles as its chapters scroll past, and the chapters reveal in
- * sequence. Dark and light spreads alternate and the plate flips side, so four in
+ * sequence. Dark and light spreads alternate and the plate flips side, so five in
  * a row never feel repetitive. Motion runs only on wide screens with motion
  * allowed; otherwise everything is a clean static stack.
  */

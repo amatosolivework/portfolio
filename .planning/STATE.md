@@ -15,9 +15,15 @@ Git connected → pushes to `main` auto-deploy to production.
 Namecheap BasicDNS: A `@ → 76.76.21.21`, CNAME `www → cname.vercel-dns.com`. Note:
 Vercel's auto cert issuance did NOT fire on its own — had to force it with
 `npx vercel certs issue alexmatosolive.com www.alexmatosolive.com --scope wrdb`.
-**Needs Alex:**
-1. The 6 blog posts are AI-drafted in his voice — review/personalize before sharing.
-2. Real app screenshots pending — drop into `public/showcase/<app>/` (agents briefed).
+**Blog:** 6 posts live and public by Alex's decision (2026-08-24); all reviewed for
+factual accuracy, voice, and zero em dashes. WRDB App Store link stays "soon" by
+Alex's decision (app arriving on the App Store soon).
+**Screenshots:** staged in `public/showcase/<app>/` with captions.md. Have: MyGrain (2,
+portrait), Citourfy (2, portrait), BuildLoud (4, landing incl. 1 mobile), EasyFichi (3,
+desktop, cropped; raws deleted + `*-raw.png` gitignored — raw captures held personal
+browser chrome). Missing: WRDB (agent capturing). Next: single wiring pass — portrait
+shots fill the 4:5 plates (object-cover), web shots sit in a large browser-frame mock
+on the plate; then deploy.
 
 ## Redesign phases (R)
 

@@ -45,3 +45,6 @@ next-env.d.ts
 /.playwright-mcp/
 /accent*.png
 /*.png
+
+# never commit raw screen captures (contain personal browser chrome)
+*-raw.png
