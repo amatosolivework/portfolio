@@ -83,6 +83,7 @@ export const features: Feature[] = [
     links: [
       { label: "wrdb.site", href: "https://wrdb.site" },
       { label: "TestFlight", href: "https://testflight.apple.com/join/ZrMhcRRj" },
+      { label: "GitHub", href: "https://github.com/wrdb-team/wrdb" },
       { label: "App Store", href: null },
     ],
     tone: "dark",
