@@ -18,11 +18,11 @@
 
 ## One-liner (hero)
 
-Building real product end to end — a native iOS AI app live on the App Store, serverless backends, and web. Computer Engineering student at UB, Co-founder & CTO at WRDB.
+Building real product end to end. A native iOS AI app in TestFlight beta, serverless backends, and web. Computer Engineering student at UB, Co-founder & CTO at WRDB.
 
 ## About / bio
 
-Computer Engineering student at the University of Barcelona (specialization in Software Engineering) and co-founder/CTO of WRDB. Builds real product end to end: a Swift/SwiftUI app live on the App Store, a serverless backend on Supabase and Cloudflare Workers, a web front in Next.js, and applied AI through MCP and Claude Code.
+Computer Engineering student at the University of Barcelona (specialization in Software Engineering) and co-founder/CTO of WRDB. Builds real product end to end: a Swift/SwiftUI app in TestFlight beta, a serverless backend on Supabase and Cloudflare Workers, a web front in Next.js, and applied AI through MCP and Claude Code.
 
 ## Education
 
@@ -33,7 +33,7 @@ Computer Engineering student at the University of Barcelona (specialization in S
 ### WRDB — flagship (Co-founder & CTO)
 - B2C native iOS virtual-wardrobe app powered by AI. Personalized outfit recommendations and closet organization.
 - Stack: Swift, SwiftUI (Clean Architecture: Domain → UseCases → Data → Presentation), Supabase (PostgreSQL, Auth, Edge Functions), Cloudflare Workers, Next.js, computer vision.
-- Status: live in production (App Store). AI-assisted workflow with Claude Code + MCP.
+- Status: public TestFlight beta with real users, heading to the App Store (NOT live on the App Store yet; never claim it is). AI-assisted workflow with Claude Code + MCP.
 - Links: App Store (add real URL), product site (add if public).
 
 ### migraine — iOS app

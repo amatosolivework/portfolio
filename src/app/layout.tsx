@@ -23,11 +23,11 @@ const siteUrl = "https://alexmatosolive.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Alex Matos Olive · iOS Developer & CTO",
+    default: "Alex Matos Olive · iOS Developer & CTO · CE Student at UB",
     template: "%s · Alex Matos Olive",
   },
   description:
-    "Computer Engineering student at UB, iOS developer, and Co-founder & CTO at WRDB. I build real product end to end. A native iOS AI app live on the App Store, serverless backends, and web.",
+    "Computer Engineering student at UB, iOS developer, and Co-founder & CTO at WRDB. I build real product end to end. A native iOS AI app in TestFlight beta, serverless backends, and web.",
   keywords: [
     "Alex Matos Olive",
     "iOS Developer",

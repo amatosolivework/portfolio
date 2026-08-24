@@ -13,12 +13,12 @@ export function SiteFooter() {
         </p>
 
         <div className="mt-8 grid grid-cols-1 gap-10 md:grid-cols-12">
-          <p className="col-span-12 max-w-xl text-2xl leading-snug tracking-tight text-ink md:col-span-7">
+          <p className="max-w-xl text-2xl leading-snug tracking-tight text-ink md:col-span-7">
             Built &amp; edited by Alex Matos Olive in {site.location}. Selected
             Work, Vol.&nbsp;1.
           </p>
 
-          <div className="col-span-12 flex flex-col gap-2 font-mono text-eyebrow uppercase tracking-[0.12em] md:col-span-5 md:items-end">
+          <div className="flex flex-col gap-2 font-mono text-eyebrow uppercase tracking-[0.12em] md:col-span-5 md:items-end">
             <a href={`mailto:${site.email}`} className="text-ink transition-colors hover:text-brand">
               {site.email} ↗
             </a>

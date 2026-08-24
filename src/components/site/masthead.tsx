@@ -53,7 +53,7 @@ export function Masthead() {
           variants={staggerContainer(0.12, 0.2)}
           initial="hidden"
           animate="visible"
-          className="col-span-12 font-semibold leading-[0.86] tracking-[-0.03em] text-ink lg:col-span-8"
+          className="font-semibold leading-[0.86] tracking-[-0.03em] text-ink lg:col-span-8"
           style={{ fontSize: "var(--text-masthead)", fontWeight: 800 }}
         >
           {nameLine("Alex")}
@@ -62,16 +62,16 @@ export function Masthead() {
         </motion.h1>
 
         {/* lede + contents index */}
-        <div className="col-span-12 flex flex-col justify-end gap-10 lg:col-span-4">
+        <div className="flex flex-col justify-end gap-10 lg:col-span-4">
           <motion.p
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-sm text-lg leading-relaxed text-ink-muted"
           >
-            An iOS developer and Co-founder &amp; CTO at WRDB, building real product
-            end to end. A native AI app live on the App&nbsp;Store, serverless
-            backends, and web.
+            Computer Engineering student at UB and Co-founder &amp; CTO at WRDB,
+            building real product end to end. A native AI app in TestFlight beta,
+            heading to the App&nbsp;Store, serverless backends, and web.
           </motion.p>
 
           <motion.nav

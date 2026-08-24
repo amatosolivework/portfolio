@@ -14,7 +14,7 @@ export function About() {
       <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
         {/* running head */}
         <Reveal className="flex items-baseline justify-between font-mono text-eyebrow uppercase tracking-[0.14em] text-ink-faint">
-          <span>About · 03</span>
+          <span>About · 02</span>
           <span>b. Barcelona</span>
         </Reveal>
 
@@ -31,7 +31,7 @@ export function About() {
 
             <Reveal>
               <p className="mt-6 text-xl leading-relaxed text-ink-muted">
-                I build the whole stack: a Swift/SwiftUI app live on the App Store,
+                I build the whole stack: a Swift/SwiftUI app in TestFlight beta,
                 a serverless backend on Supabase and Cloudflare Workers, a Next.js
                 web front, and applied AI through computer vision, MCP, and Claude
                 Code.

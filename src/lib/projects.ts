@@ -7,6 +7,14 @@
 export type ProjectLink = { label: string; href: string | null };
 export type Chapter = { title: string; body: string };
 
+/** One real product screenshot in the figure sequence. */
+export type Shot = {
+  src: string;
+  alt: string;
+  /** Short screen name for the figure caption, e.g. "Home". */
+  label: string;
+};
+
 export type Feature = {
   id: string;
   index: string;
@@ -15,6 +23,13 @@ export type Feature = {
   headline: string;
   lede: string;
   plateCaption: string;
+  /** phone: tall portrait captures. web: wide landscape captures. Sets figure sizing. */
+  shotKind?: "phone" | "web";
+  /** Native pixel size shared by every shot in the sequence; figures render at this exact ratio, never cropped. */
+  shotWidth?: number;
+  shotHeight?: number;
+  /** Figure sequence: the pinned figure turns through these as the chapters scroll. */
+  shots?: Shot[];
   chapters: Chapter[];
   stack: string[];
   links: ProjectLink[];
@@ -26,14 +41,34 @@ export const features: Feature[] = [
     id: "work", // nav anchor for "Selected Work"
     index: "01",
     name: "WRDB",
-    status: "Live on the App Store",
-    headline: "An AI wardrobe, live on the App Store.",
+    status: "TestFlight beta",
+    headline: "An AI wardrobe, heading to the App Store.",
     lede: "AI-powered virtual wardrobe, native on iOS. As Co-founder and CTO I own it end to end: the app, the backend, the AI, and the web.",
-    plateCaption: "Live on the App Store",
+    plateCaption: "TestFlight beta",
+    shotKind: "phone",
+    shotWidth: 1206,
+    shotHeight: 2622,
+    shots: [
+      {
+        src: "/showcase/wrdb/wrdb-01.png",
+        alt: "WRDB home screen showing a daily AI outfit recommendation for travel, with save, try another, and share as OOTD actions",
+        label: "Home",
+      },
+      {
+        src: "/showcase/wrdb/wrdb-02.png",
+        alt: "WRDB wardrobe screen with a 55-item closet grid organized by categories and favorites",
+        label: "Wardrobe",
+      },
+      {
+        src: "/showcase/wrdb/wrdb-03.png",
+        alt: "WRDB social feed with an outfit shared as a post to friends",
+        label: "Social",
+      },
+    ],
     chapters: [
       {
         title: "What it is",
-        body: "A B2C native iOS app powered by AI, with personalized outfit recommendations and closet organization. Live in production on the App Store.",
+        body: "A B2C native iOS app powered by AI, with personalized outfit recommendations and closet organization. In TestFlight beta with real users, heading to the App Store.",
       },
       {
         title: "How it's built",
@@ -47,8 +82,8 @@ export const features: Feature[] = [
     stack: ["Swift", "SwiftUI", "Supabase", "Cloudflare Workers", "Next.js", "Computer Vision"],
     links: [
       { label: "wrdb.site", href: "https://wrdb.site" },
+      { label: "TestFlight", href: "https://testflight.apple.com/join/ZrMhcRRj" },
       { label: "App Store", href: null },
-      { label: "GitHub", href: "https://github.com/wrdb-team" },
     ],
     tone: "dark",
   },
@@ -60,6 +95,26 @@ export const features: Feature[] = [
     headline: "A labor law, turned into software people trust.",
     lede: "A workforce time-tracking and compliance platform for Spanish small businesses, built around the mandatory workday-registration law. In production, used daily by a real company.",
     plateCaption: "In production",
+    shotKind: "web",
+    shotWidth: 2912,
+    shotHeight: 1608,
+    shots: [
+      {
+        src: "/showcase/easyfichi/easyfichi-01.png",
+        alt: "EasyFichi inspection board showing each employee's live shift status: on shift, finished, or pending, with clock-in times",
+        label: "Inspección",
+      },
+      {
+        src: "/showcase/easyfichi/easyfichi-02.png",
+        alt: "EasyFichi collective closures screen listing paid leave and holiday periods, including a weather alert closure",
+        label: "Ausencias",
+      },
+      {
+        src: "/showcase/easyfichi/easyfichi-03.png",
+        alt: "EasyFichi business settings with fiscal data, notification email, and regional timezone configuration",
+        label: "Empresa",
+      },
+    ],
     chapters: [
       {
         title: "What it is",
@@ -85,14 +140,29 @@ export const features: Feature[] = [
     id: "citourfy",
     index: "03",
     name: "Citourfy",
-    status: "In production",
+    status: "In beta",
     headline: "Walking audio tours, built by an AI pipeline.",
     lede: "Self-guided walking audio tours through a city, narrated point by point and fully offline. The app is Flutter; the real product is the pipeline that writes the tours.",
     plateCaption: "Barcelona · Athens",
+    shotKind: "phone",
+    shotWidth: 1206,
+    shotHeight: 2622,
+    shots: [
+      {
+        src: "/showcase/citourfy/citourfy-01.png",
+        alt: "Citourfy explore screen with a map of Barcelona, a walking route traced through La Barceloneta, and a featured downloadable tour",
+        label: "Explore",
+      },
+      {
+        src: "/showcase/citourfy/citourfy-02.png",
+        alt: "Citourfy tour detail for La Barceloneta: 22 stops over three hours, with the route listed stop by stop",
+        label: "Tour detail",
+      },
+    ],
     chapters: [
       {
         title: "What it is",
-        body: "You pick a neighborhood, start walking, and Citourfy narrates each point of interest as you reach it. You buy a tour once, it never expires, and it downloads in full so it works with no signal.",
+        body: "You pick a neighborhood, start walking, and Citourfy narrates each point of interest as you reach it. You'll buy a tour once and it never expires; it downloads in full so it works with no signal.",
       },
       {
         title: "The pipeline is the product",
@@ -115,6 +185,21 @@ export const features: Feature[] = [
     headline: "Track migraines. Understand the patterns.",
     lede: "A migraine tracker for iOS and Android that turns detailed episode logs into charts, reports, and clinical alerts. A full Flutter rewrite of an earlier native iOS app, on the same backend.",
     plateCaption: "iOS · Android",
+    shotKind: "phone",
+    shotWidth: 1206,
+    shotHeight: 2622,
+    shots: [
+      {
+        src: "/showcase/mygrain/mygrain-01.png",
+        alt: "MyGrain home screen asking how do you feel today, with suggested habits and shortcuts to reports, treatments, and habits",
+        label: "Home",
+      },
+      {
+        src: "/showcase/mygrain/mygrain-02.png",
+        alt: "MyGrain quick log sheet for choosing the headache type and rating pain intensity from zero to ten",
+        label: "Quick log",
+      },
+    ],
     chapters: [
       {
         title: "Understand, don't just log",
@@ -141,6 +226,26 @@ export const features: Feature[] = [
     headline: "You built the product. Let the machine market it.",
     lede: "An AI marketing machine for solo founders. Describe your brand once, and it plans, writes, and auto-publishes a full week of on-brand Instagram content. Built in a sprint at the Base Jump accelerator in Barcelona.",
     plateCaption: "Base Jump · Barcelona",
+    shotKind: "web",
+    shotWidth: 1440,
+    shotHeight: 900,
+    shots: [
+      {
+        src: "/showcase/buildloud/buildloud-01.png",
+        alt: "BuildLoud landing hero reading you built the product, let the machine market it, next to a week of scheduled face-locked Instagram posts",
+        label: "The pitch",
+      },
+      {
+        src: "/showcase/buildloud/buildloud-02.png",
+        alt: "BuildLoud architecture diagram: app context, GitHub commits, and trends feed Claude, which briefs Higgsfield and publishes to Instagram",
+        label: "The loop",
+      },
+      {
+        src: "/showcase/buildloud/buildloud-03.png",
+        alt: "BuildLoud pricing: one credit equals one cent, with free, pro, and business tiers",
+        label: "Pricing",
+      },
+    ],
     chapters: [
       {
         title: "What it is",
