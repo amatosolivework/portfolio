@@ -12,7 +12,7 @@
 ## Contact & links
 
 - **Email:** amatos.work@gmail.com
-- **LinkedIn:** https://linkedin.com/in/alex-matos-olive-403436381
+- **LinkedIn:** https://linkedin.com/in/alexmatosolive
 - **GitHub:** https://github.com/amatosolivework
 - **Phone:** +34 601 105 722 (optional to publish — keep off public site unless desired)
 

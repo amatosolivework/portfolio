@@ -9,7 +9,7 @@ export const site = {
   location: "Barcelona, Spain",
   email: "amatos.work@gmail.com",
   links: {
-    linkedin: "https://linkedin.com/in/alex-matos-olive-403436381",
+    linkedin: "https://linkedin.com/in/alexmatosolive",
     github: "https://github.com/amatosolivework",
   },
   cv: "/cv.pdf",
