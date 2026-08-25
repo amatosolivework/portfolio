@@ -44,6 +44,10 @@
       "role": "post"
     }
   ],
+  "comparator": {
+    "date": "2026-07-30",
+    "fire_day": 15
+  },
   "dnbr_legend": [
     {
       "label": "low",

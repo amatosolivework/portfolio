@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactLenis, useLenis } from "lenis/react";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -15,6 +16,8 @@ if (typeof window !== "undefined") {
  */
 function GsapLenisSync() {
   const lenis = useLenis();
+  const pathname = usePathname();
+
   useEffect(() => {
     if (!lenis) return;
     const onScroll = () => ScrollTrigger.update();
@@ -22,6 +25,20 @@ function GsapLenisSync() {
     ScrollTrigger.refresh();
     return () => lenis.off("scroll", onScroll);
   }, [lenis]);
+
+  // Client-side navigation swaps the page content but Lenis keeps the scroll
+  // limit measured on the previous document — scrolling then jams at the old
+  // page's height. Recompute the limit (and ScrollTrigger positions) once the
+  // new route has laid out.
+  useEffect(() => {
+    if (!lenis) return;
+    const raf = requestAnimationFrame(() => {
+      lenis.resize();
+      ScrollTrigger.refresh();
+    });
+    return () => cancelAnimationFrame(raf);
+  }, [lenis, pathname]);
+
   return null;
 }
 

@@ -32,6 +32,11 @@ export default async function IncendioPage() {
     ).map((v) => v.z_max),
   );
 
+  const comparatorDate = new Date(meta.comparator.date).toLocaleDateString(
+    "en-GB",
+    { day: "numeric", month: "short", year: "numeric" },
+  );
+
   const stats = [
     {
       n: `${zMax.toFixed(0)}σ`,
@@ -72,21 +77,25 @@ export default async function IncendioPage() {
       {/* comparator */}
       <section className="mt-20">
         <Reveal>
-          <div className="mb-4 flex items-baseline justify-between font-mono text-eyebrow uppercase tracking-[0.14em]">
-            <span className="text-ink">21 Jul 2026 — fire day 5</span>
-            <span className="text-ink-faint">drag to compare</span>
+          <div className="mx-auto max-w-[880px]">
+            <div className="mb-4 flex items-baseline justify-between font-mono text-eyebrow uppercase tracking-[0.14em]">
+              <span className="text-ink">
+                {comparatorDate} — fire day {meta.comparator.fire_day}
+              </span>
+              <span className="text-ink-faint">drag to compare</span>
+            </div>
+            <Comparator
+              optical={`${BASE}/comparator_rgb.png`}
+              thermal={`${BASE}/comparator_lst.png`}
+              alt={`La Mierla fire, ${comparatorDate}`}
+            />
+            <p className="mt-3 text-sm leading-relaxed text-ink-faint">
+              Same satellite, same instant. Left: surface reflectance (what a
+              camera sees). Right: land surface temperature from the thermal
+              infrared band — the burn area radiates at over 60&nbsp;°C while
+              the surrounding terrain sits 20 degrees cooler.
+            </p>
           </div>
-          <Comparator
-            optical={`${BASE}/comparator_rgb.png`}
-            thermal={`${BASE}/comparator_lst.png`}
-            alt="La Mierla fire, 21 July 2026"
-          />
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink-faint">
-            Same satellite, same instant. Left: surface reflectance (what a
-            camera sees). Right: land surface temperature from the thermal
-            infrared band — the burn area radiates at over 60&nbsp;°C while
-            the surrounding terrain sits 20 degrees cooler.
-          </p>
         </Reveal>
       </section>
 

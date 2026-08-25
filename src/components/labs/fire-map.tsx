@@ -123,7 +123,20 @@ export function FireMap({ meta, base }: { meta: Meta; base: string }) {
       });
     });
     map.current = m;
+    // maplibre zooms on ⌘/Ctrl+wheel but the page still moves: the site's
+    // smooth scroller (Lenis) listens on window and scrolls via JS, so
+    // preventDefault alone is not enough — stop the event from ever reaching
+    // it. maplibre's own handler lives deeper in the tree and has already run.
+    const el = container.current;
+    const onWheel = (ev: WheelEvent) => {
+      if (ev.metaKey || ev.ctrlKey) {
+        ev.preventDefault();
+        ev.stopPropagation();
+      }
+    };
+    el.addEventListener("wheel", onWheel, { passive: false });
     return () => {
+      el.removeEventListener("wheel", onWheel);
       m.remove();
       map.current = null;
     };
