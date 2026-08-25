@@ -52,8 +52,6 @@ export default async function PostPage({
       <header className="mt-10 border-b border-hairline pb-10">
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-eyebrow uppercase tracking-[0.12em] text-ink-faint">
           <time dateTime={post.date}>{formatDate(post.date)}</time>
-          <span aria-hidden>·</span>
-          <span>{post.readingTime} min read</span>
         </div>
         <h1
           className="mt-5 font-semibold tracking-tight text-ink"

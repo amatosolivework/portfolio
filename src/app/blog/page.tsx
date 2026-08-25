@@ -48,8 +48,6 @@ export default function BlogIndex() {
                   </div>
                   <div className="font-mono text-eyebrow uppercase tracking-[0.12em] text-ink-faint md:col-span-3 md:text-right">
                     {formatDate(post.date)}
-                    <br />
-                    {post.readingTime} min
                   </div>
                 </Link>
               </Reveal>

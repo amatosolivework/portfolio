@@ -1,0 +1,90 @@
+---
+title: "Shipping a SaaS in a weekend"
+description: "What building BuildLoud at the Base Jump accelerator taught me about scope, speed, and what survives a sprint."
+date: "2026-08-24"
+tags: ["Next.js", "AI", "BuildLoud"]
+---
+
+In April I spent a weekend at Base Jump, an accelerator in Barcelona backed by
+v3v ventures, building a SaaS called BuildLoud with one teammate. The premise
+fits in a sentence: you built the product, let the machine market it. A solo
+founder types a short description of their brand, and the system plans, writes,
+renders, and publishes a full week of Instagram content on autopilot.
+
+The landing page is still live at [buildloud.site](https://buildloud.site). This
+post is about what happens to your engineering when you have days instead of
+months, because I came out of that weekend building differently than I went in.
+
+## The problem was ours
+
+Every product I work on has the same marketing story. Building the thing is the
+fun part. Then someone has to post about it, and that someone is a developer who
+would rather fix a bug than film a reel. One piece of content can eat an hour or
+two. Multiply by three posts a week and you have a part time job nobody applied
+for.
+
+So the idea was not exotic. Automate the whole loop: plan the week, write the
+posts, render the visuals, publish on schedule, look at what worked, and adjust
+next week's plan accordingly. The interesting part was never the idea. It was
+whether two people could make the loop actually run before Sunday night.
+
+## The architecture of a weekend
+
+We wired together things that already worked instead of building things that
+might. Claude sits in the middle as the planner. It reads the founder's brand
+brief, plans a week of content, and writes every post. Higgsfield renders the
+visuals with the founder's face locked across all of them, because a feed of
+generic AI images fools nobody, but the same recognizable person every post
+starts to look like a brand. The Meta Graph API publishes to Instagram on a
+schedule. Underneath it all is Supabase: Postgres, auth, storage, and cron jobs
+for the publishing calendar.
+
+The part I ended up caring about most was the feedback loop. Every Sunday the
+system reads what got saves, reach, and comments, and reweights next week's plan
+around the hooks that actually landed. Without that, it is a content cannon.
+With it, it is something closer to a junior marketer that learns.
+
+Billing was credits through Stripe, one credit for one cent, with the AI costs
+bundled in so users never touch an API key. Pricing AI products is its own
+puzzle: every generation has a real cost, and the credit math has to survive
+your heaviest user. We spent a surprising chunk of the weekend on a spreadsheet,
+not on code.
+
+## What speed does to your decisions
+
+The rule at Base Jump was to deploy in the first hour, before writing anything
+of substance. It sounds like theater. It is not. Once the deploy pipeline works,
+every feature lands in a real environment minutes after it exists, and the
+question changes from "will this work in production" to "is this worth building
+at all."
+
+That question got brutal fast. With months of runway you can afford maybes.
+With one weekend, every maybe is a no. We cut an approval dashboard, cut
+multi-platform support, cut everything that was not the loop itself. What
+survived the cutting was, almost by definition, the product.
+
+I also learned to treat the demo as the spec. Not a slide describing the loop,
+but the loop running: type a brand, watch a week of content appear, watch a post
+go live. Working backward from that moment told us exactly which corners
+mattered and which ones nobody would ever see.
+
+None of this is how I build WRDB, and that is fine. A product with real users
+deserves architecture, tests, and patience. But I now notice when I am polishing
+something nobody asked for, and that instinct came from being forced to ship
+with the clock running.
+
+## What survives a sprint
+
+Honest ending: the backend is switched off now. Hackathon projects have
+lifespans, and keeping a full Supabase project alive for a product between
+lives was not the right call. The landing page stays up, the code is safe in
+the repo, and if BuildLoud gets a second life it will be a rebuild with better
+decisions, not a resurrection.
+
+What actually survived is less visible. A working knowledge of the Instagram
+publishing API and its OAuth maze. A pricing spreadsheet I have reused twice
+since. The habit of deploying before building. And the experience of standing
+in front of people who fund companies, showing a thing that did not exist on
+Friday, and watching it post to a real Instagram account.
+
+For a weekend, that is a good trade.
