@@ -187,6 +187,71 @@ export default async function IncendioPage() {
         </Reveal>
       </section>
 
+      {/* the work: the pipeline behind the pictures */}
+      <section className="mt-24">
+        <Reveal>
+          <div className="flex items-baseline justify-between border-t border-ink pt-4 font-mono text-eyebrow uppercase tracking-[0.14em] text-ink">
+            <span>The work</span>
+            <span className="text-ink-faint">4 scripts · Python</span>
+          </div>
+          <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-4">
+            {[
+              {
+                n: "01",
+                name: "Search",
+                body: "STAC query against Microsoft Planetary Computer. Twelve Landsat scenes chosen by role: seven for the thermal baseline, one before the fire, three during, one after.",
+                metric: "12 scenes · 4 roles",
+              },
+              {
+                n: "02",
+                name: "Fetch",
+                body: "Only the study area is read from each remote cloud-optimized GeoTIFF, via HTTP range requests — no full-scene downloads.",
+                metric: "41 MB instead of ~5 GB",
+              },
+              {
+                n: "03",
+                name: "Measure",
+                body: "Sensor counts become °C on one common 30 m grid; clouds are masked with the QA band, and every scene is checked against physical bounds before it moves on.",
+                metric: "invariants on every step",
+              },
+              {
+                n: "04",
+                name: "Detect",
+                body: "Per-pixel z-scores against each pixel's own June–July statistics, plus dNBR burn severity with water masked out of the equation.",
+                metric: "17σ · 20,530 ha",
+              },
+            ].map((step) => (
+              <div key={step.n}>
+                <div className="font-mono text-eyebrow uppercase tracking-[0.12em] text-ink-faint">
+                  {step.n}
+                </div>
+                <div className="mt-2 font-semibold tracking-tight text-ink">
+                  {step.name}
+                </div>
+                <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+                  {step.body}
+                </p>
+                <div className="mt-3 font-mono text-[11px] tracking-[0.1em] text-brand">
+                  {step.metric}
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="mt-10 max-w-2xl text-sm leading-relaxed text-ink-muted">
+            Those checks failed twice along the way, and both failures were
+            real bugs: a study area six times smaller than the fire, and
+            reservoirs classified as high-severity burn.{" "}
+            <a
+              href="/blog/watching-a-wildfire-in-thermal"
+              className="text-brand underline-offset-4 hover:underline"
+            >
+              The write-up tells that story
+            </a>
+            .
+          </p>
+        </Reveal>
+      </section>
+
       {/* honesty */}
       <section className="mt-24 max-w-2xl">
         <Reveal>
