@@ -1,0 +1,94 @@
+---
+title: "Watching a wildfire from space, in thermal"
+description: "I rebuilt the story of Spain's largest fire of 2026 from open Landsat data: temperature, 17-sigma anomalies, and two bugs my own invariants caught."
+date: "2026-08-25"
+tags: ["Earth Observation", "Python", "Remote Sensing"]
+---
+
+In July 2026 a fire started near La Mierla, a village of about forty people in the
+Sierra Norte de Guadalajara. Eighteen days later it had burned through some 35,000
+hectares, the largest Spanish wildfire of the year. I spent a weekend rebuilding
+its story from open satellite data, and it taught me more about a field I knew
+nothing about than a month of reading would have.
+
+The result is an [interactive page](/labs/incendio) and a
+[repository](https://github.com/amatosolivework/landsat-thermal-fire) with the
+full pipeline. This post is about what I actually learned building it.
+
+## Why thermal
+
+A normal satellite image is reflected sunlight. No sun, no image. The thermal
+infrared band is different: it measures the radiation objects emit because of
+their own temperature, which means it works at midnight exactly as well as at
+noon.
+
+There is a subtler advantage, and it is the one that hooked me. In the optical
+image, the burn area of La Mierla is a dark stain you could honestly mistake for
+terrain shadow. You need to know where to look. In the thermal band the same
+pixels sit at over 60 °C while everything around them is twenty degrees cooler.
+One image requires an expert. The other requires eyes.
+
+## The pipeline
+
+Landsat 8 and 9 carry thermal sensors and their entire archive is free. The
+pipeline is four small Python scripts:
+
+1. **Search and fetch.** Scenes come from Microsoft Planetary Computer through
+   STAC, the catalog standard the whole industry converged on. The files are
+   cloud-optimized GeoTIFFs, so instead of downloading 500 MB scenes I read only
+   my area of interest through HTTP range requests. Twelve scenes, 41 MB.
+2. **Temperature.** The raw numbers become degrees Celsius, clouds get masked
+   out using the quality band, and everything lands on one common grid.
+3. **Detection.** Every pixel gets a z-score against its own June and July
+   baseline. Separately, an index called dNBR compares vegetation before and
+   after to map burn severity.
+4. **Export.** The results become small static PNGs that a Next.js page renders
+   with MapLibre. No backend, nothing to fall over.
+
+The hottest fire pixel came out at 17 standard deviations above its own
+baseline. Statistically speaking, that pixel is screaming.
+
+## The two bugs that looked perfectly fine
+
+Here is the thing about remote sensing that I did not appreciate until I was in
+it: **wrong results look normal**. A temperature map that is off by two degrees
+looks exactly like a correct one. Nobody crashes. No exception is thrown.
+
+So I made the pipeline validate physical invariants at every step, and that
+decision paid for itself twice in one afternoon.
+
+First, the burned-area check failed: I was detecting 6,000 hectares against an
+official figure of 35,000. The code was right and my map was wrong. The fire had
+run sixty kilometres northeast, far beyond the box I had drawn around the
+ignition point. Without that assertion I would have published a beautiful,
+confident analysis of one sixth of the fire.
+
+Second, after widening the box, two reservoirs showed up classified as
+high-severity burn. Water reflects infrared in ways that break the dNBR
+formula, a classic false positive I only knew to look for because the
+"burned lake" looked suspicious. One quality-band bit masks it out.
+
+## What the data refused to say
+
+I went in expecting to show that thermal sees through smoke. It does, partially,
+in physics. But in all three mid-fire scenes I have, there is no dense plume
+over the front at the satellite's morning pass, so my data cannot demonstrate
+the claim, and the page does not make it.
+
+What the data does show is arguably better: four days after the fire was
+declared controlled, the scar still radiates at around 60 °C. If you wanted to
+monitor a fire zone for reignition, the thermal band would keep telling you
+things long after the optical image went quiet.
+
+## What I would do next
+
+More scenes and more fires, obviously. But the interesting direction is the one
+this project only gestures at: revisit time. Landsat passes every few days;
+a fire moves every hour. The gap between those two numbers is an entire
+industry, and it is why companies are launching dedicated thermal
+constellations right now. Building a toy version of the ground segment gave me
+enormous respect for the real ones.
+
+The [viewer is here](/labs/incendio), the
+[code is here](https://github.com/amatosolivework/landsat-thermal-fire), and
+the fire, thankfully, is out.
