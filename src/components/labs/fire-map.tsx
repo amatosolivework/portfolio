@@ -82,6 +82,8 @@ export function FireMap({ meta, base }: { meta: Meta; base: string }) {
       bounds: [w, s, e, n],
       fitBoundsOptions: { padding: 24 },
       attributionControl: { compact: true },
+      // trackpad-friendly: page scroll passes through; ⌘/Ctrl+scroll zooms
+      cooperativeGestures: true,
     });
     m.addControl(new maplibregl.NavigationControl({ showCompass: false }));
 
@@ -101,7 +103,9 @@ export function FireMap({ meta, base }: { meta: Meta; base: string }) {
           id: `lst-${key}`,
           type: "raster",
           source: `lst-${key}`,
-          paint: { "raster-opacity": 0.78, "raster-resampling": "nearest" },
+          // per-pixel alpha is baked into the PNG (thermal z-score ramp):
+          // normal terrain is transparent, only the anomaly shows
+          paint: { "raster-opacity": 1, "raster-resampling": "linear" },
           layout: { visibility: key === "during2" ? "visible" : "none" },
         });
       }
@@ -224,12 +228,12 @@ export function FireMap({ meta, base }: { meta: Meta; base: string }) {
 
       {!showDnbr && (
         <div className="mt-3 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.1em] text-ink-faint">
-          <span>20 °C</span>
+          <span>35 °C</span>
           <div
             className="h-1.5 flex-1 rounded-full"
             style={{
               background:
-                "linear-gradient(90deg, #000004, #3b0f70, #8c2981, #de4968, #fe9f6d, #fcfdbf)",
+                "linear-gradient(90deg, #ffffcc, #fed976, #fd8d3c, #e31a1c, #800026)",
             }}
           />
           <span>65 °C</span>

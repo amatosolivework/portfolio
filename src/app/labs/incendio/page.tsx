@@ -98,6 +98,11 @@ export default async function IncendioPage() {
             <span className="text-ink-faint">hover for °C</span>
           </div>
           <FireMap meta={meta} base={BASE} />
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink-faint">
+            Only thermally anomalous terrain is drawn — each pixel fades in as
+            it moves beyond 2σ from its own June–July baseline. Before the
+            fire, the map is quiet on purpose.
+          </p>
         </Reveal>
       </section>
 
