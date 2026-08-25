@@ -20,18 +20,24 @@ App Store.** Site, CV, and profile.md all say "TestFlight beta, heading to the A
 Store". TestFlight invite (verified live): testflight.apple.com/join/ZrMhcRRj.
 Citourfy status is "In beta". Never write "live on the App Store" until Alex confirms
 a real apps.apple.com URL. CV has NO phone number (Alex's decision).
-**Blog:** 6 posts live/public by Alex's decision; reviewed (accuracy, voice, no em
-dashes). Critic suggests one fresh deeper post (BuildLoud/Base Jump story) + drop the
-read-time badge.
+**Blog:** 7 posts live/public; reviewed (accuracy, voice, no em dashes). Newest:
+"Shipping a SaaS in a weekend" (BuildLoud/Base Jump, 2026-08-24, Alex-approved;
+openly discloses the BuildLoud backend is switched off). Read-time badge removed
+site-wide per critic.
 **Figures (final design):** raw screenshots at native aspect ratio, NEVER cropped, no
 plate/frame; sticky + viewport-centered (h-svh flex); crossfade per chapter via
 per-chapter ScrollTriggers, figcaption updates ("Fig. 01 · WRDB · Wardrobe"). All
 shots committed under `public/showcase/<app>/` (`*-raw.png` gitignored — raws held
 personal browser chrome).
-**Outstanding (from Fable critic pass, full report 2026-08-24):** (1) Alex: GitHub
-polish — profile README, pin portfolio, org README for wrdb-team (site's WRDB GitHub
-link removed until then), extract one public Swift repo; (2) Alex: recapture EasyFichi
-in a narrower window with dense data; (3) optional: re-typeset CV to match site.
+**GitHub presence (2026-08-24, all README-only, ZERO product code public):**
+`amatosolivework/amatosolivework` (profile card with honest role column: co-founder
+vs collaborator), `wrdb-team/.github` (org landing README), `wrdb-team/wrdb` (product
+overview: mermaid architecture, 3 screenshots, TestFlight link). Site's WRDB GitHub
+link restored → github.com/wrdb-team/wrdb.
+**Outstanding (Alex only):** (1) pin `portfolio` + `wrdb` on his profile and enable
+private-contributions (UI-only, no API); (2) recapture EasyFichi in a ~1280px window
+with dense data (pure asset swap in `public/showcase/easyfichi/`); (3) optional:
+re-typeset CV to match site; extract one small public Swift repo.
 
 ## Redesign phases (R)
 
