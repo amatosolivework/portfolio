@@ -1,0 +1,111 @@
+{
+  "bounds": [
+    -3.554234,
+    40.798544,
+    -2.697318,
+    41.301344
+  ],
+  "lst_scale": {
+    "min": 20.0,
+    "max": 65.0,
+    "cmap": "magma"
+  },
+  "val_encoding": {
+    "nodata": 0,
+    "min": 1,
+    "max": 255,
+    "lst_min": 20.0,
+    "lst_max": 65.0
+  },
+  "layers": [
+    {
+      "key": "pre",
+      "date": "2026-07-14",
+      "role": "pre"
+    },
+    {
+      "key": "during1",
+      "date": "2026-07-21",
+      "role": "during"
+    },
+    {
+      "key": "during2",
+      "date": "2026-07-29",
+      "role": "during"
+    },
+    {
+      "key": "during3",
+      "date": "2026-07-30",
+      "role": "during"
+    },
+    {
+      "key": "post",
+      "date": "2026-08-07",
+      "role": "post"
+    }
+  ],
+  "dnbr_legend": [
+    {
+      "label": "low",
+      "color": "#ffe082"
+    },
+    {
+      "label": "moderate-low",
+      "color": "#ff9e40"
+    },
+    {
+      "label": "moderate-high",
+      "color": "#e5484d"
+    },
+    {
+      "label": "high",
+      "color": "#7c1d1d"
+    }
+  ],
+  "stats": {
+    "fire": {
+      "start": "2026-07-16",
+      "controlled": "2026-08-03",
+      "official_burned_ha": 35268,
+      "official_source": "CMM / Vozp\u00f3puli press, Aug 2026"
+    },
+    "detected": {
+      "burned_ha_dnbr": 20530,
+      "ratio_vs_official": 0.58,
+      "severity_ha": {
+        "low": 6672,
+        "moderate_low": 7529,
+        "moderate_high": 8033,
+        "high": 4968
+      },
+      "anomaly_union_ha": 11834,
+      "by_scene": {
+        "20260721": {
+          "anomaly_ha": 7313,
+          "z_max": 17.1,
+          "lst_max_c": 61.0
+        },
+        "20260729": {
+          "anomaly_ha": 11569,
+          "z_max": 14.2,
+          "lst_max_c": 62.8
+        },
+        "20260730": {
+          "anomaly_ha": 5163,
+          "z_max": 6.6,
+          "lst_max_c": 61.3
+        }
+      }
+    },
+    "baseline": {
+      "scenes": 7,
+      "mean_max_c": 53.2,
+      "usable_pixels_pct": 62.3
+    },
+    "grid": {
+      "crs": "EPSG:32630",
+      "res_m": 30
+    },
+    "note": "dNBR area includes only moderate-low severity and above (dNBR >= 0.27); the official figure counts total affected perimeter, so a detected/official ratio below 1 is expected."
+  }
+}
