@@ -69,8 +69,8 @@ export function FireMap({ meta, base }: { meta: Meta; base: string }) {
           carto: {
             type: "raster",
             tiles: [
-              "https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png",
-              "https://b.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png",
+              "https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png",
+              "https://b.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png",
             ],
             tileSize: 256,
             attribution:
@@ -195,8 +195,8 @@ export function FireMap({ meta, base }: { meta: Meta; base: string }) {
             }}
             className={`rounded-full border px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.1em] transition-colors ${
               !showDnbr && active === key
-                ? "border-ink bg-ink text-paper"
-                : "border-hairline text-ink-muted hover:border-ink hover:text-ink"
+                ? "border-transparent bg-[#F4EDE3] text-[#17130E]"
+                : "border-white/15 text-[#F4EDE3]/60 hover:border-white/40 hover:text-[#F4EDE3]"
             }`}
           >
             {date.slice(5)} · {ROLE_LABEL[role]}
@@ -206,27 +206,27 @@ export function FireMap({ meta, base }: { meta: Meta; base: string }) {
           onClick={() => setShowDnbr(true)}
           className={`rounded-full border px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.1em] transition-colors ${
             showDnbr
-              ? "border-ink bg-ink text-paper"
-              : "border-hairline text-ink-muted hover:border-ink hover:text-ink"
+              ? "border-transparent bg-[#F4EDE3] text-[#17130E]"
+              : "border-white/15 text-[#F4EDE3]/60 hover:border-white/40 hover:text-[#F4EDE3]"
           }`}
         >
           burn severity
         </button>
       </div>
 
-      <div className="relative mt-4 overflow-hidden rounded-xl border border-hairline">
+      <div className="relative mt-4 overflow-hidden rounded-xl border border-white/10">
         <div ref={container} className="h-[60vh] min-h-[380px] w-full" />
         {readout && (
-          <div className="pointer-events-none absolute left-3 top-3 rounded-md bg-ink/80 px-2.5 py-1.5 font-mono text-xs text-paper">
+          <div className="pointer-events-none absolute left-3 top-3 rounded-md bg-[#F4EDE3] px-2.5 py-1.5 font-mono text-xs text-[#17130E]">
             {readout}
           </div>
         )}
         {showDnbr && (
-          <div className="pointer-events-none absolute bottom-8 left-3 flex flex-col gap-1 rounded-md bg-paper/90 p-2.5">
+          <div className="pointer-events-none absolute bottom-8 left-3 flex flex-col gap-1 rounded-md bg-black/70 p-2.5">
             {meta.dnbr_legend.map(({ label, color }) => (
               <span
                 key={label}
-                className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.1em] text-ink"
+                className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.1em] text-[#F4EDE3]"
               >
                 <i
                   className="inline-block h-2.5 w-2.5 rounded-sm"
@@ -240,7 +240,7 @@ export function FireMap({ meta, base }: { meta: Meta; base: string }) {
       </div>
 
       {!showDnbr && (
-        <div className="mt-3 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.1em] text-ink-faint">
+        <div className="mt-3 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.1em] text-[#F4EDE3]/50">
           <span>35 °C</span>
           <div
             className="h-1.5 flex-1 rounded-full"

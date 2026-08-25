@@ -21,32 +21,38 @@
     {
       "key": "pre",
       "date": "2026-07-14",
-      "role": "pre"
+      "role": "pre",
+      "scene": "LC08_L2SP_200032_20260714_02_T1"
     },
     {
       "key": "during1",
       "date": "2026-07-21",
-      "role": "during"
+      "role": "during",
+      "scene": "LC08_L2SP_201032_20260721_02_T1"
     },
     {
       "key": "during2",
       "date": "2026-07-29",
-      "role": "during"
+      "role": "during",
+      "scene": "LC09_L2SP_201032_20260729_02_T1"
     },
     {
       "key": "during3",
       "date": "2026-07-30",
-      "role": "during"
+      "role": "during",
+      "scene": "LC08_L2SP_200032_20260730_02_T1"
     },
     {
       "key": "post",
       "date": "2026-08-07",
-      "role": "post"
+      "role": "post",
+      "scene": "LC09_L2SP_200032_20260807_02_T1"
     }
   ],
   "comparator": {
     "date": "2026-07-30",
-    "fire_day": 15
+    "fire_day": 15,
+    "scene": "LC08_L2SP_200032_20260730_02_T1"
   },
   "dnbr_legend": [
     {

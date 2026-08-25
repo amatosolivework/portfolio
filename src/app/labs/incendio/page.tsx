@@ -13,6 +13,16 @@ export const metadata: Metadata = {
 
 const BASE = "/data/incendio";
 
+/** The real chronology, press-verified. Order is the information. */
+const TIMELINE = [
+  { date: "16 Jul", label: "detected 13:55" },
+  { date: "21 Jul", label: "pass · day 5" },
+  { date: "29 Jul", label: "pass · day 13" },
+  { date: "30 Jul", label: "pass · day 15" },
+  { date: "3 Aug", label: "controlled", hot: true },
+  { date: "7 Aug", label: "scar pass" },
+];
+
 async function getMeta() {
   const raw = await fs.readFile(
     path.join(process.cwd(), "public", "data", "incendio", "meta.json"),
@@ -40,7 +50,8 @@ export default async function IncendioPage() {
   const stats = [
     {
       n: `${zMax.toFixed(0)}σ`,
-      label: "hottest pixel vs its own June–July baseline",
+      label: "hottest pixel against its own June–July baseline",
+      hot: true,
     },
     {
       n: `${detected.toLocaleString("en-US")} ha`,
@@ -74,60 +85,100 @@ export default async function IncendioPage() {
         thermal, it is unmissable.
       </p>
 
-      {/* comparator */}
-      <section className="mt-20">
+      {/* mission chronology — the dates every figure below hangs on */}
+      <Reveal>
+        <div className="mt-16 overflow-x-auto">
+          <div className="flex min-w-[640px] items-start">
+            {TIMELINE.map((ev, i) => (
+              <div key={ev.date} className="flex flex-1 items-start last:flex-none">
+                <div className="shrink-0">
+                  <div className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-ink">
+                    {ev.hot && (
+                      <i className="inline-block h-1.5 w-1.5 rounded-full bg-brand" />
+                    )}
+                    {ev.date}
+                  </div>
+                  <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.1em] text-ink-faint">
+                    {ev.label}
+                  </div>
+                </div>
+                {i < TIMELINE.length - 1 && (
+                  <div className="mx-4 mt-2 h-px flex-1 bg-hairline" />
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </Reveal>
+
+      {/* the console: every instrument lives inside one dark panel */}
+      <section className="mt-16">
         <Reveal>
-          <div className="mx-auto max-w-[880px]">
-            <div className="mb-4 flex items-baseline justify-between font-mono text-eyebrow uppercase tracking-[0.14em]">
-              <span className="text-ink">
-                {comparatorDate} — fire day {meta.comparator.fire_day}
-              </span>
-              <span className="text-ink-faint">drag to compare</span>
+          <div className="rounded-2xl bg-[#17130E] p-5 md:p-8">
+            <div className="flex flex-wrap items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-[#F4EDE3]/50">
+              <span>Ground segment · La Mierla fire</span>
+              <span>Landsat 8/9 · 100 m thermal · 30 m grid</span>
             </div>
-            <Comparator
-              optical={`${BASE}/comparator_rgb.png`}
-              thermal={`${BASE}/comparator_lst.png`}
-              alt={`La Mierla fire, ${comparatorDate}`}
-            />
-            <p className="mt-3 text-sm leading-relaxed text-ink-faint">
-              Same satellite, same instant. Left: surface reflectance (what a
-              camera sees). Right: land surface temperature from the thermal
-              infrared band — the burn area radiates at over 60&nbsp;°C while
-              the surrounding terrain sits 20 degrees cooler.
-            </p>
+
+            {/* comparator */}
+            <div className="mx-auto mt-8 max-w-[760px]">
+              <div className="mb-3 flex flex-wrap items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.12em]">
+                <span className="text-[#F4EDE3]">
+                  {comparatorDate} — fire day {meta.comparator.fire_day}
+                </span>
+                <span className="text-[#F4EDE3]/50">drag to compare</span>
+              </div>
+              <Comparator
+                optical={`${BASE}/comparator_rgb.png`}
+                thermal={`${BASE}/comparator_lst.png`}
+                alt={`La Mierla fire, ${comparatorDate}`}
+              />
+              <div className="mt-2.5 font-mono text-[10px] uppercase tracking-[0.1em] text-[#F4EDE3]/40">
+                scene {meta.comparator.scene} · same instant, two bands
+              </div>
+            </div>
+
+            <div className="mt-10 h-px w-full bg-white/10" />
+
+            {/* map */}
+            <div className="mt-8">
+              <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.12em]">
+                <span className="text-[#F4EDE3]">Before · during · after</span>
+                <span className="text-[#F4EDE3]/50">hover for °C · ⌘+scroll to zoom</span>
+              </div>
+              <FireMap meta={meta} base={BASE} />
+              <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#F4EDE3]/45">
+                Only thermally anomalous terrain is drawn — each pixel fades in
+                as it moves beyond 2σ from its own June–July baseline. Before
+                the fire, the map is quiet on purpose.
+              </p>
+            </div>
           </div>
         </Reveal>
+        <p className="mt-5 max-w-2xl text-sm leading-relaxed text-ink-faint">
+          Same satellite, same instant. In the comparator, the left half is
+          surface reflectance — what a camera sees; the right half is land
+          surface temperature from the thermal infrared band, where the burn
+          area radiates at over 60&nbsp;°C while the surrounding terrain sits
+          20 degrees cooler.
+        </p>
       </section>
 
-      {/* map */}
+      {/* the numbers */}
       <section className="mt-24">
         <Reveal>
-          <div className="mb-4 flex items-baseline justify-between font-mono text-eyebrow uppercase tracking-[0.14em]">
-            <span className="text-ink">Before · during · after</span>
-            <span className="text-ink-faint">hover for °C</span>
-          </div>
-          <FireMap meta={meta} base={BASE} />
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink-faint">
-            Only thermally anomalous terrain is drawn — each pixel fades in as
-            it moves beyond 2σ from its own June–July baseline. Before the
-            fire, the map is quiet on purpose.
-          </p>
-        </Reveal>
-      </section>
-
-      {/* numbers */}
-      <section className="mt-24">
-        <Reveal>
-          <div className="grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-hairline bg-hairline md:grid-cols-3">
-            {stats.map(({ n, label }) => (
-              <div key={label} className="bg-surface p-8">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
+            {stats.map(({ n, label, hot }) => (
+              <div key={label} className="border-t border-ink pt-5">
                 <div
-                  className="font-semibold tracking-[-0.02em] text-ink"
-                  style={{ fontSize: "var(--text-3xl, 2.25rem)" }}
+                  className={`font-semibold leading-none tracking-[-0.03em] ${
+                    hot ? "text-brand" : "text-ink"
+                  }`}
+                  style={{ fontSize: "clamp(2.75rem, 2rem + 2.4vw, 4.25rem)" }}
                 >
                   {n}
                 </div>
-                <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+                <p className="mt-4 max-w-[30ch] text-sm leading-relaxed text-ink-muted">
                   {label}
                 </p>
               </div>
@@ -160,6 +211,21 @@ export default async function IncendioPage() {
               severity. Every step validates physical invariants and aborts
               loudly when one fails — in thermal remote sensing, a wrong number
               usually looks perfectly fine.
+            </p>
+            <p className="pt-2 font-mono text-sm">
+              <a
+                href="https://github.com/amatosolivework/landsat-thermal-fire"
+                className="text-brand underline-offset-4 hover:underline"
+              >
+                Code on GitHub
+              </a>
+              <span className="mx-3 text-ink-faint">·</span>
+              <a
+                href="/blog/watching-a-wildfire-in-thermal"
+                className="text-brand underline-offset-4 hover:underline"
+              >
+                Read the write-up
+              </a>
             </p>
           </div>
         </Reveal>
