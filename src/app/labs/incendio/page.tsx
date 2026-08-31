@@ -291,6 +291,13 @@ export default async function IncendioPage() {
               >
                 Read the write-up
               </a>
+              <span className="mx-3 text-ink-faint">·</span>
+              <a
+                href="/labs/bicing"
+                className="text-brand underline-offset-4 hover:underline"
+              >
+                Labs · 02 — the tide you can ride
+              </a>
             </p>
           </div>
         </Reveal>

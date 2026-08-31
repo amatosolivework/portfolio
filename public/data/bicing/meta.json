@@ -1,0 +1,150 @@
+{
+ "ventana": [
+  "2024-08-31 23:00:00",
+  "2025-08-31 23:00:00"
+ ],
+ "n_estaciones": 548,
+ "flota_media_aparcada": 4765,
+ "residuo_diario_medio": 3069,
+ "residuo_hora_pico": [
+  "1",
+  266.1
+ ],
+ "roles_manana": {
+  "fuente": 287,
+  "sumidero": 190,
+  "neutra": 69
+ },
+ "fuentes_manana_top5": [
+  {
+   "station_id": 177,
+   "nombre": "C/ ROSSELLÓ, 557",
+   "neto_manana": -23.3
+  },
+  {
+   "station_id": 218,
+   "nombre": "C/ CONSELL DE CENT, 566",
+   "neto_manana": -20.4
+  },
+  {
+   "station_id": 239,
+   "nombre": "C/ INDÚSTRIA, 329",
+   "neto_manana": -18.8
+  },
+  {
+   "station_id": 371,
+   "nombre": "C/ DELS ENAMORATS, 49",
+   "neto_manana": -18.5
+  },
+  {
+   "station_id": 24,
+   "nombre": "C/ MARINA, 199",
+   "neto_manana": -17.6
+  }
+ ],
+ "sumideros_manana_top5": [
+  {
+   "station_id": 13,
+   "nombre": "C/ MARINA, 25-33",
+   "neto_manana": 30.5
+  },
+  {
+   "station_id": 142,
+   "nombre": "C/ SANCHO DE ÁVILA,  104 - C/ BADAJOZ",
+   "neto_manana": 25.7
+  },
+  {
+   "station_id": 400,
+   "nombre": "MOLL ORIENTAL",
+   "neto_manana": 25.6
+  },
+  {
+   "station_id": 375,
+   "nombre": "WORLD TRADE CENTER",
+   "neto_manana": 24.7
+  },
+  {
+   "station_id": 376,
+   "nombre": "WORLD  TRADE CENTER",
+   "neto_manana": 22.9
+  }
+ ],
+ "marea": {
+  "barrio_max_gana_8h": {
+   "barrio": "Pedralbes",
+   "puntos": 22
+  },
+  "barrio_max_pierde_8h": {
+   "barrio": "el Camp de l'Arpa del Clot",
+   "puntos": -21
+  }
+ },
+ "backtest": {
+  "split": {
+   "train": [
+    "2024_09",
+    "2024_10",
+    "2024_11",
+    "2024_12",
+    "2025_01",
+    "2025_02",
+    "2025_03",
+    "2025_04",
+    "2025_05",
+    "2025_06"
+   ],
+   "test": [
+    "2025_07",
+    "2025_08"
+   ],
+   "nota_agosto": "sin agosto en train; predicho con perfil finde"
+  },
+  "umbral": 0.5,
+  "global": {
+   "accuracy": 0.9078,
+   "trivial": 0.9076,
+   "oracle": 0.9573,
+   "brier": 0.0707,
+   "brier_trivial": 0.0839,
+   "avisos": {
+    "n_horas_avisadas": 9706,
+    "precision": 0.5052,
+    "cobertura": 0.0698
+   },
+   "n_horas": 761352
+  },
+  "julio": {
+   "accuracy": 0.8944,
+   "trivial": 0.8921,
+   "oracle": 0.9487,
+   "brier": 0.077,
+   "brier_trivial": 0.0964,
+   "avisos": {
+    "n_horas_avisadas": 6681,
+    "precision": 0.5636,
+    "cobertura": 0.0916
+   },
+   "n_horas": 381433
+  },
+  "agosto": {
+   "accuracy": 0.9212,
+   "trivial": 0.9232,
+   "oracle": 0.9658,
+   "brier": 0.0643,
+   "brier_trivial": 0.0713,
+   "avisos": {
+    "n_horas_avisadas": 3025,
+    "precision": 0.3765,
+    "cobertura": 0.039
+   },
+   "n_horas": 379919
+  },
+  "pct_test_sin_datos": 0.0497
+ },
+ "huecos": {
+  "horas_sin_datos": 27,
+  "total_horas": 8761
+ },
+ "atribucion": "Open Data BCN (B:SM) · CC-BY-4.0",
+ "generado_desde": "github.com/amatosolivework/bicing-flows"
+}

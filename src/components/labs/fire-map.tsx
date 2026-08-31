@@ -4,6 +4,12 @@ import { useEffect, useRef, useState } from "react";
 import * as maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 
+// the bundler mangles maplibre's inlined worker (vector tiles never load,
+// silently) — serve the library's own worker as a static asset instead.
+// NB: the file in /public is copied from maplibre-gl/dist and must be
+// refreshed if the dependency is upgraded.
+maplibregl.setWorkerUrl("/maplibre-gl-worker-6.6.0.mjs");
+
 type Layer = { key: string; date: string; role: string };
 type Meta = {
   bounds: [number, number, number, number]; // w, s, e, n (lon/lat)
@@ -63,25 +69,15 @@ export function FireMap({ meta, base }: { meta: Meta; base: string }) {
     if (!container.current || map.current) return;
     const m = new maplibregl.Map({
       container: container.current,
-      style: {
-        version: 8,
-        sources: {
-          carto: {
-            type: "raster",
-            tiles: [
-              "https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png",
-              "https://b.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png",
-            ],
-            tileSize: 256,
-            attribution:
-              '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> © <a href="https://carto.com/attributions">CARTO</a> · Landsat 8/9 courtesy USGS/NASA',
-          },
-        },
-        layers: [{ id: "carto", type: "raster", source: "carto" }],
-      },
+      // vector basemap with no API key — Carto's free raster tiles started
+      // watermarking "API KEY REQUIRED" in late aug-2026
+      style: "https://tiles.openfreemap.org/styles/dark",
       bounds: [w, s, e, n],
       fitBoundsOptions: { padding: 24 },
-      attributionControl: { compact: true },
+      attributionControl: {
+        compact: true,
+        customAttribution: "Landsat 8/9 courtesy USGS/NASA",
+      },
       // trackpad-friendly: page scroll passes through; ⌘/Ctrl+scroll zooms
       cooperativeGestures: true,
     });
