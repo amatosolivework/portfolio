@@ -1,0 +1,100 @@
+---
+title: "A post-it note vs. the electricity market"
+description: "Two years of Spain's hourly power prices, one domestic question, and a backtest that publishes its failures: how far does a rule you can memorize get against checking the tariff every day?"
+date: "2026-08-31"
+tags: ["Data", "Python", "Energy"]
+---
+
+Every Spanish household with the regulated tariff gets a different electricity
+price every hour, published the evening before. My question was embarrassingly
+domestic: if you ran the washing machine by a fixed rule — one you could write
+on a post-it and never think about again — how much would you actually lose
+against the person who checks the tariff religiously every day?
+
+The answer is 2.62 € a year, and everything I learned getting to that number
+is on the [interactive page](/labs/luz). This post is about what the data did
+to my assumptions along the way.
+
+## The advice your father gave you is now wrong
+
+I grew up with "run appliances at night, electricity is cheap at night". Two
+years of hourly PVPC say otherwise, loudly. Solar has dug a valley into the
+middle of the day: between 1 and 5 PM prices collapse — in spring 2026, some
+afternoons were nearly free — while the expensive hours are the evening peak,
+8 to 10 PM, all year round.
+
+Backtested over a full year, the folk rule (fixed 2–4 AM) pays **73% more**
+than perfect information. Fixed midday pays 42%. The advice didn't just age;
+it inverted.
+
+## Designing a backtest you can't fool
+
+The interesting engineering problem wasn't the rules — it was making sure
+none of them could cheat. Five contenders each pick tomorrow's cheapest
+two-hour window; all of them decide seeing only data up to yesterday.
+
+Two things I now consider non-negotiable in any backtest:
+
+**A view object instead of discipline.** Rules don't promise not to look at
+the future; they physically receive a container that ends at yesterday, and
+the engine asserts it before every pick. Discipline is a bug waiting to
+happen; construction isn't.
+
+**A negative test for the safety check.** `--self-test` builds a
+deliberately leaky view and verifies the engine *aborts*. An assert nobody
+has ever seen fire is a decoration. Mine fires on demand.
+
+The metric also matters more than I expected. I sum each strategy's yearly
+cost first and divide after ("aggregate regret"), because on days when the
+optimal window is nearly free, a per-day ratio explodes and one August
+afternoon dominates the whole year.
+
+## The scoreboard, including the uncomfortable rows
+
+The hero rule — the hourly average by day type, computed once on the training
+year and frozen — pays 10.2% over perfect: 2.62 €/year for a daily 1 kWh
+wash. For a rule that never looks at anything, that's remarkable.
+
+But the scoreboard has two rows I'd have been tempted to bury, and the whole
+point of this series is not burying them:
+
+**Winter breaks the rule.** Its regret is ~1% from May to September and
+27.6% in January. When the sun hides, the solar valley disappears and cheap
+hours drift back to pre-dawn — but the rule, built on annual averages, keeps
+aiming at midday. Its ten worst days of the year are almost all grey winter
+weekdays, at ~120 €/MWh of extra cost each.
+
+**A small ridge regression beats the post-it.** I added it expecting to
+write "machine learning barely moves the needle". It moved the needle: 6.4%
+vs 10.2%, almost entirely by fixing winter, because I fed it the shape of
+yesterday's curve and yesterday knows whether the sun came out. The tidy
+narrative died in contact with the data, which is exactly what backtests are
+for.
+
+## The most honest number is the smallest one
+
+Here's the finding that reframed the whole lab: even choosing your hour *at
+random* only costs about 25 €/year extra. The gap between "never think about
+it" and "obsess daily" is the price of a coffee per season.
+
+So no, this lab won't make anyone rich. What it does is measurable honesty on
+a domestic question: the price of electricity has a strong, learnable rhythm;
+a trivial rule captures most of it; and the residual — winter, weather, the
+things a calendar can't see — is precisely quantified instead of hand-waved.
+
+Also honest: tomorrow's PVPC is *published* every evening at 20:15. Nothing
+here pretends to forecast; the question is how far you get without looking at
+all.
+
+## What I'd do with more time
+
+Split the rule by season (an hourly mean by day type *and* quarter would
+likely close most of the January gap), pull in temperature as the one
+weather feature the ridge is clearly missing, and re-run the whole thing on
+free-market indexed tariffs, where the stakes are higher than PVPC's.
+
+The pipeline is four Python scripts with invariants that abort loudly —
+hourly continuity, the 23- and 25-hour clock-change days accounted for by
+name, price bands, and an export that re-derives the headline number from its
+own JSON before it ships. The repository goes public with the publication
+pass; the [page](/labs/luz) is already the product.
