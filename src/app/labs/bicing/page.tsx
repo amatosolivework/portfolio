@@ -226,11 +226,19 @@ export default async function BicingPage() {
               pipeline validates its invariants and aborts loudly.
             </p>
             <p className="pt-2 font-mono text-sm">
-              {/* TODO(fase 004): reponer el enlace al repo cuando se haga
-                  público — nunca publicar un enlace muerto */}
-              <span className="text-ink-faint">
-                Code and write-up landing shortly
-              </span>
+              <a
+                href="https://github.com/amatosolivework/bicing-flows"
+                className="text-brand underline-offset-4 hover:underline"
+              >
+                Code on GitHub
+              </a>
+              <span className="mx-3 text-ink-faint">·</span>
+              <a
+                href="/blog/riding-barcelonas-bike-tide"
+                className="text-brand underline-offset-4 hover:underline"
+              >
+                Read the write-up
+              </a>
               <span className="mx-3 text-ink-faint">·</span>
               <a
                 href="/labs/incendio"
