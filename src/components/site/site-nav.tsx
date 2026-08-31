@@ -11,7 +11,7 @@ const items = [
   { label: "Work", target: "/#work" },
   { label: "About", target: "/#about" },
   { label: "Writing", target: "/blog", route: true },
-  { label: "Labs", target: "/labs/incendio", route: true },
+  { label: "Labs", target: "/labs", route: true },
   { label: "Contact", target: "/#contact" },
 ];
 

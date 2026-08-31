@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { DAY_TYPES, type Station } from "./bicing-map";
 
 type BacktestSide = {
@@ -13,14 +13,24 @@ type BacktestSide = {
 export function BicingPredictor({
   stations,
   backtest,
+  selectedId,
 }: {
   stations: Station[];
   backtest: { julio: BacktestSide; agosto: BacktestSide };
+  /** a station chosen elsewhere (clicking the map) lands here */
+  selectedId?: number | null;
 }) {
   const [query, setQuery] = useState("");
   const [stationId, setStationId] = useState<number | null>(null);
   const [hour, setHour] = useState(8);
   const [dayType, setDayType] = useState<string>("laborable");
+
+  useEffect(() => {
+    if (selectedId != null) {
+      setStationId(selectedId);
+      setQuery("");
+    }
+  }, [selectedId]);
 
   const sorted = useMemo(
     () => [...stations].sort((a, b) => a.nombre.localeCompare(b.nombre)),

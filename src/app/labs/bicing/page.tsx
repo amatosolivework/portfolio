@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { promises as fs } from "fs";
 import path from "path";
 import { Reveal } from "@/components/motion/reveal";
-import { BicingMap, type Station } from "@/components/labs/bicing-map";
-import { BicingPredictor } from "@/components/labs/bicing-predictor";
+import { type Station } from "@/components/labs/bicing-map";
+import { BicingConsole } from "@/components/labs/bicing-console";
 
 export const metadata: Metadata = {
   title: "The tide you can ride",
@@ -74,39 +74,7 @@ export default async function BicingPage() {
               <span>{meta.n_estaciones} stations · 5-min snapshots · 1 year</span>
             </div>
 
-            <div className="mt-8 grid grid-cols-1 gap-x-10 gap-y-6 md:grid-cols-[1fr_minmax(420px,540px)]">
-              <div className="md:order-2">
-                <BicingMap stations={stations} />
-              </div>
-              <div className="md:order-1 md:self-center">
-                <p className="max-w-md text-sm leading-relaxed text-[#F4EDE3]/45">
-                  Each dot is a station, sized by capacity. Colour is the
-                  deviation from that station&rsquo;s own daily average — blue
-                  where bikes have left, amber where they gather. Stations
-                  near their normal fade out: only the tide is drawn.
-                </p>
-                <p className="mt-4 max-w-md text-sm leading-relaxed text-[#F4EDE3]/45">
-                  Drag the hour, or press play and watch a whole day breathe:
-                  at eight the residential belt turns blue as the bikes pour
-                  downhill; through the evening the amber drains back up.
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-10 h-px w-full bg-white/10" />
-
-            {/* the predictor */}
-            <div className="mt-8">
-              <div className="mb-6 flex flex-wrap items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.12em]">
-                <span className="text-[#F4EDE3]">
-                  Will there be a bike?
-                </span>
-                <span className="text-[#F4EDE3]/50">
-                  ask a year of data
-                </span>
-              </div>
-              <BicingPredictor stations={stations} backtest={bt} />
-            </div>
+            <BicingConsole stations={stations} backtest={bt} />
           </div>
         </Reveal>
         <p className="mt-5 max-w-2xl text-sm leading-relaxed text-ink-faint">

@@ -65,7 +65,14 @@ function computeAnomalies(stations: Station[]) {
   return { anom, cityOcc };
 }
 
-export function BicingMap({ stations }: { stations: Station[] }) {
+export function BicingMap({
+  stations,
+  onStationSelect,
+}: {
+  stations: Station[];
+  /** click on a dot hands the station to the predictor widget */
+  onStationSelect?: (id: number) => void;
+}) {
   const container = useRef<HTMLDivElement>(null);
   const map = useRef<maplibregl.Map | null>(null);
   const [ready, setReady] = useState(false);
@@ -140,6 +147,10 @@ export function BicingMap({ stations }: { stations: Station[] }) {
             0, 0.45, LIM, 0.95,
           ],
           "circle-stroke-width": 0,
+          // scrubbing the hour animates instead of snapping — the tide is
+          // the point, so its motion must be unmissable
+          "circle-color-transition": { duration: 450 },
+          "circle-opacity-transition": { duration: 450 },
         },
       });
       setReady(true);
@@ -205,8 +216,17 @@ export function BicingMap({ stations }: { stations: Station[] }) {
     const m = map.current;
     if (!m || !ready) return;
     const byId = new Map(stations.map((s) => [s.id, s]));
+    // fat-finger padding: the dots are ~6 px, an exact-pixel hit test would
+    // make them unclickable — query a small box around the pointer instead
+    const around = (p: { x: number; y: number }, r: number) =>
+      [[p.x - r, p.y - r], [p.x + r, p.y + r]] as [
+        maplibregl.PointLike,
+        maplibregl.PointLike,
+      ];
     const onMove = (ev: maplibregl.MapMouseEvent) => {
-      const f = m.queryRenderedFeatures(ev.point, { layers: ["stations"] })[0];
+      const f = m.queryRenderedFeatures(around(ev.point, 6), {
+        layers: ["stations"],
+      })[0];
       if (!f) return setReadout(null);
       const s = byId.get(f.id as number);
       if (!s) return setReadout(null);
@@ -218,12 +238,20 @@ export function BicingMap({ stations }: { stations: Station[] }) {
       );
       m.getCanvas().style.cursor = "crosshair";
     };
+    const onClick = (ev: maplibregl.MapMouseEvent) => {
+      const f = m.queryRenderedFeatures(around(ev.point, 10), {
+        layers: ["stations"],
+      })[0];
+      if (f && onStationSelect) onStationSelect(f.id as number);
+    };
     m.on("mousemove", onMove);
     m.on("mouseout", () => setReadout(null));
+    m.on("click", onClick);
     return () => {
       m.off("mousemove", onMove);
+      m.off("click", onClick);
     };
-  }, [ready, stations, dayType, hour]);
+  }, [ready, stations, dayType, hour, onStationSelect]);
 
   const hh = `${String(hour).padStart(2, "0")}:00`;
 
