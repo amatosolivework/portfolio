@@ -237,9 +237,19 @@ export default async function LuzPage() {
               under the wholesale market&rsquo;s wildest days.
             </p>
             <p className="pt-2 font-mono text-sm">
-              <span className="text-ink-faint">
-                Code repository and write-up coming with the publication pass
-              </span>
+              <a
+                href="https://github.com/amatosolivework/precio-luz-lab"
+                className="text-brand underline-offset-4 hover:underline"
+              >
+                Code on GitHub
+              </a>
+              <span className="mx-3 text-ink-faint">·</span>
+              <a
+                href="/blog/a-post-it-note-vs-the-electricity-market"
+                className="text-brand underline-offset-4 hover:underline"
+              >
+                Read the write-up
+              </a>
               <span className="mx-3 text-ink-faint">·</span>
               <a
                 href="/labs/incendio"

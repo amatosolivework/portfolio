@@ -246,6 +246,13 @@ export default async function BicingPage() {
               >
                 Labs · 01 — the fire you can&rsquo;t unsee
               </a>
+              <span className="mx-3 text-ink-faint">·</span>
+              <a
+                href="/labs/luz"
+                className="text-brand underline-offset-4 hover:underline"
+              >
+                Labs · 04 — the washing-machine hour
+              </a>
             </p>
           </div>
         </Reveal>
