@@ -1,0 +1,98 @@
+---
+title: "The classifier that never phones home"
+description: "A garment classifier running entirely in the browser: 85% top-1 on 59 real wardrobe photos, a live network counter stuck at zero, and every finding that surprised me on the way — including the GPU losing to WASM."
+date: "2026-09-01"
+tags: ["AI", "Computer Vision", "Privacy"]
+---
+
+In July I wrote about [teaching an app to see clothes](/blog/teaching-an-app-to-see-clothes)
+— the Core ML recognition inside WRDB, my wardrobe app. This lab is its web
+sibling, built around one question: can the same idea run in a browser so that
+privacy isn't a promise in a policy, but an architecture? If the photo never
+leaves your machine, there is nothing to trust. There is no server.
+
+The result is [an interactive page](/labs/vision) where you drop a photo of a
+garment, it labels itself in under a second, and a live network counter —
+armed the moment the model finishes loading — stays at zero while you use it.
+That counter is the whole thesis in one UI element.
+
+## Zero-shot, and why the vocabulary is code
+
+The model is fashionSigLIP, a CLIP-style dual tower fine-tuned for fashion,
+quantized to int8. There's no training anywhere in this lab: classification is
+zero-shot, comparing your photo against 19 frozen English prompts like "a
+photo of a pair of denim jeans".
+
+Those prompts turned out to be the most sensitive dial in the system. Adding
+two missing classes and changing one word — "jeans" to "denim jeans" — moved
+pilot accuracy from **70% to 100%**. Which is exactly why the vocabulary is
+version-locked like code: change a prompt and every published number is
+invalid until you re-measure. My favourite consequence: the browser never
+even downloads the text tower. The 19 label embeddings are precomputed by the
+eval harness and shipped as a 100 KB JSON, so the demo pulls only the vision
+tower — 94 MB, cached by the browser after the first visit.
+
+## The dataset is the interface
+
+The eval set is 59 photos of real garments from my own wardrobe: on the bed,
+on a rug, wrinkled, at night. That realism is not a flourish — it is the
+measurement. Early on I ran a pilot on background-removed cutouts and got 91%
+top-1. The same model on raw photos of the same kind of clothes: **70%**.
+Twenty-one points that separate a benchmark from the thing a user will
+actually upload.
+
+The final numbers, measured in the browser (the runtime you actually use, more
+on that below): **85% top-1** (95% interval: 73–92) and **100% top-3** on
+n=59. That second number decided the product: the right label never once left
+the model's first three guesses, so the demo shows you three answers, not one.
+
+The nine misses are published on the page, photos included, and they tell one
+coherent story. Long sleeves drift towards "sweatshirt". Chunky knits blur
+into fleece. And all three cargo trousers photographed folded were read as
+shorts — the framing fooled the model, not the garment. The dataset is the
+interface: how people photograph clothes matters as much as what the clothes
+are.
+
+## Quantized models disagree with themselves
+
+An int8 model is not one model — it is one set of weights executed by
+whatever kernels the runtime provides. The same photo, same weights, gave
+different answers in Node and in the browser on **5 of 59 photos**, and one
+borderline t-shirt collected three different labels across three backends.
+
+The fix is methodological, not technical: measure in the runtime you ship.
+The published accuracy comes from a Playwright-driven run inside a real
+browser, backend declared in the metrics file, and the harness treats a
+dev-mode run leaking into the official numbers as an error.
+
+## The GPU lost to WASM
+
+My favourite finding. The plan said: WebGPU for speed, WASM as the honest
+fallback. Then I measured on an actual GPU (Apple metal-3): **~1.6 seconds
+per photo on WebGPU vs ~0.7 on plain WASM**. For int8 models the dequantize
+overhead eats the GPU's advantage, and SIMD on the CPU quietly wins. Bonus
+trap: headless Chromium had been reporting "WebGPU" while silently running
+SwiftShader — a software renderer — which is why the adapter identity now
+gets recorded next to every latency number.
+
+So the demo runs WASM on purpose. The fallback won, everyone gets the fast
+path, and one whole class of "does your browser support X" failure modes
+disappeared.
+
+## What this is — and isn't
+
+The set is small and declared: 59 photos, 16 of 19 classes covered — coats,
+dresses and vests simply had no photos, and those cells stay honestly empty.
+Ten photos came from other people's wardrobes and count in the metric, but
+only my own photos appear on the page. Zero-shot means nothing here was tuned
+to my closet; it also means a fine-tuned model would likely beat it. And the
+95% interval is wide — n=59 buys you 73–92, not a decimal point.
+
+With more time: the q4f16 weights (54 MB, needs re-measuring), a bigger set to
+tighten the interval, and the comparison this lab was born for — the same
+photos through WRDB's Core ML pipeline, on-device against in-browser.
+
+Everything reproducible — harness, frozen vocabulary, test set and the
+zero-network Playwright test — ships with the lab. The
+[page](/labs/vision) is the product; go feed it a photo of whatever is on
+your chair right now.
