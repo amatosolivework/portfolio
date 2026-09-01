@@ -31,6 +31,17 @@ const LABS = [
     imgAlt: "The Bicing tide, neighbourhood by neighbourhood",
   },
   {
+    n: "03",
+    href: "/labs/vision",
+    topic: "On-device AI",
+    title: "The tag that never phones home",
+    blurb:
+      "A garment classifier that runs entirely in your browser: drop a photo of a shirt, watch it label itself, and watch the network counter stay at zero. 85% top-1 on 59 real wardrobe photos, misses published.",
+    img: null,
+    imgAlt: "",
+    fallback: { big: "0", small: "network requests after the model loads" },
+  },
+  {
     n: "04",
     href: "/labs/luz",
     topic: "Energy data",
@@ -39,6 +50,7 @@ const LABS = [
       "Two years of Spain's hourly electricity tariff: the solar valley that flipped the cheap hours to midday, and a rule that fits on a post-it, backtested against perfect information.",
     img: null,
     imgAlt: "",
+    fallback: { big: "23:00 → 13:00", small: "when the cheap hours moved" },
   },
 ];
 
@@ -82,10 +94,10 @@ export default function LabsIndexPage() {
                 ) : (
                   <div className="px-8 text-center">
                     <div className="font-mono text-6xl font-bold tracking-tight text-[#FF7A2F]">
-                      23:00 → 13:00
+                      {lab.fallback?.big}
                     </div>
                     <div className="mt-3 font-mono text-[11px] uppercase tracking-[0.14em] text-[#F4EDE3]/45">
-                      when the cheap hours moved
+                      {lab.fallback?.small}
                     </div>
                   </div>
                 )}

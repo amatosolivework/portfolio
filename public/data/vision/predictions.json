@@ -1,0 +1,1611 @@
+{
+  "runtime": "browser-wasm",
+  "dev": false,
+  "model": "Marqo/marqo-fashionSigLIP",
+  "dtype": "q8",
+  "vocabVersion": "1.1.0",
+  "dir": "testset/full",
+  "n": 59,
+  "adapterInfo": {
+    "vendor": "google",
+    "architecture": "swiftshader"
+  },
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+  "loadMs": 9005,
+  "cases": [
+    {
+      "file": "01-chaqueta-rrl.jpg",
+      "truth": "chaqueta",
+      "ranked": [
+        {
+          "id": "chaqueta",
+          "score": 0.906214023604632
+        },
+        {
+          "id": "abrigo",
+          "score": 0.06818473662374776
+        },
+        {
+          "id": "chaleco",
+          "score": 0.008587526815343933
+        },
+        {
+          "id": "vaqueros",
+          "score": 0.00802541886341618
+        },
+        {
+          "id": "camisa",
+          "score": 0.004095811453956647
+        }
+      ],
+      "inferenceMs": 749
+    },
+    {
+      "file": "02-pantalon-pana.jpg",
+      "truth": "pantalon",
+      "ranked": [
+        {
+          "id": "pantalon",
+          "score": 0.7137230868414296
+        },
+        {
+          "id": "vaqueros",
+          "score": 0.2820105772695118
+        },
+        {
+          "id": "pantalon_corto",
+          "score": 0.0017153644354616223
+        },
+        {
+          "id": "camiseta",
+          "score": 0.0003704058112019151
+        },
+        {
+          "id": "chaqueta",
+          "score": 0.00030305916459286836
+        }
+      ],
+      "inferenceMs": 929
+    },
+    {
+      "file": "03-pantalon-cargo.jpg",
+      "truth": "pantalon",
+      "ranked": [
+        {
+          "id": "pantalon",
+          "score": 0.8320606385319389
+        },
+        {
+          "id": "pantalon_corto",
+          "score": 0.1284432389441203
+        },
+        {
+          "id": "vaqueros",
+          "score": 0.02928354702471562
+        },
+        {
+          "id": "chaqueta",
+          "score": 0.003434744483486795
+        },
+        {
+          "id": "botas",
+          "score": 0.001700365764749029
+        }
+      ],
+      "inferenceMs": 907
+    },
+    {
+      "file": "04-pantalon-corto-crema.jpg",
+      "truth": "pantalon_corto",
+      "ranked": [
+        {
+          "id": "pantalon_corto",
+          "score": 0.9926189235205557
+        },
+        {
+          "id": "pantalon",
+          "score": 0.004191608094572297
+        },
+        {
+          "id": "sudadera",
+          "score": 0.0019875700572217704
+        },
+        {
+          "id": "falda",
+          "score": 0.00026537609028760514
+        },
+        {
+          "id": "vaqueros",
+          "score": 0.00023060375415160376
+        }
+      ],
+      "inferenceMs": 764
+    },
+    {
+      "file": "05-blusa-bordada.jpg",
+      "truth": "blusa",
+      "ranked": [
+        {
+          "id": "blusa",
+          "score": 0.9085428256694595
+        },
+        {
+          "id": "jersey",
+          "score": 0.0352511828702235
+        },
+        {
+          "id": "camisa",
+          "score": 0.016612173800500705
+        },
+        {
+          "id": "camiseta",
+          "score": 0.01270505823457482
+        },
+        {
+          "id": "top",
+          "score": 0.008616878752980332
+        }
+      ],
+      "inferenceMs": 765
+    },
+    {
+      "file": "06-zapatos-maryjane.jpg",
+      "truth": "zapatos",
+      "ranked": [
+        {
+          "id": "zapatos",
+          "score": 0.7331464103303496
+        },
+        {
+          "id": "zuecos",
+          "score": 0.22395175986121302
+        },
+        {
+          "id": "botas",
+          "score": 0.022947073439065845
+        },
+        {
+          "id": "zapatillas",
+          "score": 0.015608221299719758
+        },
+        {
+          "id": "pantalon_corto",
+          "score": 0.001799892701822389
+        }
+      ],
+      "inferenceMs": 979
+    },
+    {
+      "file": "07-top-punto.jpg",
+      "truth": "top",
+      "ranked": [
+        {
+          "id": "top",
+          "score": 0.7033609451920255
+        },
+        {
+          "id": "chaleco",
+          "score": 0.2357891498856372
+        },
+        {
+          "id": "jersey",
+          "score": 0.029417271656437163
+        },
+        {
+          "id": "camiseta",
+          "score": 0.013291794548079612
+        },
+        {
+          "id": "blusa",
+          "score": 0.0075795398741257585
+        }
+      ],
+      "inferenceMs": 743
+    },
+    {
+      "file": "08-camiseta-roja.jpg",
+      "truth": "camiseta",
+      "ranked": [
+        {
+          "id": "camiseta",
+          "score": 0.43942470317916676
+        },
+        {
+          "id": "polo",
+          "score": 0.300503406568878
+        },
+        {
+          "id": "camisa",
+          "score": 0.12701716462665408
+        },
+        {
+          "id": "blusa",
+          "score": 0.06484405959985244
+        },
+        {
+          "id": "top",
+          "score": 0.035510575838148505
+        }
+      ],
+      "inferenceMs": 903
+    },
+    {
+      "file": "09-falda-camel.jpg",
+      "truth": "falda",
+      "ranked": [
+        {
+          "id": "falda",
+          "score": 0.9850250954761182
+        },
+        {
+          "id": "pantalon_corto",
+          "score": 0.007018969517849202
+        },
+        {
+          "id": "blusa",
+          "score": 0.0019484413773543003
+        },
+        {
+          "id": "vestido",
+          "score": 0.0018602045665682668
+        },
+        {
+          "id": "pantalon",
+          "score": 0.0010058552887767921
+        }
+      ],
+      "inferenceMs": 735
+    },
+    {
+      "file": "10-zapatillas-unltd.jpg",
+      "truth": "zapatillas",
+      "ranked": [
+        {
+          "id": "zapatillas",
+          "score": 0.9689478245246773
+        },
+        {
+          "id": "zapatos",
+          "score": 0.021944013096237024
+        },
+        {
+          "id": "botas",
+          "score": 0.005532730323226968
+        },
+        {
+          "id": "zuecos",
+          "score": 0.00283823426091478
+        },
+        {
+          "id": "pantalon_corto",
+          "score": 0.00031230746268256674
+        }
+      ],
+      "inferenceMs": 735
+    },
+    {
+      "file": "11-polo-punto-negro.jpg",
+      "truth": "polo",
+      "ranked": [
+        {
+          "id": "polo",
+          "score": 0.9197710203117629
+        },
+        {
+          "id": "blusa",
+          "score": 0.02752536696468319
+        },
+        {
+          "id": "camisa",
+          "score": 0.02351702748834276
+        },
+        {
+          "id": "camiseta",
+          "score": 0.015401048608256552
+        },
+        {
+          "id": "jersey",
+          "score": 0.007338468882011543
+        }
+      ],
+      "inferenceMs": 709
+    },
+    {
+      "file": "12-zapatillas-nike-shox.jpg",
+      "truth": "zapatillas",
+      "ranked": [
+        {
+          "id": "zapatillas",
+          "score": 0.9822180990448167
+        },
+        {
+          "id": "zapatos",
+          "score": 0.006837020078824489
+        },
+        {
+          "id": "botas",
+          "score": 0.006180741026167279
+        },
+        {
+          "id": "camiseta",
+          "score": 0.002270915026667544
+        },
+        {
+          "id": "zuecos",
+          "score": 0.0008529456393895721
+        }
+      ],
+      "inferenceMs": 709
+    },
+    {
+      "file": "13-camisa-button-down-shirt.jpg",
+      "truth": "camisa",
+      "ranked": [
+        {
+          "id": "chaqueta",
+          "score": 0.36782597485954804
+        },
+        {
+          "id": "jersey",
+          "score": 0.21538714131916278
+        },
+        {
+          "id": "camisa",
+          "score": 0.15676232840090878
+        },
+        {
+          "id": "blusa",
+          "score": 0.09429633275573962
+        },
+        {
+          "id": "sudadera",
+          "score": 0.07566284286459436
+        }
+      ],
+      "inferenceMs": 746
+    },
+    {
+      "file": "14-camiseta-t-shirt.jpg",
+      "truth": "camiseta",
+      "ranked": [
+        {
+          "id": "camiseta",
+          "score": 0.6208861457479905
+        },
+        {
+          "id": "camisa",
+          "score": 0.22774112751609538
+        },
+        {
+          "id": "polo",
+          "score": 0.08502094674109463
+        },
+        {
+          "id": "blusa",
+          "score": 0.023978219258832232
+        },
+        {
+          "id": "sudadera",
+          "score": 0.022345296277220535
+        }
+      ],
+      "inferenceMs": 736
+    },
+    {
+      "file": "15-camiseta-t-shirt.jpg",
+      "truth": "camiseta",
+      "ranked": [
+        {
+          "id": "camiseta",
+          "score": 0.48571369337286113
+        },
+        {
+          "id": "camisa",
+          "score": 0.33758298020891775
+        },
+        {
+          "id": "polo",
+          "score": 0.08334235692595619
+        },
+        {
+          "id": "sudadera",
+          "score": 0.04245990117291108
+        },
+        {
+          "id": "blusa",
+          "score": 0.014548178199937136
+        }
+      ],
+      "inferenceMs": 742
+    },
+    {
+      "file": "16-camiseta-t-shirt.jpg",
+      "truth": "camiseta",
+      "ranked": [
+        {
+          "id": "camiseta",
+          "score": 0.41442850815722726
+        },
+        {
+          "id": "polo",
+          "score": 0.3193508598068855
+        },
+        {
+          "id": "camisa",
+          "score": 0.22726662586758486
+        },
+        {
+          "id": "sudadera",
+          "score": 0.018373598096916452
+        },
+        {
+          "id": "chaqueta",
+          "score": 0.008458394541439776
+        }
+      ],
+      "inferenceMs": 732
+    },
+    {
+      "file": "17-camiseta-long-sleeve-t-shirt.jpg",
+      "truth": "camiseta",
+      "ranked": [
+        {
+          "id": "camiseta",
+          "score": 0.4004857060060246
+        },
+        {
+          "id": "sudadera",
+          "score": 0.33157869475612933
+        },
+        {
+          "id": "jersey",
+          "score": 0.09293122056305299
+        },
+        {
+          "id": "chaqueta",
+          "score": 0.05328921524871608
+        },
+        {
+          "id": "blusa",
+          "score": 0.041052954009953346
+        }
+      ],
+      "inferenceMs": 741
+    },
+    {
+      "file": "18-camiseta-long-sleeve-t-shirt.jpg",
+      "truth": "camiseta",
+      "ranked": [
+        {
+          "id": "sudadera",
+          "score": 0.6273240173321507
+        },
+        {
+          "id": "camiseta",
+          "score": 0.10746735609327857
+        },
+        {
+          "id": "blusa",
+          "score": 0.08140338648799396
+        },
+        {
+          "id": "jersey",
+          "score": 0.07785107703902025
+        },
+        {
+          "id": "camisa",
+          "score": 0.04799926534228818
+        }
+      ],
+      "inferenceMs": 736
+    },
+    {
+      "file": "19-camiseta-long-sleeve-t-shirt.jpg",
+      "truth": "camiseta",
+      "ranked": [
+        {
+          "id": "sudadera",
+          "score": 0.5016511747604546
+        },
+        {
+          "id": "blusa",
+          "score": 0.26371915432017523
+        },
+        {
+          "id": "camiseta",
+          "score": 0.0813666171305696
+        },
+        {
+          "id": "jersey",
+          "score": 0.0627247969895504
+        },
+        {
+          "id": "camisa",
+          "score": 0.047128534695097674
+        }
+      ],
+      "inferenceMs": 736
+    },
+    {
+      "file": "20-chaqueta-biker-jacket.jpg",
+      "truth": "chaqueta",
+      "ranked": [
+        {
+          "id": "chaqueta",
+          "score": 0.9368228262921894
+        },
+        {
+          "id": "abrigo",
+          "score": 0.03127065540003631
+        },
+        {
+          "id": "vaqueros",
+          "score": 0.01801583475678825
+        },
+        {
+          "id": "chaleco",
+          "score": 0.006146294918780368
+        },
+        {
+          "id": "blusa",
+          "score": 0.0020840784858000136
+        }
+      ],
+      "inferenceMs": 732
+    },
+    {
+      "file": "21-chaqueta-bomber-jacket.jpg",
+      "truth": "chaqueta",
+      "ranked": [
+        {
+          "id": "chaqueta",
+          "score": 0.8051868429225526
+        },
+        {
+          "id": "abrigo",
+          "score": 0.12629843113861564
+        },
+        {
+          "id": "sudadera",
+          "score": 0.047175480530690574
+        },
+        {
+          "id": "chaleco",
+          "score": 0.014385329196603519
+        },
+        {
+          "id": "jersey",
+          "score": 0.0012885911206359385
+        }
+      ],
+      "inferenceMs": 729
+    },
+    {
+      "file": "22-chaqueta-bomber-jacket.jpg",
+      "truth": "chaqueta",
+      "ranked": [
+        {
+          "id": "chaqueta",
+          "score": 0.9427053490956284
+        },
+        {
+          "id": "abrigo",
+          "score": 0.043035088540819486
+        },
+        {
+          "id": "chaleco",
+          "score": 0.008699574253070084
+        },
+        {
+          "id": "blusa",
+          "score": 0.0019974858066276915
+        },
+        {
+          "id": "camiseta",
+          "score": 0.0014527342053052704
+        }
+      ],
+      "inferenceMs": 740
+    },
+    {
+      "file": "23-chaqueta-windbreaker.jpg",
+      "truth": "chaqueta",
+      "ranked": [
+        {
+          "id": "chaqueta",
+          "score": 0.8588238850374026
+        },
+        {
+          "id": "abrigo",
+          "score": 0.0720111504652537
+        },
+        {
+          "id": "sudadera",
+          "score": 0.05767429010486062
+        },
+        {
+          "id": "chaleco",
+          "score": 0.006758343711967207
+        },
+        {
+          "id": "camiseta",
+          "score": 0.0014471862774405445
+        }
+      ],
+      "inferenceMs": 728
+    },
+    {
+      "file": "24-chaqueta-denim-jacket.jpg",
+      "truth": "chaqueta",
+      "ranked": [
+        {
+          "id": "chaqueta",
+          "score": 0.8309380193115379
+        },
+        {
+          "id": "sudadera",
+          "score": 0.11931138533084003
+        },
+        {
+          "id": "abrigo",
+          "score": 0.03785848022413944
+        },
+        {
+          "id": "chaleco",
+          "score": 0.004314425722973201
+        },
+        {
+          "id": "camiseta",
+          "score": 0.003922282959103305
+        }
+      ],
+      "inferenceMs": 745
+    },
+    {
+      "file": "25-chaqueta-puffer-jacket.jpg",
+      "truth": "chaqueta",
+      "ranked": [
+        {
+          "id": "chaqueta",
+          "score": 0.566597139607641
+        },
+        {
+          "id": "abrigo",
+          "score": 0.39642119006071413
+        },
+        {
+          "id": "chaleco",
+          "score": 0.014283648436425801
+        },
+        {
+          "id": "jersey",
+          "score": 0.0050706109598256995
+        },
+        {
+          "id": "camisa",
+          "score": 0.003146916633928679
+        }
+      ],
+      "inferenceMs": 740
+    },
+    {
+      "file": "26-jersey-sweater.jpg",
+      "truth": "jersey",
+      "ranked": [
+        {
+          "id": "jersey",
+          "score": 0.9472776123358035
+        },
+        {
+          "id": "sudadera",
+          "score": 0.02936451636791404
+        },
+        {
+          "id": "blusa",
+          "score": 0.010312938884658666
+        },
+        {
+          "id": "chaqueta",
+          "score": 0.0023127864796274565
+        },
+        {
+          "id": "vaqueros",
+          "score": 0.002264339882783997
+        }
+      ],
+      "inferenceMs": 752
+    },
+    {
+      "file": "27-jersey-sweater.jpg",
+      "truth": "jersey",
+      "ranked": [
+        {
+          "id": "falda",
+          "score": 0.40401006841858017
+        },
+        {
+          "id": "jersey",
+          "score": 0.34328409815794914
+        },
+        {
+          "id": "pantalon_corto",
+          "score": 0.09478440611245789
+        },
+        {
+          "id": "blusa",
+          "score": 0.03906109021226045
+        },
+        {
+          "id": "chaqueta",
+          "score": 0.028837109078442787
+        }
+      ],
+      "inferenceMs": 734
+    },
+    {
+      "file": "28-jersey-sweater.jpg",
+      "truth": "jersey",
+      "ranked": [
+        {
+          "id": "jersey",
+          "score": 0.8298028216322095
+        },
+        {
+          "id": "sudadera",
+          "score": 0.09683652727728441
+        },
+        {
+          "id": "chaqueta",
+          "score": 0.022559353313219652
+        },
+        {
+          "id": "blusa",
+          "score": 0.01386590899255626
+        },
+        {
+          "id": "abrigo",
+          "score": 0.010325459962635713
+        }
+      ],
+      "inferenceMs": 747
+    },
+    {
+      "file": "29-jersey-sweater.jpg",
+      "truth": "jersey",
+      "ranked": [
+        {
+          "id": "sudadera",
+          "score": 0.6520751451717215
+        },
+        {
+          "id": "jersey",
+          "score": 0.2428116660671493
+        },
+        {
+          "id": "camiseta",
+          "score": 0.054505317006721066
+        },
+        {
+          "id": "camisa",
+          "score": 0.021084282883020444
+        },
+        {
+          "id": "blusa",
+          "score": 0.010803383793993503
+        }
+      ],
+      "inferenceMs": 743
+    },
+    {
+      "file": "30-jersey-Knitwear.jpg",
+      "truth": "jersey",
+      "ranked": [
+        {
+          "id": "sudadera",
+          "score": 0.809872044374381
+        },
+        {
+          "id": "jersey",
+          "score": 0.1153319626471773
+        },
+        {
+          "id": "camiseta",
+          "score": 0.026012904032205342
+        },
+        {
+          "id": "camisa",
+          "score": 0.019292230229093942
+        },
+        {
+          "id": "blusa",
+          "score": 0.012162706611721434
+        }
+      ],
+      "inferenceMs": 749
+    },
+    {
+      "file": "31-vaqueros-trousers.jpg",
+      "truth": "vaqueros",
+      "ranked": [
+        {
+          "id": "vaqueros",
+          "score": 0.7963431412127786
+        },
+        {
+          "id": "pantalon",
+          "score": 0.16134722204778612
+        },
+        {
+          "id": "pantalon_corto",
+          "score": 0.024326316055129988
+        },
+        {
+          "id": "falda",
+          "score": 0.00913417927322233
+        },
+        {
+          "id": "camisa",
+          "score": 0.0023613086353789594
+        }
+      ],
+      "inferenceMs": 731
+    },
+    {
+      "file": "32-pantalon-cargo-pants.jpg",
+      "truth": "pantalon",
+      "ranked": [
+        {
+          "id": "pantalon_corto",
+          "score": 0.913147328409518
+        },
+        {
+          "id": "pantalon",
+          "score": 0.07258787141773564
+        },
+        {
+          "id": "falda",
+          "score": 0.009790843676255509
+        },
+        {
+          "id": "vaqueros",
+          "score": 0.0014705376201605697
+        },
+        {
+          "id": "chaqueta",
+          "score": 0.0008270270090590949
+        }
+      ],
+      "inferenceMs": 729
+    },
+    {
+      "file": "33-pantalon_corto-cargo-pants.jpg",
+      "truth": "pantalon_corto",
+      "ranked": [
+        {
+          "id": "pantalon_corto",
+          "score": 0.8782214974348965
+        },
+        {
+          "id": "vaqueros",
+          "score": 0.11520468193406291
+        },
+        {
+          "id": "pantalon",
+          "score": 0.003979007890686511
+        },
+        {
+          "id": "falda",
+          "score": 0.0008921880992972125
+        },
+        {
+          "id": "camisa",
+          "score": 0.00032204639438490623
+        }
+      ],
+      "inferenceMs": 737
+    },
+    {
+      "file": "34-pantalon-cargo-pants.jpg",
+      "truth": "pantalon",
+      "ranked": [
+        {
+          "id": "pantalon_corto",
+          "score": 0.5691656816713014
+        },
+        {
+          "id": "vaqueros",
+          "score": 0.2395193710497673
+        },
+        {
+          "id": "pantalon",
+          "score": 0.1607764995561882
+        },
+        {
+          "id": "falda",
+          "score": 0.02553183926326148
+        },
+        {
+          "id": "chaqueta",
+          "score": 0.0013037709065840902
+        }
+      ],
+      "inferenceMs": 744
+    },
+    {
+      "file": "35-pantalon-trousers.jpg",
+      "truth": "pantalon",
+      "ranked": [
+        {
+          "id": "pantalon",
+          "score": 0.5998727725186219
+        },
+        {
+          "id": "pantalon_corto",
+          "score": 0.3774888282326985
+        },
+        {
+          "id": "falda",
+          "score": 0.0075768707168345295
+        },
+        {
+          "id": "vaqueros",
+          "score": 0.0060251930529622005
+        },
+        {
+          "id": "camisa",
+          "score": 0.0023375708400903785
+        }
+      ],
+      "inferenceMs": 729
+    },
+    {
+      "file": "36-pantalon-cargo-pants.jpg",
+      "truth": "pantalon",
+      "ranked": [
+        {
+          "id": "pantalon_corto",
+          "score": 0.7571687833410209
+        },
+        {
+          "id": "pantalon",
+          "score": 0.15702276482784022
+        },
+        {
+          "id": "falda",
+          "score": 0.05343557589293411
+        },
+        {
+          "id": "vaqueros",
+          "score": 0.012731332349029022
+        },
+        {
+          "id": "blusa",
+          "score": 0.004007634931565816
+        }
+      ],
+      "inferenceMs": 727
+    },
+    {
+      "file": "37-pantalon_corto-denim-shorts.jpg",
+      "truth": "pantalon_corto",
+      "ranked": [
+        {
+          "id": "pantalon_corto",
+          "score": 0.8807484606743572
+        },
+        {
+          "id": "vaqueros",
+          "score": 0.11484298106731415
+        },
+        {
+          "id": "pantalon",
+          "score": 0.000990098942832135
+        },
+        {
+          "id": "falda",
+          "score": 0.000849485905523297
+        },
+        {
+          "id": "chaleco",
+          "score": 0.0004643850510082407
+        }
+      ],
+      "inferenceMs": 730
+    },
+    {
+      "file": "38-polo-polo.jpg",
+      "truth": "polo",
+      "ranked": [
+        {
+          "id": "polo",
+          "score": 0.9422768245342676
+        },
+        {
+          "id": "camisa",
+          "score": 0.034743703826872224
+        },
+        {
+          "id": "camiseta",
+          "score": 0.00836256372098296
+        },
+        {
+          "id": "blusa",
+          "score": 0.0053913021169127336
+        },
+        {
+          "id": "top",
+          "score": 0.00364892145327184
+        }
+      ],
+      "inferenceMs": 740
+    },
+    {
+      "file": "39-sudadera-hoodie.jpg",
+      "truth": "sudadera",
+      "ranked": [
+        {
+          "id": "sudadera",
+          "score": 0.8346820935277275
+        },
+        {
+          "id": "chaqueta",
+          "score": 0.13443031900581226
+        },
+        {
+          "id": "abrigo",
+          "score": 0.014196558555978936
+        },
+        {
+          "id": "jersey",
+          "score": 0.006639198071305954
+        },
+        {
+          "id": "polo",
+          "score": 0.0036484377283325987
+        }
+      ],
+      "inferenceMs": 736
+    },
+    {
+      "file": "40-sudadera-hoodie.jpg",
+      "truth": "sudadera",
+      "ranked": [
+        {
+          "id": "sudadera",
+          "score": 0.9720158295382518
+        },
+        {
+          "id": "chaqueta",
+          "score": 0.008114957159548106
+        },
+        {
+          "id": "jersey",
+          "score": 0.007841003383684228
+        },
+        {
+          "id": "camiseta",
+          "score": 0.0036359189467766763
+        },
+        {
+          "id": "abrigo",
+          "score": 0.003213410505180633
+        }
+      ],
+      "inferenceMs": 736
+    },
+    {
+      "file": "41-sudadera-hoodie.jpg",
+      "truth": "sudadera",
+      "ranked": [
+        {
+          "id": "sudadera",
+          "score": 0.6226247653709234
+        },
+        {
+          "id": "chaqueta",
+          "score": 0.2414516398959272
+        },
+        {
+          "id": "pantalon",
+          "score": 0.031734466310946445
+        },
+        {
+          "id": "abrigo",
+          "score": 0.030328060010692267
+        },
+        {
+          "id": "chaleco",
+          "score": 0.02240813044343728
+        }
+      ],
+      "inferenceMs": 734
+    },
+    {
+      "file": "42-sudadera-hoodie.jpg",
+      "truth": "sudadera",
+      "ranked": [
+        {
+          "id": "sudadera",
+          "score": 0.9607184023504118
+        },
+        {
+          "id": "chaqueta",
+          "score": 0.020788789074570352
+        },
+        {
+          "id": "abrigo",
+          "score": 0.006543156053055552
+        },
+        {
+          "id": "camiseta",
+          "score": 0.003912795074283015
+        },
+        {
+          "id": "jersey",
+          "score": 0.0029759510565089704
+        }
+      ],
+      "inferenceMs": 745
+    },
+    {
+      "file": "43-sudadera-hoodie.jpg",
+      "truth": "sudadera",
+      "ranked": [
+        {
+          "id": "sudadera",
+          "score": 0.9604168665683687
+        },
+        {
+          "id": "chaqueta",
+          "score": 0.01795055744706138
+        },
+        {
+          "id": "jersey",
+          "score": 0.006779438103864833
+        },
+        {
+          "id": "camiseta",
+          "score": 0.006280415892544147
+        },
+        {
+          "id": "abrigo",
+          "score": 0.004269280404031286
+        }
+      ],
+      "inferenceMs": 731
+    },
+    {
+      "file": "44-sudadera-sweatshirt.jpg",
+      "truth": "sudadera",
+      "ranked": [
+        {
+          "id": "sudadera",
+          "score": 0.9505032295285119
+        },
+        {
+          "id": "camiseta",
+          "score": 0.016003446783294774
+        },
+        {
+          "id": "jersey",
+          "score": 0.015059864910652128
+        },
+        {
+          "id": "chaqueta",
+          "score": 0.005495803578041816
+        },
+        {
+          "id": "abrigo",
+          "score": 0.003185910333215739
+        }
+      ],
+      "inferenceMs": 734
+    },
+    {
+      "file": "45-top-tank-top.jpg",
+      "truth": "top",
+      "ranked": [
+        {
+          "id": "top",
+          "score": 0.8221531977012831
+        },
+        {
+          "id": "camisa",
+          "score": 0.04755693959924773
+        },
+        {
+          "id": "chaleco",
+          "score": 0.04572045983415337
+        },
+        {
+          "id": "camiseta",
+          "score": 0.03411663434729497
+        },
+        {
+          "id": "blusa",
+          "score": 0.023661396324922188
+        }
+      ],
+      "inferenceMs": 734
+    },
+    {
+      "file": "46-vaqueros-wide-leg-jeans.jpg",
+      "truth": "vaqueros",
+      "ranked": [
+        {
+          "id": "vaqueros",
+          "score": 0.4734175606327969
+        },
+        {
+          "id": "falda",
+          "score": 0.33458106847030467
+        },
+        {
+          "id": "pantalon_corto",
+          "score": 0.17872421311901468
+        },
+        {
+          "id": "pantalon",
+          "score": 0.008747207666557667
+        },
+        {
+          "id": "vestido",
+          "score": 0.001683075145144404
+        }
+      ],
+      "inferenceMs": 744
+    },
+    {
+      "file": "47-vaqueros-jeans.jpg",
+      "truth": "vaqueros",
+      "ranked": [
+        {
+          "id": "vaqueros",
+          "score": 0.9761657028864673
+        },
+        {
+          "id": "pantalon",
+          "score": 0.019094673275251293
+        },
+        {
+          "id": "pantalon_corto",
+          "score": 0.00289319392045195
+        },
+        {
+          "id": "zuecos",
+          "score": 0.0006032836524542636
+        },
+        {
+          "id": "botas",
+          "score": 0.000247692050818413
+        }
+      ],
+      "inferenceMs": 734
+    },
+    {
+      "file": "48-vaqueros-jeans.jpg",
+      "truth": "vaqueros",
+      "ranked": [
+        {
+          "id": "vaqueros",
+          "score": 0.9667743334516097
+        },
+        {
+          "id": "pantalon",
+          "score": 0.024828936337801664
+        },
+        {
+          "id": "pantalon_corto",
+          "score": 0.005498034711548325
+        },
+        {
+          "id": "camiseta",
+          "score": 0.00046970980819487546
+        },
+        {
+          "id": "falda",
+          "score": 0.00045628966075746477
+        }
+      ],
+      "inferenceMs": 738
+    },
+    {
+      "file": "49-vaqueros-wide-leg-jeans.jpg",
+      "truth": "vaqueros",
+      "ranked": [
+        {
+          "id": "vaqueros",
+          "score": 0.7600210165367818
+        },
+        {
+          "id": "pantalon_corto",
+          "score": 0.1579127423601901
+        },
+        {
+          "id": "falda",
+          "score": 0.066819925909978
+        },
+        {
+          "id": "pantalon",
+          "score": 0.012594185476216838
+        },
+        {
+          "id": "vestido",
+          "score": 0.0005742851471890222
+        }
+      ],
+      "inferenceMs": 738
+    },
+    {
+      "file": "50-vaqueros-wide-leg-jeans.jpg",
+      "truth": "vaqueros",
+      "ranked": [
+        {
+          "id": "vaqueros",
+          "score": 0.9027932354564429
+        },
+        {
+          "id": "pantalon",
+          "score": 0.07665104925426863
+        },
+        {
+          "id": "pantalon_corto",
+          "score": 0.01780925119143757
+        },
+        {
+          "id": "chaqueta",
+          "score": 0.00045296038030382335
+        },
+        {
+          "id": "falda",
+          "score": 0.0004199914407025122
+        }
+      ],
+      "inferenceMs": 740
+    },
+    {
+      "file": "51-zapatillas-sneakers.jpg",
+      "truth": "zapatillas",
+      "ranked": [
+        {
+          "id": "zapatillas",
+          "score": 0.9936090884519188
+        },
+        {
+          "id": "zuecos",
+          "score": 0.0016225645463041477
+        },
+        {
+          "id": "botas",
+          "score": 0.0016016908181153036
+        },
+        {
+          "id": "zapatos",
+          "score": 0.001101062755950265
+        },
+        {
+          "id": "vaqueros",
+          "score": 0.0004505151279781925
+        }
+      ],
+      "inferenceMs": 728
+    },
+    {
+      "file": "52-botas-timberland.jpg",
+      "truth": "botas",
+      "ranked": [
+        {
+          "id": "botas",
+          "score": 0.38733221064457674
+        },
+        {
+          "id": "zapatillas",
+          "score": 0.27949088063736444
+        },
+        {
+          "id": "zapatos",
+          "score": 0.25143356694693547
+        },
+        {
+          "id": "zuecos",
+          "score": 0.06982721250649643
+        },
+        {
+          "id": "chaqueta",
+          "score": 0.002846568588036666
+        }
+      ],
+      "inferenceMs": 730
+    },
+    {
+      "file": "53-zapatillas-running-shoes.jpg",
+      "truth": "zapatillas",
+      "ranked": [
+        {
+          "id": "zapatillas",
+          "score": 0.9770294497443963
+        },
+        {
+          "id": "zapatos",
+          "score": 0.011591882299922062
+        },
+        {
+          "id": "botas",
+          "score": 0.0061695308529385595
+        },
+        {
+          "id": "zuecos",
+          "score": 0.004385591777119426
+        },
+        {
+          "id": "jersey",
+          "score": 0.000265994246795738
+        }
+      ],
+      "inferenceMs": 734
+    },
+    {
+      "file": "54-zapatillas-sneakers.jpg",
+      "truth": "zapatillas",
+      "ranked": [
+        {
+          "id": "zapatillas",
+          "score": 0.9366330718245581
+        },
+        {
+          "id": "botas",
+          "score": 0.04032210851647398
+        },
+        {
+          "id": "zuecos",
+          "score": 0.011476752024767294
+        },
+        {
+          "id": "zapatos",
+          "score": 0.009640660869333071
+        },
+        {
+          "id": "pantalon_corto",
+          "score": 0.0011123723162901429
+        }
+      ],
+      "inferenceMs": 754
+    },
+    {
+      "file": "55-botas-combat-boots.jpg",
+      "truth": "botas",
+      "ranked": [
+        {
+          "id": "botas",
+          "score": 0.9748086738622076
+        },
+        {
+          "id": "zapatillas",
+          "score": 0.011478057103567469
+        },
+        {
+          "id": "zapatos",
+          "score": 0.011224203817215695
+        },
+        {
+          "id": "zuecos",
+          "score": 0.0017383477270168626
+        },
+        {
+          "id": "vaqueros",
+          "score": 0.0002141610295928227
+        }
+      ],
+      "inferenceMs": 730
+    },
+    {
+      "file": "56-zuecos-clogs.jpg",
+      "truth": "zuecos",
+      "ranked": [
+        {
+          "id": "zuecos",
+          "score": 0.998577200705692
+        },
+        {
+          "id": "botas",
+          "score": 0.0006039445095695063
+        },
+        {
+          "id": "zapatillas",
+          "score": 0.0003916609448789729
+        },
+        {
+          "id": "zapatos",
+          "score": 0.00030355415597707635
+        },
+        {
+          "id": "pantalon_corto",
+          "score": 0.00010220613441692578
+        }
+      ],
+      "inferenceMs": 736
+    },
+    {
+      "file": "57-botas-boots.jpg",
+      "truth": "botas",
+      "ranked": [
+        {
+          "id": "botas",
+          "score": 0.9821521929408675
+        },
+        {
+          "id": "zapatillas",
+          "score": 0.008117033850482997
+        },
+        {
+          "id": "zapatos",
+          "score": 0.005533471753181856
+        },
+        {
+          "id": "zuecos",
+          "score": 0.002479218949639609
+        },
+        {
+          "id": "vaqueros",
+          "score": 0.0006834271532668868
+        }
+      ],
+      "inferenceMs": 730
+    },
+    {
+      "file": "58-botas-combat-boots.jpg",
+      "truth": "botas",
+      "ranked": [
+        {
+          "id": "botas",
+          "score": 0.7249941259233558
+        },
+        {
+          "id": "zapatillas",
+          "score": 0.25546092034500845
+        },
+        {
+          "id": "zapatos",
+          "score": 0.015889348465724075
+        },
+        {
+          "id": "zuecos",
+          "score": 0.002113469135724281
+        },
+        {
+          "id": "vaqueros",
+          "score": 0.0007797919452498183
+        }
+      ],
+      "inferenceMs": 740
+    },
+    {
+      "file": "59-zuecos-clogs.jpg",
+      "truth": "zuecos",
+      "ranked": [
+        {
+          "id": "zuecos",
+          "score": 0.9870731860007345
+        },
+        {
+          "id": "zapatos",
+          "score": 0.005560339784223387
+        },
+        {
+          "id": "vaqueros",
+          "score": 0.0024647579430475707
+        },
+        {
+          "id": "zapatillas",
+          "score": 0.002187308972884238
+        },
+        {
+          "id": "botas",
+          "score": 0.0015741903554525158
+        }
+      ],
+      "inferenceMs": 738
+    }
+  ],
+  "measuredAt": "2026-08-31T16:06:00.746Z"
+}

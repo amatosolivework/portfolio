@@ -1,0 +1,301 @@
+{
+  "thumbWidth": 300,
+  "excludedThirdParty": 10,
+  "files": [
+    {
+      "file": "01-chaqueta-rrl.jpg",
+      "truth": "chaqueta",
+      "hasThumb": false
+    },
+    {
+      "file": "02-pantalon-pana.jpg",
+      "truth": "pantalon",
+      "hasThumb": false
+    },
+    {
+      "file": "03-pantalon-cargo.jpg",
+      "truth": "pantalon",
+      "hasThumb": false
+    },
+    {
+      "file": "04-pantalon-corto-crema.jpg",
+      "truth": "pantalon_corto",
+      "hasThumb": false
+    },
+    {
+      "file": "05-blusa-bordada.jpg",
+      "truth": "blusa",
+      "hasThumb": false
+    },
+    {
+      "file": "06-zapatos-maryjane.jpg",
+      "truth": "zapatos",
+      "hasThumb": false
+    },
+    {
+      "file": "07-top-punto.jpg",
+      "truth": "top",
+      "hasThumb": false
+    },
+    {
+      "file": "08-camiseta-roja.jpg",
+      "truth": "camiseta",
+      "hasThumb": false
+    },
+    {
+      "file": "09-falda-camel.jpg",
+      "truth": "falda",
+      "hasThumb": false
+    },
+    {
+      "file": "10-zapatillas-unltd.jpg",
+      "truth": "zapatillas",
+      "hasThumb": false
+    },
+    {
+      "file": "11-polo-punto-negro.jpg",
+      "truth": "polo",
+      "hasThumb": true
+    },
+    {
+      "file": "12-zapatillas-nike-shox.jpg",
+      "truth": "zapatillas",
+      "hasThumb": true
+    },
+    {
+      "file": "13-camisa-button-down-shirt.jpg",
+      "truth": "camisa",
+      "hasThumb": true
+    },
+    {
+      "file": "14-camiseta-t-shirt.jpg",
+      "truth": "camiseta",
+      "hasThumb": true
+    },
+    {
+      "file": "15-camiseta-t-shirt.jpg",
+      "truth": "camiseta",
+      "hasThumb": true
+    },
+    {
+      "file": "16-camiseta-t-shirt.jpg",
+      "truth": "camiseta",
+      "hasThumb": true
+    },
+    {
+      "file": "17-camiseta-long-sleeve-t-shirt.jpg",
+      "truth": "camiseta",
+      "hasThumb": true
+    },
+    {
+      "file": "18-camiseta-long-sleeve-t-shirt.jpg",
+      "truth": "camiseta",
+      "hasThumb": true
+    },
+    {
+      "file": "19-camiseta-long-sleeve-t-shirt.jpg",
+      "truth": "camiseta",
+      "hasThumb": true
+    },
+    {
+      "file": "20-chaqueta-biker-jacket.jpg",
+      "truth": "chaqueta",
+      "hasThumb": true
+    },
+    {
+      "file": "21-chaqueta-bomber-jacket.jpg",
+      "truth": "chaqueta",
+      "hasThumb": true
+    },
+    {
+      "file": "22-chaqueta-bomber-jacket.jpg",
+      "truth": "chaqueta",
+      "hasThumb": true
+    },
+    {
+      "file": "23-chaqueta-windbreaker.jpg",
+      "truth": "chaqueta",
+      "hasThumb": true
+    },
+    {
+      "file": "24-chaqueta-denim-jacket.jpg",
+      "truth": "chaqueta",
+      "hasThumb": true
+    },
+    {
+      "file": "25-chaqueta-puffer-jacket.jpg",
+      "truth": "chaqueta",
+      "hasThumb": true
+    },
+    {
+      "file": "26-jersey-sweater.jpg",
+      "truth": "jersey",
+      "hasThumb": true
+    },
+    {
+      "file": "27-jersey-sweater.jpg",
+      "truth": "jersey",
+      "hasThumb": true
+    },
+    {
+      "file": "28-jersey-sweater.jpg",
+      "truth": "jersey",
+      "hasThumb": true
+    },
+    {
+      "file": "29-jersey-sweater.jpg",
+      "truth": "jersey",
+      "hasThumb": true
+    },
+    {
+      "file": "30-jersey-Knitwear.jpg",
+      "truth": "jersey",
+      "hasThumb": true
+    },
+    {
+      "file": "31-vaqueros-trousers.jpg",
+      "truth": "vaqueros",
+      "hasThumb": true
+    },
+    {
+      "file": "32-pantalon-cargo-pants.jpg",
+      "truth": "pantalon",
+      "hasThumb": true
+    },
+    {
+      "file": "33-pantalon_corto-cargo-pants.jpg",
+      "truth": "pantalon_corto",
+      "hasThumb": true
+    },
+    {
+      "file": "34-pantalon-cargo-pants.jpg",
+      "truth": "pantalon",
+      "hasThumb": true
+    },
+    {
+      "file": "35-pantalon-trousers.jpg",
+      "truth": "pantalon",
+      "hasThumb": true
+    },
+    {
+      "file": "36-pantalon-cargo-pants.jpg",
+      "truth": "pantalon",
+      "hasThumb": true
+    },
+    {
+      "file": "37-pantalon_corto-denim-shorts.jpg",
+      "truth": "pantalon_corto",
+      "hasThumb": true
+    },
+    {
+      "file": "38-polo-polo.jpg",
+      "truth": "polo",
+      "hasThumb": true
+    },
+    {
+      "file": "39-sudadera-hoodie.jpg",
+      "truth": "sudadera",
+      "hasThumb": true
+    },
+    {
+      "file": "40-sudadera-hoodie.jpg",
+      "truth": "sudadera",
+      "hasThumb": true
+    },
+    {
+      "file": "41-sudadera-hoodie.jpg",
+      "truth": "sudadera",
+      "hasThumb": true
+    },
+    {
+      "file": "42-sudadera-hoodie.jpg",
+      "truth": "sudadera",
+      "hasThumb": true
+    },
+    {
+      "file": "43-sudadera-hoodie.jpg",
+      "truth": "sudadera",
+      "hasThumb": true
+    },
+    {
+      "file": "44-sudadera-sweatshirt.jpg",
+      "truth": "sudadera",
+      "hasThumb": true
+    },
+    {
+      "file": "45-top-tank-top.jpg",
+      "truth": "top",
+      "hasThumb": true
+    },
+    {
+      "file": "46-vaqueros-wide-leg-jeans.jpg",
+      "truth": "vaqueros",
+      "hasThumb": true
+    },
+    {
+      "file": "47-vaqueros-jeans.jpg",
+      "truth": "vaqueros",
+      "hasThumb": true
+    },
+    {
+      "file": "48-vaqueros-jeans.jpg",
+      "truth": "vaqueros",
+      "hasThumb": true
+    },
+    {
+      "file": "49-vaqueros-wide-leg-jeans.jpg",
+      "truth": "vaqueros",
+      "hasThumb": true
+    },
+    {
+      "file": "50-vaqueros-wide-leg-jeans.jpg",
+      "truth": "vaqueros",
+      "hasThumb": true
+    },
+    {
+      "file": "51-zapatillas-sneakers.jpg",
+      "truth": "zapatillas",
+      "hasThumb": true
+    },
+    {
+      "file": "52-botas-timberland.jpg",
+      "truth": "botas",
+      "hasThumb": true
+    },
+    {
+      "file": "53-zapatillas-running-shoes.jpg",
+      "truth": "zapatillas",
+      "hasThumb": true
+    },
+    {
+      "file": "54-zapatillas-sneakers.jpg",
+      "truth": "zapatillas",
+      "hasThumb": true
+    },
+    {
+      "file": "55-botas-combat-boots.jpg",
+      "truth": "botas",
+      "hasThumb": true
+    },
+    {
+      "file": "56-zuecos-clogs.jpg",
+      "truth": "zuecos",
+      "hasThumb": true
+    },
+    {
+      "file": "57-botas-boots.jpg",
+      "truth": "botas",
+      "hasThumb": true
+    },
+    {
+      "file": "58-botas-combat-boots.jpg",
+      "truth": "botas",
+      "hasThumb": true
+    },
+    {
+      "file": "59-zuecos-clogs.jpg",
+      "truth": "zuecos",
+      "hasThumb": true
+    }
+  ]
+}

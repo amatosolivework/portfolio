@@ -1,0 +1,457 @@
+{
+  "official": "browser-wasm",
+  "model": "Marqo/marqo-fashionSigLIP",
+  "dtype": "q8",
+  "vocabVersion": "1.1.0",
+  "dir": "testset/full",
+  "n": 59,
+  "runs": {
+    "browser-wasm": {
+      "measuredAt": "2026-08-31T16:06:00.746Z",
+      "adapterInfo": {
+        "vendor": "google",
+        "architecture": "swiftshader"
+      },
+      "modelLoadMs": 9005,
+      "top1": {
+        "k": 50,
+        "n": 59,
+        "rate": 0.847457627118644,
+        "wilson95": {
+          "low": 0.7348201611342561,
+          "high": 0.9176153604128597
+        }
+      },
+      "top3": {
+        "k": 59,
+        "n": 59,
+        "rate": 1,
+        "wilson95": {
+          "low": 0.9388706285678009,
+          "high": 0.9999999999999999
+        }
+      },
+      "latencyMs": {
+        "median": 736,
+        "p95": 907,
+        "max": 979
+      },
+      "confusion": {
+        "chaqueta": {
+          "chaqueta": 7
+        },
+        "pantalon": {
+          "pantalon": 3,
+          "pantalon_corto": 3
+        },
+        "pantalon_corto": {
+          "pantalon_corto": 3
+        },
+        "blusa": {
+          "blusa": 1
+        },
+        "zapatos": {
+          "zapatos": 1
+        },
+        "top": {
+          "top": 2
+        },
+        "camiseta": {
+          "camiseta": 5,
+          "sudadera": 2
+        },
+        "falda": {
+          "falda": 1
+        },
+        "zapatillas": {
+          "zapatillas": 5
+        },
+        "polo": {
+          "polo": 2
+        },
+        "camisa": {
+          "chaqueta": 1
+        },
+        "jersey": {
+          "jersey": 2,
+          "falda": 1,
+          "sudadera": 2
+        },
+        "vaqueros": {
+          "vaqueros": 6
+        },
+        "sudadera": {
+          "sudadera": 6
+        },
+        "botas": {
+          "botas": 4
+        },
+        "zuecos": {
+          "zuecos": 2
+        }
+      },
+      "failures": [
+        {
+          "file": "13-camisa-button-down-shirt.jpg",
+          "truth": "camisa",
+          "predicted": "chaqueta",
+          "score": 0.36782597485954804
+        },
+        {
+          "file": "18-camiseta-long-sleeve-t-shirt.jpg",
+          "truth": "camiseta",
+          "predicted": "sudadera",
+          "score": 0.6273240173321507
+        },
+        {
+          "file": "19-camiseta-long-sleeve-t-shirt.jpg",
+          "truth": "camiseta",
+          "predicted": "sudadera",
+          "score": 0.5016511747604546
+        },
+        {
+          "file": "27-jersey-sweater.jpg",
+          "truth": "jersey",
+          "predicted": "falda",
+          "score": 0.40401006841858017
+        },
+        {
+          "file": "29-jersey-sweater.jpg",
+          "truth": "jersey",
+          "predicted": "sudadera",
+          "score": 0.6520751451717215
+        },
+        {
+          "file": "30-jersey-Knitwear.jpg",
+          "truth": "jersey",
+          "predicted": "sudadera",
+          "score": 0.809872044374381
+        },
+        {
+          "file": "32-pantalon-cargo-pants.jpg",
+          "truth": "pantalon",
+          "predicted": "pantalon_corto",
+          "score": 0.913147328409518
+        },
+        {
+          "file": "34-pantalon-cargo-pants.jpg",
+          "truth": "pantalon",
+          "predicted": "pantalon_corto",
+          "score": 0.5691656816713014
+        },
+        {
+          "file": "36-pantalon-cargo-pants.jpg",
+          "truth": "pantalon",
+          "predicted": "pantalon_corto",
+          "score": 0.7571687833410209
+        }
+      ]
+    },
+    "browser-webgpu": {
+      "measuredAt": "2026-08-31T16:10:46.433Z",
+      "adapterInfo": {
+        "vendor": "google",
+        "architecture": "swiftshader"
+      },
+      "modelLoadMs": 9052,
+      "top1": {
+        "k": 50,
+        "n": 59,
+        "rate": 0.847457627118644,
+        "wilson95": {
+          "low": 0.7348201611342561,
+          "high": 0.9176153604128597
+        }
+      },
+      "top3": {
+        "k": 59,
+        "n": 59,
+        "rate": 1,
+        "wilson95": {
+          "low": 0.9388706285678009,
+          "high": 0.9999999999999999
+        }
+      },
+      "latencyMs": {
+        "median": 4674,
+        "p95": 5088,
+        "max": 5264
+      },
+      "confusion": {
+        "chaqueta": {
+          "chaqueta": 7
+        },
+        "pantalon": {
+          "pantalon": 3,
+          "pantalon_corto": 3
+        },
+        "pantalon_corto": {
+          "pantalon_corto": 3
+        },
+        "blusa": {
+          "blusa": 1
+        },
+        "zapatos": {
+          "zapatos": 1
+        },
+        "top": {
+          "top": 2
+        },
+        "camiseta": {
+          "camiseta": 5,
+          "sudadera": 2
+        },
+        "falda": {
+          "falda": 1
+        },
+        "zapatillas": {
+          "zapatillas": 5
+        },
+        "polo": {
+          "polo": 2
+        },
+        "camisa": {
+          "chaqueta": 1
+        },
+        "jersey": {
+          "jersey": 2,
+          "falda": 1,
+          "sudadera": 2
+        },
+        "vaqueros": {
+          "vaqueros": 6
+        },
+        "sudadera": {
+          "sudadera": 6
+        },
+        "botas": {
+          "botas": 4
+        },
+        "zuecos": {
+          "zuecos": 2
+        }
+      },
+      "failures": [
+        {
+          "file": "13-camisa-button-down-shirt.jpg",
+          "truth": "camisa",
+          "predicted": "chaqueta",
+          "score": 0.4324745743548413
+        },
+        {
+          "file": "18-camiseta-long-sleeve-t-shirt.jpg",
+          "truth": "camiseta",
+          "predicted": "sudadera",
+          "score": 0.7048527063027517
+        },
+        {
+          "file": "19-camiseta-long-sleeve-t-shirt.jpg",
+          "truth": "camiseta",
+          "predicted": "sudadera",
+          "score": 0.44586223641190115
+        },
+        {
+          "file": "27-jersey-sweater.jpg",
+          "truth": "jersey",
+          "predicted": "falda",
+          "score": 0.48112212485471556
+        },
+        {
+          "file": "29-jersey-sweater.jpg",
+          "truth": "jersey",
+          "predicted": "sudadera",
+          "score": 0.6298171136071757
+        },
+        {
+          "file": "30-jersey-Knitwear.jpg",
+          "truth": "jersey",
+          "predicted": "sudadera",
+          "score": 0.770219727884515
+        },
+        {
+          "file": "32-pantalon-cargo-pants.jpg",
+          "truth": "pantalon",
+          "predicted": "pantalon_corto",
+          "score": 0.8923527485729729
+        },
+        {
+          "file": "34-pantalon-cargo-pants.jpg",
+          "truth": "pantalon",
+          "predicted": "pantalon_corto",
+          "score": 0.4781149350224888
+        },
+        {
+          "file": "36-pantalon-cargo-pants.jpg",
+          "truth": "pantalon",
+          "predicted": "pantalon_corto",
+          "score": 0.7427098432910522
+        }
+      ]
+    },
+    "node": {
+      "measuredAt": "2026-08-31T16:04:54.971Z",
+      "adapterInfo": null,
+      "modelLoadMs": null,
+      "top1": {
+        "k": 47,
+        "n": 59,
+        "rate": 0.7966101694915254,
+        "wilson95": {
+          "low": 0.677319876237729,
+          "high": 0.8796372763024918
+        }
+      },
+      "top3": {
+        "k": 59,
+        "n": 59,
+        "rate": 1,
+        "wilson95": {
+          "low": 0.9388706285678009,
+          "high": 0.9999999999999999
+        }
+      },
+      "latencyMs": {
+        "median": 85,
+        "p95": 109,
+        "max": 128
+      },
+      "confusion": {
+        "chaqueta": {
+          "chaqueta": 6,
+          "abrigo": 1
+        },
+        "pantalon": {
+          "pantalon": 3,
+          "pantalon_corto": 3
+        },
+        "pantalon_corto": {
+          "pantalon_corto": 3
+        },
+        "blusa": {
+          "blusa": 1
+        },
+        "zapatos": {
+          "zapatos": 1
+        },
+        "top": {
+          "top": 2
+        },
+        "camiseta": {
+          "camiseta": 4,
+          "polo": 1,
+          "sudadera": 1,
+          "blusa": 1
+        },
+        "falda": {
+          "falda": 1
+        },
+        "zapatillas": {
+          "zapatillas": 5
+        },
+        "polo": {
+          "polo": 2
+        },
+        "camisa": {
+          "blusa": 1
+        },
+        "jersey": {
+          "jersey": 2,
+          "falda": 1,
+          "sudadera": 2
+        },
+        "vaqueros": {
+          "vaqueros": 5,
+          "falda": 1
+        },
+        "sudadera": {
+          "sudadera": 6
+        },
+        "botas": {
+          "botas": 4
+        },
+        "zuecos": {
+          "zuecos": 2
+        }
+      },
+      "failures": [
+        {
+          "file": "13-camisa-button-down-shirt.jpg",
+          "truth": "camisa",
+          "predicted": "blusa",
+          "score": 0.4000971965277623
+        },
+        {
+          "file": "16-camiseta-t-shirt.jpg",
+          "truth": "camiseta",
+          "predicted": "polo",
+          "score": 0.44650844834490394
+        },
+        {
+          "file": "18-camiseta-long-sleeve-t-shirt.jpg",
+          "truth": "camiseta",
+          "predicted": "sudadera",
+          "score": 0.8597048088248577
+        },
+        {
+          "file": "19-camiseta-long-sleeve-t-shirt.jpg",
+          "truth": "camiseta",
+          "predicted": "blusa",
+          "score": 0.3404218260131584
+        },
+        {
+          "file": "25-chaqueta-puffer-jacket.jpg",
+          "truth": "chaqueta",
+          "predicted": "abrigo",
+          "score": 0.5766846812513354
+        },
+        {
+          "file": "27-jersey-sweater.jpg",
+          "truth": "jersey",
+          "predicted": "falda",
+          "score": 0.5050576726659921
+        },
+        {
+          "file": "29-jersey-sweater.jpg",
+          "truth": "jersey",
+          "predicted": "sudadera",
+          "score": 0.7247053539369447
+        },
+        {
+          "file": "30-jersey-Knitwear.jpg",
+          "truth": "jersey",
+          "predicted": "sudadera",
+          "score": 0.7634284732374387
+        },
+        {
+          "file": "32-pantalon-cargo-pants.jpg",
+          "truth": "pantalon",
+          "predicted": "pantalon_corto",
+          "score": 0.8300874545316459
+        },
+        {
+          "file": "34-pantalon-cargo-pants.jpg",
+          "truth": "pantalon",
+          "predicted": "pantalon_corto",
+          "score": 0.47358854789957516
+        },
+        {
+          "file": "36-pantalon-cargo-pants.jpg",
+          "truth": "pantalon",
+          "predicted": "pantalon_corto",
+          "score": 0.8369395434833233
+        },
+        {
+          "file": "46-vaqueros-wide-leg-jeans.jpg",
+          "truth": "vaqueros",
+          "predicted": "falda",
+          "score": 0.48713522795827097
+        }
+      ]
+    }
+  },
+  "divergenceTop1": {
+    "browser-wasm vs browser-webgpu": 0,
+    "browser-wasm vs node": 5,
+    "browser-webgpu vs node": 5
+  }
+}

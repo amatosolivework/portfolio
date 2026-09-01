@@ -1,0 +1,27 @@
+{
+  "version": "1.1.0",
+  "frozen": true,
+  "comment": "CONGELADO 2026-08-31 (fase 002; sustituye a 1.0.0, que nunca llegó a medir nada oficial). Tocar un prompt o una clase invalida toda métrica publicada: exige subir versión y re-medir. Historial: E1 (+blusa, +top: 70%→90% top-1 en piloto), E2 (vaqueros→'denim jeans': 90%→100%), E3 (+botas, +zuecos: el armario real del set completo los contiene y etiquetarlos como 'zapatos' falsearía el ground truth). CLIP/SigLIP están entrenados en inglés: el prompt es la entrada real del modelo, ui_es es solo presentación.",
+  "prompt_template": "a photo of {noun}",
+  "labels": [
+    { "id": "camiseta", "ui_es": "Camiseta", "prompt": "a photo of a t-shirt" },
+    { "id": "camisa", "ui_es": "Camisa", "prompt": "a photo of a button-up shirt" },
+    { "id": "blusa", "ui_es": "Blusa", "prompt": "a photo of a blouse" },
+    { "id": "top", "ui_es": "Top", "prompt": "a photo of a sleeveless top" },
+    { "id": "polo", "ui_es": "Polo", "prompt": "a photo of a polo shirt" },
+    { "id": "jersey", "ui_es": "Jersey", "prompt": "a photo of a knitted sweater" },
+    { "id": "sudadera", "ui_es": "Sudadera", "prompt": "a photo of a sweatshirt" },
+    { "id": "chaqueta", "ui_es": "Chaqueta", "prompt": "a photo of a jacket" },
+    { "id": "chaleco", "ui_es": "Chaleco", "prompt": "a photo of a vest" },
+    { "id": "abrigo", "ui_es": "Abrigo", "prompt": "a photo of a coat" },
+    { "id": "pantalon", "ui_es": "Pantalón", "prompt": "a photo of a pair of trousers" },
+    { "id": "vaqueros", "ui_es": "Vaqueros", "prompt": "a photo of a pair of denim jeans" },
+    { "id": "pantalon_corto", "ui_es": "Pantalón corto", "prompt": "a photo of a pair of shorts" },
+    { "id": "vestido", "ui_es": "Vestido", "prompt": "a photo of a dress" },
+    { "id": "falda", "ui_es": "Falda", "prompt": "a photo of a skirt" },
+    { "id": "zapatillas", "ui_es": "Zapatillas", "prompt": "a photo of a pair of sneakers" },
+    { "id": "zapatos", "ui_es": "Zapatos", "prompt": "a photo of a pair of dress shoes" },
+    { "id": "botas", "ui_es": "Botas", "prompt": "a photo of a pair of boots" },
+    { "id": "zuecos", "ui_es": "Zuecos", "prompt": "a photo of a pair of clogs" }
+  ]
+}
