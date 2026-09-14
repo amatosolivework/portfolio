@@ -52,6 +52,17 @@ const LABS = [
     imgAlt: "",
     fallback: { big: "23:00 → 13:00", small: "when the cheap hours moved" },
   },
+  {
+    n: "05",
+    href: "/labs/almacen",
+    topic: "Analytics engineering",
+    title: "The warehouse that doesn't trust",
+    blurb:
+      "A million real e-commerce rows where the best seller is a manual adjustment and the postman ranks third. A dimensional warehouse with 91 tests that catch every trap, reconciled to the penny.",
+    img: null,
+    imgAlt: "",
+    fallback: { big: "±£0.00", small: "revenue drift allowed across four layers" },
+  },
 ];
 
 export default function LabsIndexPage() {
