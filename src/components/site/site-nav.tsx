@@ -9,9 +9,9 @@ import { cn } from "@/lib/utils";
 
 const items = [
   { label: "Work", target: "/#work" },
+  { label: "Labs", target: "/labs", route: true },
   { label: "About", target: "/#about" },
   { label: "Writing", target: "/blog", route: true },
-  { label: "Labs", target: "/labs", route: true },
   { label: "Contact", target: "/#contact" },
 ];
 

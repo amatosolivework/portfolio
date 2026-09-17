@@ -18,16 +18,28 @@ export function SiteFooter() {
             Work, Vol.&nbsp;1.
           </p>
 
-          <div className="flex flex-col gap-2 font-mono text-eyebrow uppercase tracking-[0.12em] md:col-span-5 md:items-end">
-            <a href={`mailto:${site.email}`} className="text-ink transition-colors hover:text-brand">
-              {site.email} ↗
-            </a>
-            <Link href={site.links.linkedin} className="text-ink-muted transition-colors hover:text-brand">
-              LinkedIn ↗
-            </Link>
-            <Link href={site.links.github} className="text-ink-muted transition-colors hover:text-brand">
-              GitHub ↗
-            </Link>
+          <div className="flex flex-col gap-8 font-mono text-eyebrow uppercase tracking-[0.12em] sm:flex-row sm:gap-10 md:col-span-5 md:justify-end md:gap-16">
+            <div className="flex flex-col gap-2">
+              <span className="text-ink-faint">Index</span>
+              <Link href="/labs" className="text-ink-muted transition-colors hover:text-brand">
+                Labs ↗
+              </Link>
+              <Link href="/blog" className="text-ink-muted transition-colors hover:text-brand">
+                Writing ↗
+              </Link>
+            </div>
+            <div className="flex flex-col gap-2">
+              <span className="text-ink-faint">Contact</span>
+              <a href={`mailto:${site.email}`} className="text-ink transition-colors hover:text-brand">
+                {site.email} ↗
+              </a>
+              <Link href={site.links.linkedin} className="text-ink-muted transition-colors hover:text-brand">
+                LinkedIn ↗
+              </Link>
+              <Link href={site.links.github} className="text-ink-muted transition-colors hover:text-brand">
+                GitHub ↗
+              </Link>
+            </div>
           </div>
         </div>
 

@@ -7,9 +7,10 @@ import { site } from "@/lib/site";
 
 const contents = [
   { no: "01", label: "Selected Work", target: "#work" },
-  { no: "02", label: "About", target: "#about" },
-  { no: "03", label: "Writing", target: "/blog", route: true },
-  { no: "04", label: "Contact", target: "#contact" },
+  { no: "02", label: "Labs", target: "/labs", route: true },
+  { no: "03", label: "About", target: "#about" },
+  { no: "04", label: "Writing", target: "/blog", route: true },
+  { no: "05", label: "Contact", target: "#contact" },
 ];
 
 export function Masthead() {
