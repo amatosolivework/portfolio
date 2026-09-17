@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Reveal } from "@/components/motion/reveal";
+import { AlmacenGate, LuzCurve, VisionMosaic } from "@/components/labs/lab-thumbs";
 
 export const metadata: Metadata = {
   title: "Labs",
@@ -39,7 +40,7 @@ const LABS = [
       "A garment classifier that runs entirely in your browser: drop a photo of a shirt, watch it label itself, and watch the network counter stay at zero. 85% top-1 on 59 real wardrobe photos, misses published.",
     img: null,
     imgAlt: "",
-    fallback: { big: "0", small: "network requests after the model loads" },
+    thumb: <VisionMosaic />,
   },
   {
     n: "04",
@@ -50,7 +51,7 @@ const LABS = [
       "Two years of Spain's hourly electricity tariff: the solar valley that flipped the cheap hours to midday, and a rule that fits on a post-it, backtested against perfect information.",
     img: null,
     imgAlt: "",
-    fallback: { big: "23:00 → 13:00", small: "when the cheap hours moved" },
+    thumb: <LuzCurve />,
   },
   {
     n: "05",
@@ -61,7 +62,7 @@ const LABS = [
       "A million real e-commerce rows where the best seller is a manual adjustment and the postman ranks third. A dimensional warehouse with 91 tests that catch every trap, reconciled to the penny.",
     img: null,
     imgAlt: "",
-    fallback: { big: "±£0.00", small: "revenue drift allowed across four layers" },
+    thumb: <AlmacenGate />,
   },
 ];
 
@@ -88,10 +89,10 @@ export default function LabsIndexPage() {
 
       <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
         {LABS.map((lab) => (
-          <Reveal key={lab.n}>
+          <Reveal key={lab.n} className="h-full">
             <Link
               href={lab.href}
-              className="group block overflow-hidden rounded-2xl bg-[#17130E] transition-transform duration-300 hover:-translate-y-1"
+              className="group flex h-full flex-col overflow-hidden rounded-2xl bg-[#17130E] transition-transform duration-300 hover:-translate-y-1"
             >
               <div className="relative flex h-56 items-center justify-center overflow-hidden bg-[#100D09]">
                 {lab.img ? (
@@ -103,17 +104,10 @@ export default function LabsIndexPage() {
                     className="object-cover object-top opacity-90 transition-opacity duration-300 group-hover:opacity-100"
                   />
                 ) : (
-                  <div className="px-8 text-center">
-                    <div className="font-mono text-6xl font-bold tracking-tight text-[#FF7A2F]">
-                      {lab.fallback?.big}
-                    </div>
-                    <div className="mt-3 font-mono text-[11px] uppercase tracking-[0.14em] text-[#F4EDE3]/45">
-                      {lab.fallback?.small}
-                    </div>
-                  </div>
+                  lab.thumb
                 )}
               </div>
-              <div className="p-6">
+              <div className="flex flex-1 flex-col p-6">
                 <div className="flex items-baseline justify-between font-mono text-[11px] uppercase tracking-[0.14em] text-[#F4EDE3]/50">
                   <span>Labs · {lab.n}</span>
                   <span>{lab.topic}</span>
@@ -124,7 +118,7 @@ export default function LabsIndexPage() {
                 <p className="mt-3 text-sm leading-relaxed text-[#F4EDE3]/55">
                   {lab.blurb}
                 </p>
-                <div className="mt-5 font-mono text-[11px] uppercase tracking-[0.12em] text-[#FF7A2F]">
+                <div className="mt-auto pt-5 font-mono text-[11px] uppercase tracking-[0.12em] text-[#FF7A2F]">
                   Open lab →
                 </div>
               </div>
